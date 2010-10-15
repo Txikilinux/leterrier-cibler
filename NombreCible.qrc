@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>data/images/fond.png</file>
+        <file>data/images/pagefold.png</file>
+    </qresource>
+</RCC>
