@@ -2,6 +2,12 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +17,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Nombre cible</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
@@ -76,7 +82,7 @@ QLabel#lblCible {
 		border-radius : 60px;
 		border-width : 20px;
 		border-style : solid ;
-		border-color : red; 
+		border-color :  rgb(255, 70, 0);
 }
 
 QWidget#centralWidget { background-image: url(:/img/data/images/fond.png); }
@@ -536,7 +542,7 @@ QWidget#centralWidget { background-image: url(:/img/data/images/fond.png); }
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>23</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
