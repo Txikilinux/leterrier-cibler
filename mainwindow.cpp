@@ -1,3 +1,4 @@
+#include "tete.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QtCore>
@@ -20,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
      JOKER = 1;
      SURCOMPTAGE = 2;
      CALCUL = 3;
+     MAXTETES = 3;
 
     QRegExp nomNbreRegExp("btnNbre");
     nomBtnNbre = ui->centralWidget->findChildren <QPushButton *> (nomNbreRegExp);
@@ -28,6 +30,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QRegExp nomRepRegExp("btnRep");
     nomBtnRep = ui->centralWidget->findChildren <QPushButton *> (nomRepRegExp);
     //qDebug() << nomBtnRep;
+
+    for (int i = 0; i < MAXTETES; i++) {
+        Tete * tete = new Tete(ui->centralWidget, 15+65*i, 295);
+        tete->affiche();
+        lstTetes.append(tete);
+    }
 
     niveau = DEBUTANT;
     reussite = 0;
@@ -55,7 +63,7 @@ void MainWindow::changeEvent(QEvent *e)
 void MainWindow::initNbreCible() {
 
     // effacer l'affichage
-    ui->tedAffiche->clear();
+    ui->lblAffiche->clear();
 
     // afficher les btnNbre (je conserve 0 par commodité)
     for (int i = 0; i < 10; i++) {
@@ -94,6 +102,7 @@ void MainWindow::initNbreCible() {
             while (nbreCibleSave ==  nbreCible) nbreCible = nbreDonne + 9 + 4 + (rand() % 6);
         }
         nomBtnRep[0]->setText(QString::number(nbreDonne));
+        nomBtnRep[0]->setDisabled(true);
         nomBtnNbre[nbreDonne]->setDisabled(true);
         nomBtnNbre[nbreDonne]->setFont(fontMEDIUM);
     }
@@ -143,9 +152,10 @@ int rechercherVide(QList <QPushButton *> s) {
 
 void MainWindow::verifier(int somme) {
     if (somme == nbreCible) {
-        ui->tedAffiche->setText(trUtf8("Bravo,\n  Tu peux maintenant\n  prendre une nouvelle cible."));
+        ui->lblAffiche->setText(trUtf8("Bravo,\n  Tu peux maintenant\n  prendre une nouvelle cible."));
+        if (reussite < MAXTETES) lstTetes[reussite]->affiche(0);
     } else {
-        ui->tedAffiche->setText(trUtf8("Erreur, \n  Je te demande\n  de corriger..."));
+        ui->lblAffiche->setText(trUtf8("Erreur, \n  Je te demande\n  de corriger..."));
     }
 }
 
@@ -167,7 +177,7 @@ void MainWindow::_btnRep(int n) {
 void MainWindow::on_btnNouveau_clicked()
 {
     reussite++;
-    if (reussite > 3 && niveau < CALCUL)
+    if (reussite >= MAXTETES && niveau < CALCUL)
        _niveau(niveau+1);
     else
         initNbreCible();
@@ -181,6 +191,8 @@ void MainWindow::on_actionCalcul_triggered() { _niveau(CALCUL); }
 void MainWindow::_niveau(int n) {
     niveau = n;
     reussite = 0;
+    for (int i = 0; i < MAXTETES; i++)
+        lstTetes[i]->affiche(-1);
     initNbreCible();
 }
 
@@ -197,4 +209,9 @@ void MainWindow::gererJoker() {
         ui->cboxJoker->setDisabled(false);
     else
         ui->cboxJoker->setDisabled(true);
+}
+
+void MainWindow::on_btnQuitter_clicked()
+{
+    close();
 }

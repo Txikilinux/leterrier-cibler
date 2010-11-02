@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QList>
 #include <QPushButton>
+#include <tete.h>
 
 namespace Ui {
     class MainWindow;
@@ -36,6 +37,7 @@ private:
     */
     int niveau;
     int DEBUTANT , JOKER, SURCOMPTAGE, CALCUL;
+    int MAXTETES;
 
     QList <QPushButton *> nomBtnNbre;
     QList <QPushButton *> nomBtnRep;
@@ -43,6 +45,7 @@ private:
     int nbreChoisi;
     int reussite; // permet de changer de niveau si reussite > ???
     QList <int> nbresChoisis;
+    QList <Tete *> lstTetes;
 
     void initNbreCible();
     void _joker();
@@ -55,6 +58,7 @@ private:
     void gererJoker();
 
 private slots:
+    void on_btnQuitter_clicked();
     void on_cboxJoker_activated(int index);
     void on_actionDebutant_triggered();
     void on_actionJoker_triggered();

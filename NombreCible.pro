@@ -4,7 +4,9 @@
 TARGET = NombreCible
 TEMPLATE = app
 SOURCES += main.cpp \
-    mainwindow.cpp
-HEADERS += mainwindow.h
+    mainwindow.cpp \
+    tete.cpp
+HEADERS += mainwindow.h \
+    tete.h
 FORMS += mainwindow.ui
 RESOURCES += NombreCible.qrc

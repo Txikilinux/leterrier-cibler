@@ -2,5 +2,10 @@
     <qresource prefix="/img">
         <file>data/images/fond.png</file>
         <file>data/images/pagefold.png</file>
+        <file>data/images/quitter.png</file>
+        <file>data/images/teteBien.png</file>
+        <file>data/images/teteMal.png</file>
+        <file>data/images/teteNeutre.png</file>
+        <file>data/images/tetePassable.png</file>
     </qresource>
 </RCC>

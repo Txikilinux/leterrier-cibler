@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>388</height>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,9 +45,19 @@ QPushButton:hover{
 		border-style : solid ;
 		border-color : white; 
 }
+QPushButton#btnQuitter { 
+		background-image: url(:/img/data/images/quitter.png);
+		background-color: rgb(170, 170, 0);
+		border-radius : 8px; 
+		background-repeat: repeat-no;
+   		background-position: center;
+		border-width : 2px;
+		border-style : solid ;
+		border-color : black;
+}
 QComboBox:enabled {
 	background-color: rgb(0, 170, 0);
-		border-radius : 8px; 
+		border-radius : 4px; 
 		color: yellow;
 		border-width : 2px;
 		border-style : solid ;
@@ -55,7 +65,7 @@ QComboBox:enabled {
 }
 QComboBox:!enabled {
 		background-color: grey;
-		border-radius : 8px; 
+		border-radius : 4px; 
 		color: black;
 		border-width : 2px;
 		border-style : solid ;
@@ -69,7 +79,7 @@ QPushButton#btnNouveau {
 	background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(20, 128, 0, 255), stop:1 rgba(197, 255, 238, 255));
 		color: black;
 } 
-QTextEdit#tedAffiche {
+QLabel#lblAffiche {
 		background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 255, 50, 255), stop:1 rgba(255, 255, 255, 255));
 		border-radius : 8px; 
 		background-image: url(:/img/data/images/pagefold.png);
@@ -412,19 +422,6 @@ QWidget#centralWidget { background-image: url(:/img/data/images/fond.png); }
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QTextEdit" name="tedAffiche">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>150</y>
-      <width>281</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-   </widget>
    <widget class="QLabel" name="lblCible">
     <property name="geometry">
      <rect>
@@ -451,9 +448,9 @@ QWidget#centralWidget { background-image: url(:/img/data/images/fond.png); }
    <widget class="QPushButton" name="btnNouveau">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>310</x>
       <y>320</y>
-      <width>261</width>
+      <width>181</width>
       <height>41</height>
      </rect>
     </property>
@@ -471,22 +468,22 @@ QWidget#centralWidget { background-image: url(:/img/data/images/fond.png); }
    <widget class="QComboBox" name="cboxJoker">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>220</x>
       <y>290</y>
-      <width>171</width>
+      <width>61</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>30</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <item>
      <property name="text">
-      <string>Joker</string>
+      <string>?</string>
      </property>
     </item>
     <item>
@@ -534,6 +531,32 @@ QWidget#centralWidget { background-image: url(:/img/data/images/fond.png); }
       <string>9</string>
      </property>
     </item>
+   </widget>
+   <widget class="QLabel" name="lblAffiche">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>150</y>
+      <width>271</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnQuitter">
+    <property name="geometry">
+     <rect>
+      <x>517</x>
+      <y>320</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
