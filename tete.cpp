@@ -30,10 +30,10 @@ Tete::Tete(QWidget *parent, int x, int y) :
     QWidget(parent)
 {
 
-    teteNeutre = QPixmap(QString::fromUtf8(":/img/data/images/teteNeutre.png"));
-    teteBien = QPixmap(QString::fromUtf8(":/img/data/images/teteBien.png"));
-    tetePassable = QPixmap(QString::fromUtf8(":/img/data/images/tetePassable.png"));
-    teteMal = QPixmap(QString::fromUtf8(":/img/data/images/teteMal.png"));
+    teteNeutre = QPixmap(QString::fromUtf8(":/img/data/images/neutral-80x80.png"));
+    teteBien = QPixmap(QString::fromUtf8(":/img/data/images/good-80x80.png"));
+    tetePassable = QPixmap(QString::fromUtf8(":/img/data/images/fair-80x80.png"));
+    teteMal = QPixmap(QString::fromUtf8(":/img/data/images/bad-80x80.png"));
 
     m_taille = QSize(51, 51);
     m_position = QPoint(x, y);

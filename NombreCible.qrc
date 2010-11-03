@@ -1,11 +1,11 @@
 <RCC>
     <qresource prefix="/img">
-        <file>data/images/fond.png</file>
-        <file>data/images/pagefold.png</file>
-        <file>data/images/quitter.png</file>
-        <file>data/images/teteBien.png</file>
-        <file>data/images/teteMal.png</file>
-        <file>data/images/teteNeutre.png</file>
-        <file>data/images/tetePassable.png</file>
+        <file>data/images/background-600x400.png</file>
+        <file>data/images/bad-80x80.png</file>
+        <file>data/images/fair-80x80.png</file>
+        <file>data/images/good-80x80.png</file>
+        <file>data/images/neutral-80x80.png</file>
+        <file>data/images/quit-24x24.png</file>
+        <file>data/images/pagefold-50x45.png</file>
     </qresource>
 </RCC>
