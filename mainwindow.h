@@ -6,12 +6,13 @@
 #include <QPushButton>
 #include <tete.h>
 #include "abuleduaproposv0.h"
+ #include "abuleduexercicev0.h"
 
 namespace Ui {
     class MainWindow;
 }
 
-class MainWindow : public QMainWindow {
+class MainWindow : public AbulEduExerciceV0 {
     Q_OBJECT
 public:
     MainWindow(QWidget *parent = 0);
@@ -72,6 +73,7 @@ private:
       gerer l'affichage du joker
       */
     void gererJoker();
+    QString abeEvaluation(); // renvoie a,b,c,d ou z en fonction du niveau, #erreurs, etc.
 
 private slots:
     void on_btnQuitter_clicked();

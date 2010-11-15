@@ -1,6 +1,7 @@
 #include "tete.h"
 #include "mainwindow.h"
 #include "abuleduaproposv0.h"
+ #include "abuleduexercicev0.h"
 #include "ui_mainwindow.h"
 #include <QtCore>
 //#include <QLocale>
@@ -9,7 +10,7 @@
 int rechercherVide(QList <QPushButton *> s);
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
+    AbulEduExerciceV0(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -45,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent) :
     nErreurs = 0;
     cumulErreurs = 0;
     nbreCible =-1;
+    setAbeExerciceName("Nombre Cible");
+    setAbeSkill(trUtf8("stratégie d'anticipation"));
     initNbreCible();
 }
 
@@ -79,8 +82,8 @@ void MainWindow::initNbreCible() {
         nomBtnNbre[i]->setDisabled(false);
         nomBtnNbre[i]->setProperty("text", QString::number(i));
     }
-    // joker
     nomBtnNbre[0]->hide();
+    // joker
     if (niveau == DEBUTANT)
         ui->cboxJoker->hide();
     else {
@@ -114,7 +117,11 @@ void MainWindow::initNbreCible() {
         nomBtnNbre[nbreDonne]->setFont(fontMEDIUM);
     }
     ui->lblCible->setText(QString::number(nbreCible));
-}
+
+    setAbeLevel(trUtf8("niveau %1").arg(QString::number(niveau)));
+    //setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0,"a");
+
+} // fin initNombreCible
 
 void MainWindow::on_btnNbre1_clicked() { _btnNbre(1); }
 void MainWindow::on_btnNbre2_clicked() { _btnNbre(2); }
@@ -148,7 +155,7 @@ void MainWindow::_btnNbre(int n) {
         for (int i = 0; i < 3; i++) s += nbresChoisis[i];
         verifier(s);
     }
-}
+} // fin _btnNbre
 
 int rechercherVide(QList <QPushButton *> s) {
     for (int i = 0; i < 3; i++) {
@@ -157,9 +164,19 @@ int rechercherVide(QList <QPushButton *> s) {
     return -1;
 }
 
+QString MainWindow::abeEvaluation() {
+    if (nErreurs == 0)
+       return "a";
+    else if (nErreurs == 1)
+       return "b";
+    return "c";
+}
+
 void MainWindow::verifier(int somme) {
     if (somme == nbreCible) {
         ui->lblAffiche->setText(trUtf8("Bien,\n  Tu peux maintenant\n  prendre une nouvelle cible."));
+        setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, abeEvaluation());
+        pushAbulEduLogs();
         ui->btnNouveau->setDisabled(false);
         if (nExercice < MAXTETES) {
             if (nErreurs == 0)
@@ -170,11 +187,11 @@ void MainWindow::verifier(int somme) {
                 lstTetes[nExercice]->affiche(2);
         }
     } else {
-        ui->lblAffiche->setText(trUtf8("Erreur, \n  Je te demande\n  de corriger..."));
-        nErreurs++;
+        ui->lblAffiche->setText(trUtf8("Erreur, \n  Je te demande\n  de corriger..."));        
+        nErreurs++;     
         cumulErreurs++;
+        setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, "d", QString::number(nbreCible), "", "", QString::number(somme));
     }
-    qDebug() << "Verifier : erreurs et cumul = " << nErreurs << cumulErreurs;
 }
 
 void MainWindow::on_btnRep0_clicked() { _btnRep(0); }
@@ -198,8 +215,10 @@ void MainWindow::on_btnNouveau_clicked()
     if (nExercice >= MAXTETES && niveau < CALCUL)
         if (cumulErreurs < 4)
            _niveau(niveau+1);
-        else
+        else {
+            setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, "d", "", "", trUtf8("Pas de changement de niveau"));
            _niveau(niveau);
+       }
     else
         initNbreCible();
 }

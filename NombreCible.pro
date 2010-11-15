@@ -8,9 +8,11 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-HEADERS += abuleduaproposv0.h mainwindow.h tete.h
+HEADERS += abuleduaproposv0.h mainwindow.h tete.h \
+    abuleduexercicev0.h
 FORMS += mainwindow.ui \
     abuleduaproposv0.ui
-SOURCES += abuleduaproposv0.cpp main.cpp mainwindow.cpp tete.cpp
+SOURCES += abuleduaproposv0.cpp main.cpp mainwindow.cpp tete.cpp \
+    abuleduexercicev0.cpp
 RESOURCES += NombreCible.qrc
 QT += script xml network
