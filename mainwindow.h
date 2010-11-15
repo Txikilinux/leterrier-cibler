@@ -5,6 +5,7 @@
 #include <QList>
 #include <QPushButton>
 #include <tete.h>
+#include "abuleduaproposv0.h"
 
 namespace Ui {
     class MainWindow;
@@ -37,13 +38,28 @@ private:
     */
     int niveau;
     int DEBUTANT , JOKER, SURCOMPTAGE, CALCUL;
-    int MAXTETES;
+    /**
+      nombre de têtes = nombre d'exercices par niveau
+      */
+    int MAXTETES; // 3 àu 4 têtes
+    /**
+      nombre d'erreurs
+        pour un exercice
+        cumulées sur un niveau
+      */
+    int nErreurs;
+    int cumulErreurs;
+    /**
+      nombre d'exercices réalisés sur un niveau
+      permet de changer de niveau si > MAXTETES
+      */
+    int nExercice;
 
     QList <QPushButton *> nomBtnNbre;
     QList <QPushButton *> nomBtnRep;
     int nbreCible, nbreDonne; // la cible et le nombre donné si niveau = SURCOMPTAGE ou CALCUL
     int nbreChoisi;
-    int reussite; // permet de changer de niveau si reussite > ???
+
     QList <int> nbresChoisis;
     QList <Tete *> lstTetes;
 

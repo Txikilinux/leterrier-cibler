@@ -1,5 +1,6 @@
 #include "tete.h"
 #include "mainwindow.h"
+#include "abuleduaproposv0.h"
 #include "ui_mainwindow.h"
 #include <QtCore>
 //#include <QLocale>
@@ -13,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
+
     fontBIG.setPointSize(50);
     fontMEDIUM.setPointSize(18);
     fontMINUS.setPointSize(10);
@@ -21,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
      JOKER = 1;
      SURCOMPTAGE = 2;
      CALCUL = 3;
-     MAXTETES = 3;
+     MAXTETES = 4;
 
     QRegExp nomNbreRegExp("btnNbre");
     nomBtnNbre = ui->centralWidget->findChildren <QPushButton *> (nomNbreRegExp);
@@ -32,13 +35,15 @@ MainWindow::MainWindow(QWidget *parent) :
     //qDebug() << nomBtnRep;
 
     for (int i = 0; i < MAXTETES; i++) {
-        Tete * tete = new Tete(ui->centralWidget, 15+65*i, 295);
+        Tete * tete = new Tete(ui->centralWidget, 15+50*i, 295);
         tete->affiche();
         lstTetes.append(tete);
     }
 
     niveau = DEBUTANT;
-    reussite = 0;
+    nExercice = 0;
+    nErreurs = 0;
+    cumulErreurs = 0;
     nbreCible =-1;
     initNbreCible();
 }
@@ -64,6 +69,8 @@ void MainWindow::initNbreCible() {
 
     // effacer l'affichage
     ui->lblAffiche->clear();
+    ui->btnNouveau->setDisabled(true);
+    nErreurs = 0;
 
     // afficher les btnNbre (je conserve 0 par commodité)
     for (int i = 0; i < 10; i++) {
@@ -152,11 +159,22 @@ int rechercherVide(QList <QPushButton *> s) {
 
 void MainWindow::verifier(int somme) {
     if (somme == nbreCible) {
-        ui->lblAffiche->setText(trUtf8("Bravo,\n  Tu peux maintenant\n  prendre une nouvelle cible."));
-        if (reussite < MAXTETES) lstTetes[reussite]->affiche(0);
+        ui->lblAffiche->setText(trUtf8("Bien,\n  Tu peux maintenant\n  prendre une nouvelle cible."));
+        ui->btnNouveau->setDisabled(false);
+        if (nExercice < MAXTETES) {
+            if (nErreurs == 0)
+                lstTetes[nExercice]->affiche(0);
+            else if (nErreurs < 3)
+                lstTetes[nExercice]->affiche(1);
+            else
+                lstTetes[nExercice]->affiche(2);
+        }
     } else {
         ui->lblAffiche->setText(trUtf8("Erreur, \n  Je te demande\n  de corriger..."));
+        nErreurs++;
+        cumulErreurs++;
     }
+    qDebug() << "Verifier : erreurs et cumul = " << nErreurs << cumulErreurs;
 }
 
 void MainWindow::on_btnRep0_clicked() { _btnRep(0); }
@@ -176,9 +194,12 @@ void MainWindow::_btnRep(int n) {
 
 void MainWindow::on_btnNouveau_clicked()
 {
-    reussite++;
-    if (reussite >= MAXTETES && niveau < CALCUL)
-       _niveau(niveau+1);
+    nExercice++;
+    if (nExercice >= MAXTETES && niveau < CALCUL)
+        if (cumulErreurs < 4)
+           _niveau(niveau+1);
+        else
+           _niveau(niveau);
     else
         initNbreCible();
 }
@@ -190,7 +211,8 @@ void MainWindow::on_actionCalcul_triggered() { _niveau(CALCUL); }
 
 void MainWindow::_niveau(int n) {
     niveau = n;
-    reussite = 0;
+    nExercice = 0;
+    cumulErreurs = 0;
     for (int i = 0; i < MAXTETES; i++)
         lstTetes[i]->affiche(-1);
     initNbreCible();
