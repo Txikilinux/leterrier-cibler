@@ -6,8 +6,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     qApp->setApplicationName("NombreCible");
-    qApp->setApplicationVersion("10.11");
-    qApp->setOrganizationDomain("http://www.abuledu.org/leterrier/cible");
+    qApp->setApplicationVersion("v1");
+    qApp->setOrganizationDomain("http://entraide.abuledu-fr.org/rss/topic/nombre-cible");
 
     MainWindow w;
     w.setFixedSize(600, 400);
