@@ -1,0 +1,7 @@
+
+Note:
+
+En attendant de pouvoir faire des paquets deb avec le boulot de Georges
+(qui se trouve dans debian/*) je garde une arborescence debian.eric qui
+nous permet de creer des paquets pour jaunty et suivantes
+

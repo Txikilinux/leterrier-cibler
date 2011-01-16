@@ -1,0 +1,6 @@
+#!/bin/bash
+# application launcher
+(
+    cd /usr/share/leterrier-cibler
+    exec /usr/lib/leterrier-cibler/NombreCible
+)

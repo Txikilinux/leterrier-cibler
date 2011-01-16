@@ -1,0 +1,14 @@
+Source: leterrier-cibler
+Section: misc
+Priority: extra
+Maintainer: Jean-Louis Frucot <frucot.jeanlouis@free.fr>
+Build-Depends: debhelper (>=7.3.15), cdbs, qt4-qmake, libqt4-dev
+Standards-Version: 3.8.3
+Homepage: http://www.abuledu.org/leterrier/
+
+Package: leterrier-cibler
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-xml
+Description: Nombre Cible
+ Un nombre à atteindre en trois coups !
+

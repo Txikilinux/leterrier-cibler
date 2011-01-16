@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/qmake.mk
+
+# Add here any variable or target overrides you need.
+QMAKE=qmake-qt4
+CFLAGS=-O3
+CXXFLAGS=-O3
+DEST=/usr/share/leterrier-cibler
+EXECDEST=/usr/lib/leterrier-cibler
+BUILDTEMP=$(CURDIR)/debian/leterrier-cibler
+
+MANPAGES := $(CURDIR)/debian/leterrier-cibler.1
+
+install/leterrier-cibler::
+	mkdir -p $(BUILDTEMP)/usr/bin/
+	mkdir -p $(BUILDTEMP)/$(EXECDEST)
+	mkdir -p $(BUILDTEMP)/$(DEST)/data
+	mkdir -p $(BUILDTEMP)/usr/share/applications
+	cp -a $(BUILDTEMP).wrapper $(BUILDTEMP)/usr/bin/leterrier-cibler
+	cp -a $(CURDIR)/debian/*.desktop $(BUILDTEMP)/usr/share/applications/
+	cp -a $(CURDIR)/data/* $(BUILDTEMP)/$(DEST)/data
+	cp -a $(CURDIR)/NombreCible $(BUILDTEMP)/$(EXECDEST)/
+
+
