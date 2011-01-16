@@ -16,3 +16,5 @@ SOURCES += abuleduaproposv0.cpp main.cpp mainwindow.cpp tete.cpp \
     abuleduexercicev0.cpp
 RESOURCES += NombreCible.qrc
 QT += script xml network
+
+RC_FILE = windows/icon.rc
