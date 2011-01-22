@@ -1,3 +1,9 @@
+leterrier-cibler (1.0.1~maverick1ubuntu1) maverick; urgency=low
+
+  * Fixe le abeApplicationLongName à "Nombre Cible"
+
+ -- Frucot Jean-Louis <jlf@jlf-desktop>  Sat, 22 Jan 2011 10:44:58 +0100
+
 leterrier-cibler (1.0.0~maverick1) Maverick; urgency=low
 
   * Initial release.
