@@ -1,5 +1,5 @@
 /**
-  * Chemin (le terrier d'AbulEdu)
+  * Tete (le terrier d'AbulEdu)
   *
   * @warning aucun traitement d'erreur n'est pour l'instant implémenté
   * @see https://redmine.ryxeo.com/projects/

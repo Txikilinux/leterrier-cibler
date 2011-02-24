@@ -1,9 +1,34 @@
+/**
+  * NombreCible (le terrier d'AbulEdu)
+  *
+  * @warning aucun traitement d'erreur n'est pour l'instant implémenté
+  * @see https://redmine.ryxeo.com/projects/
+  * @author 2009-2010 Andre Connes <andre dot connes at wanadoo dot fr>
+  * @see The GNU Public License (GPL)
+  */
+
+/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
 #include "tete.h"
 #include "mainwindow.h"
 #include "abuleduaproposv0.h"
  #include "abuleduexercicev0.h"
 #include "ui_mainwindow.h"
 #include <QtCore>
+#include <QInputDialog>
 //#include <QLocale>
 
 //bool isIn(int i, QList<int> s);
@@ -21,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     fontMEDIUM.setPointSize(18);
     fontMINUS.setPointSize(10);
 
+     FIXE = 5;
      DEBUTANT = 0;
      JOKER = 1;
      SURCOMPTAGE = 2;
@@ -84,7 +110,7 @@ void MainWindow::initNbreCible() {
     }
     nomBtnNbre[0]->hide();
     // joker
-    if (niveau == DEBUTANT)
+    if (niveau == DEBUTANT || niveau == FIXE)
         ui->cboxJoker->hide();
     else {
         ui->cboxJoker->setCurrentIndex(0);
@@ -99,7 +125,10 @@ void MainWindow::initNbreCible() {
     // tirer le nombre cible (pas le même tout de suite)
     int nbreCibleSave = nbreCible;
     nbreDonne = -1;
-    if (niveau == DEBUTANT) {
+    if (niveau == FIXE) {
+//        qDebug() << "fixe = " << nbreCible;
+    }
+    else if (niveau == DEBUTANT) {
         while (nbreCibleSave ==  nbreCible) nbreCible = (rand() % 5) + 8;
     } else if (niveau == JOKER) {
         while (nbreCibleSave ==  nbreCible) nbreCible = (rand() % 14) + 11;
@@ -223,6 +252,18 @@ void MainWindow::on_btnNouveau_clicked()
         initNbreCible();
 }
 
+void MainWindow::on_actionProposerCible_triggered() {
+    niveau = FIXE;
+    bool ok;
+    int n = QInputDialog::getInteger(this, trUtf8("Choisis une cible"), trUtf8("Nombre entier\n  entre 9 et 28"), 13, 9, 28, 1, &ok);
+    if (ok)
+        nbreCible = n;
+    else {
+        niveau = DEBUTANT;
+    }
+    initNbreCible();
+}
+
 void MainWindow::on_actionDebutant_triggered() { _niveau(DEBUTANT); }
 void MainWindow::on_actionJoker_triggered() { _niveau(JOKER); }
 void MainWindow::on_actionSurcomptage_triggered() { _niveau(SURCOMPTAGE); }
@@ -239,7 +280,8 @@ void MainWindow::_niveau(int n) {
 
 void MainWindow::on_cboxJoker_activated(int index)
 {
-    if (index > 0) _btnNbre(index);
+    if (index > 0 && index <10) _btnNbre(index);
+    else if (index == 10) _btnNbre(0);
 }
 
 void MainWindow::gererJoker() {

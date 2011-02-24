@@ -582,6 +582,8 @@ QWidget#centralWidget { background-image: url(:/img/data/images/background-600x4
     <addaction name="actionJoker"/>
     <addaction name="actionSurcomptage"/>
     <addaction name="actionCalcul"/>
+    <addaction name="separator"/>
+    <addaction name="actionProposerCible"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuNiveau"/>
@@ -614,6 +616,11 @@ QWidget#centralWidget { background-image: url(:/img/data/images/background-600x4
   <action name="actionCalcul">
    <property name="text">
     <string>Calcul</string>
+   </property>
+  </action>
+  <action name="actionProposerCible">
+   <property name="text">
+    <string>Proposer une cible</string>
    </property>
   </action>
  </widget>

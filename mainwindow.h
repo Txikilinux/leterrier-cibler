@@ -38,7 +38,7 @@ private:
       calcul : nombres de 6 à 24, un petit nombre est donné
     */
     int niveau;
-    int DEBUTANT , JOKER, SURCOMPTAGE, CALCUL;
+    int FIXE, DEBUTANT , JOKER, SURCOMPTAGE, CALCUL;
     /**
       nombre de têtes = nombre d'exercices par niveau
       */
@@ -78,6 +78,7 @@ private:
 private slots:
     void on_btnQuitter_clicked();
     void on_cboxJoker_activated(int index);
+    void on_actionProposerCible_triggered();
     void on_actionDebutant_triggered();
     void on_actionJoker_triggered();
     void on_actionSurcomptage_triggered();
