@@ -531,6 +531,11 @@ QWidget#centralWidget { background-image: url(:/img/data/images/background-600x4
       <string>9</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLabel" name="lblAffiche">
     <property name="geometry">
@@ -557,6 +562,17 @@ QWidget#centralWidget { background-image: url(:/img/data/images/background-600x4
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>270</y>
+      <width>160</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
