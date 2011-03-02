@@ -75,7 +75,6 @@ AbulEduAproposV0::AbulEduAproposV0(QWidget *parent) :
         proxy.setType(QNetworkProxy::HttpProxy);
         proxy.setHostName(split[1]);
         proxy.setPort(split[2].toInt());
-        QNetworkProxy::setApplicationProxy(proxy);
         m_nam->setProxy(proxy);
     }
     else {
@@ -123,7 +122,7 @@ void AbulEduAproposV0::installeMenu()
 
     if(!m)  //sinon, on crée le menu Aide
     {
-        QMenu *menuAide = new QMenu("&Aide",b);
+        QMenu *menuAide = new QMenu(trUtf8("&Aide"),b);
         menuAide->setObjectName("menuAide");
         b->addMenu(menuAide); //Ajoute l'entrée Aide au menu
 
@@ -318,7 +317,9 @@ void AbulEduAproposV0::changeTab(int index)
 /** Slot lançant un navigateur vers l'Url passée dans qApp->setOrganizationDomain(); */
 void AbulEduAproposV0::aide()
 {
-    QUrl urlSite="http://"+qApp->organizationDomain()+"/"+qApp->organizationName()+"/"+qApp->applicationName();
+    QString lang="/"+ QLocale::system().name().section('_', 0, 0)+"/";
+    if(lang=="/fr/"){lang="/";}
+    QUrl urlSite="http://"+qApp->organizationDomain()+lang+qApp->organizationName()+"/"+qApp->applicationName();
     QDesktopServices::openUrl(urlSite);
 }
 
@@ -594,7 +595,6 @@ void AbulEduAproposV0::finishedSlotWPAD(QNetworkReply* reply)
             proxy.setType(QNetworkProxy::HttpProxy);
             proxy.setHostName(split[0]);
             proxy.setPort(split[1].toInt());
-            QNetworkProxy::setApplicationProxy(proxy);
             m_nam->setProxy(proxy);
         }
     }

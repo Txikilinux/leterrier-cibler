@@ -16,5 +16,10 @@ SOURCES += abuleduaproposv0.cpp main.cpp mainwindow.cpp tete.cpp \
     abuleduexercicev0.cpp
 RESOURCES += NombreCible.qrc
 QT += script xml network
-
+TRANSLATIONS = lang/cibler_oc.ts \
+    lang/cibler_en.ts \
+    lang/cibler_de.ts \
+    lang/cibler_es.ts \
+    lang/cibler_nl.ts \
+    lang/cibler_ca.ts
 RC_FILE = windows/icon.rc
