@@ -21,5 +21,6 @@ TRANSLATIONS = lang/cibler_oc.ts \
     lang/cibler_de.ts \
     lang/cibler_es.ts \
     lang/cibler_nl.ts \
-    lang/cibler_ca.ts
+    lang/cibler_ca.ts \
+    lang/cibler_br.ts
 RC_FILE = windows/icon.rc
