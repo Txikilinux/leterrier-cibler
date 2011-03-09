@@ -9,6 +9,7 @@ Homepage: http://www.abuledu.org/leterrier/
 Package: leterrier-cibler
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-xml
-Description: Nombre Cible
- Un nombre à atteindre en trois coups !
+Description: Nombre Cible (AbulEdu le Terrier)
+ Un nombre à atteindre en trois coups ! Ce logiciel fait
+ partie des logiciels du Terrier d'AbulEdu
 
