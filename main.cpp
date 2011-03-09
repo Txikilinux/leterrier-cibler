@@ -4,6 +4,7 @@
   * @warning aucun traitement d'erreur n'est pour l'instant implémenté
   * @see https://redmine.ryxeo.com/projects/
   * @author 2009-2010 Andre Connes <andre dot connes at wanadoo dot fr>
+  * @author 2011 Eric Seigne <eric.seigne@ryxeo.com>
   * @see The GNU Public License (GPL)
   */
 
@@ -33,9 +34,36 @@ extern const QString abeApplicationLongName="Leterrier d'AbulEdu - Nombre Cible"
 //
 //--------------------------------------------------------------------
 
+//Capteur de debug
+void debugOutput(QtMsgType type, const char *msg)
+{
+  switch (type) {
+  case QtDebugMsg:
+#ifdef QT_NO_DEBUG_OUTPUT
+    fprintf(stderr, "Debug: %s\n", msg);
+#endif
+    break;
+  case QtWarningMsg:
+#ifdef QT_NO_WARNING_OUTPUT
+    fprintf(stderr, "Warning: %s\n", msg);
+#endif
+    break;
+  case QtCriticalMsg:
+    fprintf(stderr, "Critical: %s\n", msg);
+    break;
+  case QtFatalMsg:
+    fprintf(stderr, "Fatal: %s\n", msg);
+    abort();
+  }
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    //a mettre en commentaire pour avoir les qdebug ... et a activer
+    //quand on release l'application
+    qInstallMsgHandler(debugOutput);
 
     qApp->setApplicationName("leterrier-cibler");
     qApp->setApplicationVersion("1.0.3");
