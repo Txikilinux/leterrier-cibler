@@ -1,3 +1,9 @@
+leterrier-cibler (1.0.1~jaunty1) jaunty; urgency=low
+
+  * build pour abuledu
+
+ -- Eric Seigne <eric.seigne@ryxeo.com>  Fri, 25 Feb 2011 19:48:48 +0100
+
 leterrier-cibler (1.0.1~maverick1ubuntu1) maverick; urgency=low
 
   * Fixe le abeApplicationLongName à "Nombre Cible"
