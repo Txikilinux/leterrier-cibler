@@ -56,7 +56,8 @@ if [ -d conf ]; then
 fi
 if [ -d lang ]; then
     mkdir ${APPNAME}.app/Contents/Resources/lang
-    cp -a lang/*.qm ${APPNAME}.app/Contents/Resources/lang/
+    lrelease *.pro
+    cp -a lang/*.qm ${APPNAME}.app/Contents/Resources/lang/ || true
 fi
 
 #creation du fichier dmg
