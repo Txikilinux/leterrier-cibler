@@ -33,7 +33,7 @@ Name: "french"; MessagesFile: "compiler:Languages\French.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\cibler-256.ico"; DestDir: "{app}\"
+Source: "cibler.ico"; DestDir: "{app}\"
 Source: "..\release\leterrier-cibler.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\data\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/code/quazip.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -62,7 +62,7 @@ Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/phonon4.dll"; DestDir: "{app}"; Fla
 
 [Icons]
 Name: "{group}\Cibler"; Filename: "{app}\leterrier-cibler.exe"
-Name: "{commondesktop}\Cibler"; Filename: "{app}\leterrier-cibler.exe"; IconFilename: {app}\cibler-256.ico; IconIndex: 0;Tasks: desktopicon
+Name: "{commondesktop}\Cibler"; Filename: "{app}\leterrier-cibler.exe"; IconFilename: {app}\cibler.ico; IconIndex: 0;Tasks: desktopicon
 
 [Run]
 Filename: "{app}\leterrier-cibler.exe"; Description: "{cm:LaunchProgram,Cibler}"; Flags: nowait postinstall skipifsilent
