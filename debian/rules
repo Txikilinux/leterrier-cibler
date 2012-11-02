@@ -21,6 +21,6 @@ install/leterrier-cibler::
 	cp -a $(BUILDTEMP).wrapper $(BUILDTEMP)/usr/bin/leterrier-cibler
 	cp -a $(CURDIR)/debian/*.desktop $(BUILDTEMP)/usr/share/applications/
 	cp -a $(CURDIR)/data/* $(BUILDTEMP)/$(DEST)/data
-	cp -a $(CURDIR)/NombreCible $(BUILDTEMP)/$(EXECDEST)/
+	cp -a $(CURDIR)/leterrier-cibler $(BUILDTEMP)/$(EXECDEST)/
 
 
