@@ -3,6 +3,7 @@
 ######################################################################
 
 QT += script xml network
+system(ccache -V):QMAKE_CXX = ccache g++
 
 TEMPLATE = app
 
