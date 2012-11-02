@@ -27,6 +27,7 @@
 #include <QtGui/QApplication>
 #include "mainwindow.h"
 #include "abuleduaproposv0.h"
+#include "version.h"
 
 //-------------------Nom visible de l'application---------------------
 //
@@ -66,7 +67,7 @@ int main(int argc, char *argv[])
     qInstallMsgHandler(debugOutput);
 
     qApp->setApplicationName("leterrier-cibler");
-    qApp->setApplicationVersion("1.0.4");
+    qApp->setApplicationVersion(VER_FILEVERSION_STR);
     qApp->setOrganizationDomain("abuledu.org");
     qApp->setOrganizationName("leterrier");
 

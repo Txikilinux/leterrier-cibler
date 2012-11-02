@@ -7,16 +7,16 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{9AF1C48C-90D5-48EA-AF9B-9CEE541519C8}
 AppName=Le Terrier d'AbulEdu - Le Nombre Cible
-AppVersion=1.0.4
+AppVersion=LAVERSION
 AppPublisher=RyXéo SARL
 AppPublisherURL=http://www.abuledu.org/leterrier/leterrier-cibler
 AppSupportURL=http://www.abuledu.org/leterrier/leterrier-cibler
 AppUpdatesURL=http://www.abuledu.org/leterrier/leterrier-cibler
-DefaultDirName={pf}\AbulEdu\Nombre Cible
+DefaultDirName={pf}\AbulEdu\Cibler
 DefaultGroupName=Le Terrier d'AbulEdu
 LicenseFile=..\gpl-2.0.txt
 OutputDir=.
-OutputBaseFilename=leterrier-cibler-1.0.4-setup
+OutputBaseFilename=leterrier-cibler-LAVERSION-setup
 SetupIconFile=cibler-256.ico
 WizardSmallImageFile=cibler-256.bmp
 Compression=lzma
@@ -61,9 +61,9 @@ Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/phonon4.dll"; DestDir: "{app}"; Fla
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\Nombre Cible"; Filename: "{app}\leterrier-cibler.exe"
-Name: "{commondesktop}\Nombre Cible"; Filename: "{app}\leterrier-cibler.exe"; IconFilename: {app}\cibler-256.ico; IconIndex: 0;Tasks: desktopicon
+Name: "{group}\Cibler"; Filename: "{app}\leterrier-cibler.exe"
+Name: "{commondesktop}\Cibler"; Filename: "{app}\leterrier-cibler.exe"; IconFilename: {app}\cibler-256.ico; IconIndex: 0;Tasks: desktopicon
 
 [Run]
-Filename: "{app}\leterrier-cibler.exe"; Description: "{cm:LaunchProgram,Nombre Cible}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\leterrier-cibler.exe"; Description: "{cm:LaunchProgram,Cibler}"; Flags: nowait postinstall skipifsilent
 
