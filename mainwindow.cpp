@@ -22,10 +22,12 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
+
+#include "abuleduapplicationv1.h"
 #include "tete.h"
 #include "mainwindow.h"
 #include "abuleduaproposv0.h"
- #include "abuleduexercicev0.h"
+#include "abuleduexercicev0.h"
 #include "ui_mainwindow.h"
 #include <QtCore>
 #include <QInputDialog>
@@ -297,4 +299,15 @@ void MainWindow::gererJoker() {
 void MainWindow::on_btnQuitter_clicked()
 {
     close();
+}
+
+void MainWindow::on_action_Journal_de_mes_activit_s_triggered()
+{
+    abeApp->getAbeIdentite()->abeGetMyLogsAsPDF();
+}
+
+void MainWindow::on_action_Changer_d_utilisateur_triggered()
+{
+    abeApp->getAbeNetworkAccessManager()->abeSSOLogout();
+    abeApp->getAbeNetworkAccessManager()->abeSSOLogin();
 }

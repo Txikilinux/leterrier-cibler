@@ -586,13 +586,13 @@ QWidget#centralWidget { background-image: url(:/img/data/images/background-600x4
    </property>
    <widget class="QMenu" name="menuFichier">
     <property name="title">
-     <string>Fichier</string>
+     <string>&amp;Fichier</string>
     </property>
     <addaction name="actionQuitter"/>
    </widget>
    <widget class="QMenu" name="menuNiveau">
     <property name="title">
-     <string>Niveau</string>
+     <string>&amp;Niveau</string>
     </property>
     <addaction name="actionDebutant"/>
     <addaction name="actionJoker"/>
@@ -601,22 +601,33 @@ QWidget#centralWidget { background-image: url(:/img/data/images/background-600x4
     <addaction name="separator"/>
     <addaction name="actionProposerCible"/>
    </widget>
+   <widget class="QMenu" name="menu_Utilisateurs">
+    <property name="title">
+     <string>&amp;Utilisateur</string>
+    </property>
+    <addaction name="action_Journal_de_mes_activit_s"/>
+    <addaction name="action_Changer_d_utilisateur"/>
+   </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuNiveau"/>
+   <addaction name="menu_Utilisateurs"/>
   </widget>
   <action name="actionQuitter">
    <property name="text">
-    <string>Quitter</string>
+    <string>&amp;Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
    </property>
   </action>
   <action name="actionDebutant">
    <property name="text">
-    <string>Débutant</string>
+    <string>&amp;Débutant</string>
    </property>
   </action>
   <action name="actionJoker">
    <property name="text">
-    <string>Avec joker</string>
+    <string>&amp;Avec joker</string>
    </property>
   </action>
   <action name="actionAvec_joker">
@@ -626,17 +637,27 @@ QWidget#centralWidget { background-image: url(:/img/data/images/background-600x4
   </action>
   <action name="actionSurcomptage">
    <property name="text">
-    <string>Surcomptage</string>
+    <string>&amp;Surcomptage</string>
    </property>
   </action>
   <action name="actionCalcul">
    <property name="text">
-    <string>Calcul</string>
+    <string>&amp;Calcul</string>
    </property>
   </action>
   <action name="actionProposerCible">
    <property name="text">
-    <string>Proposer une cible</string>
+    <string>&amp;Proposer une cible</string>
+   </property>
+  </action>
+  <action name="action_Journal_de_mes_activit_s">
+   <property name="text">
+    <string>&amp;Journal de mes activités</string>
+   </property>
+  </action>
+  <action name="action_Changer_d_utilisateur">
+   <property name="text">
+    <string>&amp;Changer d'utilisateur</string>
    </property>
   </action>
  </widget>

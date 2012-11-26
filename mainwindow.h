@@ -99,6 +99,9 @@ private slots:
     void on_btnNbre7_clicked();
     void on_btnNbre8_clicked();
     void on_btnNbre9_clicked();
+
+    void on_action_Journal_de_mes_activit_s_triggered();
+    void on_action_Changer_d_utilisateur_triggered();
 };
 
 #endif // MAINWINDOW_H

@@ -8,13 +8,13 @@
 #define VER_PRODUCTVERSION_STR      "1.0.5\0"
 
 #define VER_COMPANYNAME_STR         "RyXeo SARL"
-#define VER_FILEDESCRIPTION_STR     "AbulEdu LeTerrier -- Cibler"
+#define VER_FILEDESCRIPTION_STR     "AbulEdu LeTerrier -- Le nombre cible"
 #define VER_INTERNALNAME_STR        "leterrier-cibler"
 #define VER_LEGALCOPYRIGHT_STR      "Copyright (c) 2012 RyXeo SARL"
 #define VER_LEGALTRADEMARKS1_STR    "All Rights Reserved"
 #define VER_LEGALTRADEMARKS2_STR    "License GNU/GPL v3"
 #define VER_ORIGINALFILENAME_STR    "leterrier-cibler.exe"
-#define VER_PRODUCTNAME_STR         "AbulEdu LeTerrier -- Cibler"
+#define VER_PRODUCTNAME_STR         "AbulEdu LeTerrier -- Le nombre cible"
 
 #define VER_COMPANYDOMAIN_STR       "abuledu.org"
 

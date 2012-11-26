@@ -24,52 +24,15 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-#include <QtGui/QApplication>
+#include "abuleduapplicationv1.h"
 #include "mainwindow.h"
 #include "abuleduaproposv0.h"
 #include "version.h"
 
-//-------------------Nom visible de l'application---------------------
-//
-extern const QString abeApplicationLongName="Leterrier d'AbulEdu - Nombre Cible";
-//
-//--------------------------------------------------------------------
-
-//Capteur de debug
-void debugOutput(QtMsgType type, const char *msg)
-{
-  switch (type) {
-  case QtDebugMsg:
-#ifdef QT_NO_DEBUG_OUTPUT
-    fprintf(stderr, "Debug: %s\n", msg);
-#endif
-    break;
-  case QtWarningMsg:
-#ifdef QT_NO_WARNING_OUTPUT
-    fprintf(stderr, "Warning: %s\n", msg);
-#endif
-    break;
-  case QtCriticalMsg:
-    fprintf(stderr, "Critical: %s\n", msg);
-    break;
-  case QtFatalMsg:
-    fprintf(stderr, "Fatal: %s\n", msg);
-    abort();
-  }
-}
-
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-
-    //a mettre en commentaire pour avoir les qdebug ... et a activer
-    //quand on release l'application
-    qInstallMsgHandler(debugOutput);
-
-    qApp->setApplicationName("leterrier-cibler");
-    qApp->setApplicationVersion(VER_FILEVERSION_STR);
-    qApp->setOrganizationDomain("abuledu.org");
-    qApp->setOrganizationName("leterrier");
+    AbulEduApplicationV1 a(argc, argv,VER_INTERNALNAME_STR, VER_PRODUCTVERSION_STR, VER_COMPANYDOMAIN_STR, "leterrier");
+    a.setAbeApplicationLongName(QObject::trUtf8(VER_FILEDESCRIPTION_STR));
 
     MainWindow w;
     w.setFixedSize(600, 400);

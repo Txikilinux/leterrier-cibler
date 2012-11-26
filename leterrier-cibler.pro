@@ -33,3 +33,10 @@ TRANSLATIONS = lang/cibler_oc.ts \
     lang/cibler_br.ts
 
 RC_FILE = windows/icon.rc
+include(lib/abuleduapplicationv1/abuleduapplicationv1.pri)
+include(lib/abuleduconstantesv1/abuleduconstantesv1.pri)
+include(lib/abuledunetworkaccessmanagerv1/abuledunetworkaccessmanagerv1.pri)
+include(lib/abuledumessageboxv1/abuledumessageboxv1.pri)
+include(lib/abuleduidentitesv1/abuleduidentitesv1.pri)
+include(lib/abuleduflatboutonv1/abuleduflatboutonv1.pri)
+include(lib/maia/maia.pri)
