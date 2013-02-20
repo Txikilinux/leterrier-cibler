@@ -7,7 +7,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{9AF1C48C-90D5-48EA-AF9B-9CEE541519C8}
 AppName=Le Terrier d'AbulEdu - Le Nombre Cible
-AppVersion=LAVERSION
+AppVersion=1.0.5
 AppPublisher=RyXéo SARL
 AppPublisherURL=http://www.abuledu.org/leterrier/leterrier-cibler
 AppSupportURL=http://www.abuledu.org/leterrier/leterrier-cibler
@@ -16,7 +16,7 @@ DefaultDirName={pf}\AbulEdu\Cibler
 DefaultGroupName=Le Terrier d'AbulEdu
 LicenseFile=..\gpl-2.0.txt
 OutputDir=.
-OutputBaseFilename=leterrier-cibler-LAVERSION-setup
+OutputBaseFilename=leterrier-cibler-1.0.5-setup
 SetupIconFile=cibler.ico
 ; WizardSmallImageFile=cibler.bmp
 Compression=lzma
