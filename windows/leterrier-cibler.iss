@@ -61,7 +61,6 @@ Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/phonon4.dll"; DestDir: "{app}"; Fla
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 Source: "..\debian\*.desktop"; DestDir: "{win}\abuledu-alacarte\data\profile1.applications"; Flags: ignoreversion recursesubdirs createallsubdirs
 
-
 [Icons]
 Name: "{group}\Cibler"; Filename: "{app}\leterrier-cibler.exe"
 Name: "{commondesktop}\Cibler"; Filename: "{app}\leterrier-cibler.exe"; IconFilename: {app}\cibler.ico; IconIndex: 0;Tasks: desktopicon
