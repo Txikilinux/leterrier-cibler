@@ -1,10 +1,12 @@
 #!/bin/bash
+ICON=/usr/share/applications/leterrier-cibler.desktop
+ALACARTEDIR=/usr/share/abuledu-alacarte/data/profile1.applications/
 
-set -e
+xdg-desktop-menu install  --novendor --mode system ${ICON}
 
-xdg-desktop-menu install  --mode system /usr/share/applications/leterrier-cibler.desktop
-
-
+#alacarte
+if [ -d "${ALACARTEDIR}" ]; then
+    cp ${ICON} ${ALACARTEDIR}
+fi
 
 #DEBHELPER#
-
