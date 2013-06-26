@@ -35,7 +35,6 @@ int main(int argc, char *argv[])
     a.setAbeApplicationLongName(QObject::trUtf8(VER_FILEDESCRIPTION_STR));
 
     MainWindow w;
-    w.setFixedSize(600, 400);
     w.show();
     return a.exec();
 }
