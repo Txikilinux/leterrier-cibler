@@ -3,11 +3,11 @@
 
 #include <QMainWindow>
 #include <QList>
-#include <QPushButton>
 #include <QDesktopWidget>
 #include <tete.h>
 #include "abuleduaproposv0.h"
  #include "abuleduexercicev0.h"
+#include "abuleduflatboutonv1.h"
 
 namespace Ui {
     class MainWindow;
@@ -63,8 +63,8 @@ private:
       */
     int nExercice;
 
-    QList <QPushButton *> nomBtnNbre;
-    QList <QPushButton *> nomBtnRep;
+    QList <AbulEduFlatBoutonV1 *> nomBtnNbre;
+    QList <AbulEduFlatBoutonV1 *> nomBtnRep;
     int nbreCible, nbreDonne; // la cible et le nombre donné si niveau = SURCOMPTAGE ou CALCUL
     int nbreChoisi;
 

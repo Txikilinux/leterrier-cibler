@@ -13,6 +13,11 @@
         <file alias="mainFrame">data/images/fubuki-fond.jpg</file>
         <file alias="topFrame">data/images/fubuki-top.jpg</file>
         <file alias="leafFrame">data/images/fubuki-feuille.jpg</file>
+        <file alias="target1">data/images/cible1.png</file>
+        <file alias="target2">data/images/cible2.png</file>
+        <file alias="target3">data/images/cible3.png</file>
+        <file alias="arrow">data/images/fleche.png</file>
+        <file alias="target0">data/images/cible.png</file>
     </qresource>
     <qresource prefix="/cibler/buttons">
         <file>data/images/good-80x80.png</file>

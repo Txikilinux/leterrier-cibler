@@ -301,10 +301,10 @@ font-size:24px;
         <widget class="QLabel" name="lblCible">
          <property name="geometry">
           <rect>
-           <x>400</x>
+           <x>760</x>
            <y>10</y>
-           <width>131</width>
-           <height>131</height>
+           <width>150</width>
+           <height>150</height>
           </rect>
          </property>
          <property name="font">
@@ -313,39 +313,17 @@ font-size:24px;
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-image: url(:/cibler/backgrounds/target0);
+background-repeat: repeat-no;
+background-position: top right;</string>
          </property>
          <property name="text">
           <string/>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="btnRep0">
-         <property name="geometry">
-          <rect>
-           <x>360</x>
-           <y>370</y>
-           <width>81</width>
-           <height>81</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Bitstream Charter</family>
-           <pointsize>50</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="flat">
-          <bool>true</bool>
          </property>
         </widget>
         <widget class="QLabel" name="lblAffiche">
@@ -360,17 +338,6 @@ font-size:24px;
          <property name="text">
           <string/>
          </property>
-        </widget>
-        <widget class="QWidget" name="gridLayoutWidget">
-         <property name="geometry">
-          <rect>
-           <x>140</x>
-           <y>200</y>
-           <width>160</width>
-           <height>80</height>
-          </rect>
-         </property>
-         <layout class="QGridLayout" name="gridLayout"/>
         </widget>
         <widget class="QComboBox" name="cboxJoker">
          <property name="geometry">
@@ -443,63 +410,6 @@ font-size:24px;
            <string>0</string>
           </property>
          </item>
-        </widget>
-        <widget class="QPushButton" name="btnRep1">
-         <property name="geometry">
-          <rect>
-           <x>450</x>
-           <y>370</y>
-           <width>81</width>
-           <height>81</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Bitstream Charter</family>
-           <pointsize>50</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="flat">
-          <bool>true</bool>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="btnRep2">
-         <property name="geometry">
-          <rect>
-           <x>580</x>
-           <y>370</y>
-           <width>81</width>
-           <height>81</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Bitstream Charter</family>
-           <pointsize>50</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="flat">
-          <bool>true</bool>
-         </property>
         </widget>
         <widget class="QFrame" name="frmChoixNombres">
          <property name="geometry">
@@ -1043,14 +953,14 @@ border-bottom-left-radius: 5px;</string>
          <property name="geometry">
           <rect>
            <x>290</x>
-           <y>20</y>
+           <y>220</y>
            <width>631</width>
            <height>341</height>
           </rect>
          </property>
          <property name="styleSheet">
           <string notr="true">QFrame#frmAireDeJeu{
-	background-image: url(:/data_images/rouleau);
+	background-image: url(:/cibler/backgrounds/roll);
 	background-repeat: repeat-no;
    	background-position: top right;
 }</string>
@@ -1061,7 +971,7 @@ border-bottom-left-radius: 5px;</string>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QPushButton" name="btnNbre9">
+         <widget class="AbulEduFlatBoutonV1" name="btnNbre9">
           <property name="geometry">
            <rect>
             <x>270</x>
@@ -1085,7 +995,7 @@ border-bottom-left-radius: 5px;</string>
            <string>9</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnNbre5">
+         <widget class="AbulEduFlatBoutonV1" name="btnNbre5">
           <property name="geometry">
            <rect>
             <x>180</x>
@@ -1109,7 +1019,7 @@ border-bottom-left-radius: 5px;</string>
            <string>5</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnNbre7">
+         <widget class="AbulEduFlatBoutonV1" name="btnNbre7">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -1133,7 +1043,7 @@ border-bottom-left-radius: 5px;</string>
            <string>7</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnNbre1">
+         <widget class="AbulEduFlatBoutonV1" name="btnNbre1">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -1157,7 +1067,7 @@ border-bottom-left-radius: 5px;</string>
            <string>1</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnNbre2">
+         <widget class="AbulEduFlatBoutonV1" name="btnNbre2">
           <property name="geometry">
            <rect>
             <x>180</x>
@@ -1181,7 +1091,7 @@ border-bottom-left-radius: 5px;</string>
            <string>2</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnNbre6">
+         <widget class="AbulEduFlatBoutonV1" name="btnNbre6">
           <property name="geometry">
            <rect>
             <x>270</x>
@@ -1205,7 +1115,7 @@ border-bottom-left-radius: 5px;</string>
            <string>6</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnNbre3">
+         <widget class="AbulEduFlatBoutonV1" name="btnNbre3">
           <property name="geometry">
            <rect>
             <x>270</x>
@@ -1229,7 +1139,7 @@ border-bottom-left-radius: 5px;</string>
            <string>3</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnNbre4">
+         <widget class="AbulEduFlatBoutonV1" name="btnNbre4">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -1253,7 +1163,7 @@ border-bottom-left-radius: 5px;</string>
            <string>4</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnNbre8">
+         <widget class="AbulEduFlatBoutonV1" name="btnNbre8">
           <property name="geometry">
            <rect>
             <x>180</x>
@@ -1277,7 +1187,7 @@ border-bottom-left-radius: 5px;</string>
            <string>8</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnNbre0">
+         <widget class="AbulEduFlatBoutonV1" name="btnNbre0">
           <property name="geometry">
            <rect>
             <x>120</x>
@@ -1301,6 +1211,126 @@ border-bottom-left-radius: 5px;</string>
            <string/>
           </property>
          </widget>
+        </widget>
+        <widget class="QFrame" name="frmAnswers">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>0</y>
+           <width>431</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="AbulEduFlatBoutonV1" name="btnRep0">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>120</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>120</width>
+              <height>120</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Bitstream Charter</family>
+              <pointsize>50</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="AbulEduFlatBoutonV1" name="btnRep1">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>120</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>120</width>
+              <height>120</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Bitstream Charter</family>
+              <pointsize>50</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="AbulEduFlatBoutonV1" name="btnRep2">
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>120</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>120</width>
+              <height>120</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Bitstream Charter</family>
+              <pointsize>50</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </widget>
        <widget class="QWidget" name="pageApropos">

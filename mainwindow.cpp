@@ -34,7 +34,7 @@
 //#include <QLocale>
 
 //bool isIn(int i, QList<int> s);
-int rechercherVide(QList <QPushButton *> s);
+int rechercherVide(QList<AbulEduFlatBoutonV1 *> s);
 
 MainWindow::MainWindow(QWidget *parent) :
     AbulEduExerciceV0(parent),
@@ -55,19 +55,25 @@ MainWindow::MainWindow(QWidget *parent) :
      CALCUL = 3;
      MAXTETES = 4;
 
-    QRegExp nomNbreRegExp("btnNbre");
-    nomBtnNbre = ui->centralWidget->findChildren <QPushButton *> (nomNbreRegExp);
-    //qDebug() << nomBtnNbre;
+//    QRegExp nomNbreRegExp("btnNbre");
+    nomBtnNbre = ui->frmAireDeJeu->findChildren <AbulEduFlatBoutonV1 *> (/*nomNbreRegExp*/);
+    qDebug() << nomBtnNbre.size();
 
-    QRegExp nomRepRegExp("btnRep");
-    nomBtnRep = ui->centralWidget->findChildren <QPushButton *> (nomRepRegExp);
-    //qDebug() << nomBtnRep;
-
-    for (int i = 0; i < MAXTETES; i++) {
-        Tete * tete = new Tete(ui->centralWidget, 15+50*i, 295);
-        tete->affiche();
-        lstTetes.append(tete);
+//    QRegExp nomRepRegExp("btnRep");
+    nomBtnRep = ui->frmAnswers->findChildren <AbulEduFlatBoutonV1 *> (/*nomRepRegExp*/);
+    foreach(AbulEduFlatBoutonV1* btn,nomBtnRep)
+    {
+        int nbFleches = btn->objectName().remove("btnRep").toInt() + 1;
+        btn->setIconeNormale(":/cibler/backgrounds/target"+QString::number(nbFleches));
+        btn->setCouleurFondPressed(QColor(255,255,255,50));
+        btn->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
     }
+
+//    for (int i = 0; i < MAXTETES; i++) {
+//        Tete * tete = new Tete(ui->centralWidget, 15+50*i, 295);
+//        tete->affiche();
+//        lstTetes.append(tete);
+//    }
 
     niveau = DEBUTANT;
     nExercice = 0;
@@ -76,7 +82,6 @@ MainWindow::MainWindow(QWidget *parent) :
     nbreCible =-1;
     setAbeExerciceName("Nombre Cible");
     setAbeSkill(trUtf8("stratégie d'anticipation"));
-    initNbreCible();
 
     ui->menuBar->hide();
 
@@ -135,6 +140,9 @@ MainWindow::MainWindow(QWidget *parent) :
     int desktop_width = widget->width();
     int desktop_height = widget->height();
     this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
+
+    initNbreCible();
+
 }
 
 MainWindow::~MainWindow()
@@ -201,9 +209,12 @@ void MainWindow::initNbreCible() {
 
     // afficher les btnNbre (je conserve 0 par commodité)
     for (int i = 0; i < 10; i++) {
-        nomBtnNbre[i]->setStyleSheet("color :yellow");
+//        nomBtnNbre[i]->setStyleSheet("color :yellow");
+        nomBtnNbre[i]->setIconeNormale(":/cibler/backgrounds/arrow");
+        nomBtnNbre[i]->setCouleurFondPressed(QColor(255,255,255,50));
+        nomBtnNbre[i]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
         nomBtnNbre[i]->setFont(fontBIG);
-        nomBtnNbre[i]->setDisabled(false);
+        nomBtnNbre[i]->setEnabled(true);
         nomBtnNbre[i]->setProperty("text", QString::number(i));
     }
     nomBtnNbre[0]->hide();
@@ -217,6 +228,7 @@ void MainWindow::initNbreCible() {
     }
     // effacer les btnRep
     for (int i = 0; i < 3; i++) {
+
         nomBtnRep[i]->setText("");
     }
 
@@ -284,7 +296,7 @@ void MainWindow::_btnNbre(int n) {
     }
 } // fin _btnNbre
 
-int rechercherVide(QList <QPushButton *> s) {
+int rechercherVide(QList <AbulEduFlatBoutonV1 *> s) {
     for (int i = 0; i < 3; i++) {
         if (s[i]->text() == "") return i;
     }
@@ -306,12 +318,12 @@ void MainWindow::verifier(int somme) {
         pushAbulEduLogs();
         ui->btnNouveau->setDisabled(false);
         if (nExercice < MAXTETES) {
-            if (nErreurs == 0)
-                lstTetes[nExercice]->affiche(0);
-            else if (nErreurs < 3)
-                lstTetes[nExercice]->affiche(1);
-            else
-                lstTetes[nExercice]->affiche(2);
+//            if (nErreurs == 0)
+//                lstTetes[nExercice]->affiche(0);
+//            else if (nErreurs < 3)
+//                lstTetes[nExercice]->affiche(1);
+//            else
+//                lstTetes[nExercice]->affiche(2);
         }
     } else {
         ui->lblAffiche->setText(trUtf8("Erreur, \n  Je te demande\n  de corriger..."));        
@@ -372,7 +384,7 @@ void MainWindow::_niveau(int n) {
     nExercice = 0;
     cumulErreurs = 0;
     for (int i = 0; i < MAXTETES; i++)
-        lstTetes[i]->affiche(-1);
+//        lstTetes[i]->affiche(-1);
     initNbreCible();
 }
 
