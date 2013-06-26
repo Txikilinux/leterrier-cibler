@@ -21,82 +21,7 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
-    <string notr="true"> QPushButton[flat=&quot;true&quot;]{ 
-		color : red; 
-		background-color : yellow; 
-		border-radius : 8px; 
-		border-width : 2px;
-		border-style : solid ;
-		border-color : black; 
-}
-QPushButton { 
-	background-color: rgb(0, 170, 0);
-		border-radius : 8px; 
-		color: yellow;
-		border-width : 2px;
-		border-style : solid ;
-		border-color : black;
-}
-QPushButton:hover{ 
-		color : yellow;
-		background-color :   rgb(0, 170, 0);
-		border-radius : 8px; 
-		border-width : 2px;
-		border-style : solid ;
-		border-color : white; 
-}
-QPushButton#btnQuitter { 
-		background-image: url(:/img/data/images/quit-24x24.png);
-		background-color: rgb(170, 170, 0);
-		border-radius : 8px; 
-		background-repeat: repeat-no;
-   		background-position: center;
-		border-width : 2px;
-		border-style : solid ;
-		border-color : black;
-}
-QComboBox:enabled {
-	background-color: rgb(0, 170, 0);
-		border-radius : 4px; 
-		color: yellow;
-		border-width : 2px;
-		border-style : solid ;
-		border-color : black;
-}
-QComboBox:!enabled {
-		background-color: grey;
-		border-radius : 4px; 
-		color: black;
-		border-width : 2px;
-		border-style : solid ;
-		border-color : black;
-}
-QPushButton#btnVerifier { 
-	background-color: rgb(255, 170, 0);
-	color: black;
-} 
-QPushButton#btnNouveau { 
-	background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(20, 128, 0, 255), stop:1 rgba(197, 255, 238, 255));
-		color: black;
-} 
-QLabel#lblAffiche {
-		background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 255, 50, 255), stop:1 rgba(255, 255, 255, 255));
-		border-radius : 8px; 
-		background-image: url(:/img/data/images/pagefold-50x45.png);
-		background-repeat: repeat-no;
-   		background-position: top right;
-}
-
-QLabel#lblCible { 
-		background-color: rgb(255, 170, 0);
-		border-radius : 60px;
-		border-width : 20px;
-		border-style : solid ;
-		border-color :  rgb(255, 70, 0);
-}
-
-QWidget#centralWidget { background-image: url(:/img/data/images/background-600x400.png); }
-</string>
+    <string notr="true"/>
    </property>
    <widget class="QWidget" name="widgetContainer" native="true">
     <property name="geometry">
@@ -107,7 +32,7 @@ QWidget#centralWidget { background-image: url(:/img/data/images/background-600x4
       <height>600</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QVBoxLayout" name="vl_widgetContainer">
      <property name="spacing">
       <number>0</number>
      </property>
@@ -123,7 +48,7 @@ QWidget#centralWidget { background-image: url(:/img/data/images/background-600x4
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/data_images/top);
+        <string notr="true">background-image: url(:/cibler/backgrounds/topFrame);
 background-repeat: repeat-no;
 background-position: top right;
 
@@ -336,6 +261,7 @@ color:rgba(129, 198, 251, 255);	</string>
          <widget class="QLabel" name="lblTitre">
           <property name="font">
            <font>
+            <family>Andika Basic</family>
             <pointsize>-1</pointsize>
            </font>
           </property>
@@ -352,7 +278,7 @@ font-size:24px;
 }</string>
           </property>
           <property name="text">
-           <string>LeTerrier - Suites</string>
+           <string>LeTerrier - Cibler</string>
           </property>
          </widget>
         </item>
@@ -898,7 +824,7 @@ font-size:24px;
        </property>
        <property name="styleSheet">
         <string notr="true">QFrame#frmButtons {
-background-image: url(:/data_images/leafMenu);
+background-image: url(:/cibler/backgrounds/leafFrame);
 border-top-left-radius: 0px;
 border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
@@ -973,10 +899,10 @@ border-bottom-left-radius: 10px;
            </color>
           </property>
           <property name="iconeNormale" stdset="0">
-           <string>:/data_images/nouveau</string>
+           <string>:/cibler/buttons/new</string>
           </property>
           <property name="IconeSurvol" stdset="0">
-           <string>:/data_images/nouveauHover</string>
+           <string>:/cibler/buttons/newHover</string>
           </property>
          </widget>
         </item>
@@ -1001,7 +927,7 @@ border-bottom-left-radius: 10px;
            <string/>
           </property>
           <property name="whatsThis">
-           <string>new</string>
+           <string>help</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
@@ -1038,10 +964,10 @@ border-bottom-left-radius: 10px;
            </color>
           </property>
           <property name="iconeNormale" stdset="0">
-           <string>:/data_images/aide</string>
+           <string>:/cibler/buttons/help</string>
           </property>
           <property name="IconeSurvol" stdset="0">
-           <string>:/data_images/aideHover</string>
+           <string>:/cibler/buttons/helpHover</string>
           </property>
          </widget>
         </item>
@@ -1066,7 +992,7 @@ border-bottom-left-radius: 10px;
            <string/>
           </property>
           <property name="whatsThis">
-           <string>new</string>
+           <string>exit</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
@@ -1103,10 +1029,10 @@ border-bottom-left-radius: 10px;
            </color>
           </property>
           <property name="iconeNormale" stdset="0">
-           <string>:/data_images/sortie</string>
+           <string>:/cibler/buttons/exit</string>
           </property>
           <property name="IconeSurvol" stdset="0">
-           <string>:/data_images/sortieHover</string>
+           <string>:/cibler/buttons/exitHover</string>
           </property>
          </widget>
         </item>

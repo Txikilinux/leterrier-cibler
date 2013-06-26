@@ -77,6 +77,23 @@ MainWindow::MainWindow(QWidget *parent) :
     setAbeExerciceName("Nombre Cible");
     setAbeSkill(trUtf8("stratégie d'anticipation"));
     initNbreCible();
+
+    ui->menuBar->hide();
+
+
+    setWindowFlags(Qt::CustomizeWindowHint);
+
+    ui->vl_widgetContainer->removeWidget(ui->frmButtons);
+    ui->frmButtons->move(0,40);
+    ui->frmButtons->setVisible(false);
+    ui->frmButtons->adjustSize();
+    ui->btnFullScreen->setEnabled(false);
+    ui->btnMinimized->setEnabled(false);
+
+    QDesktopWidget *widget = QApplication::desktop();
+    int desktop_width = widget->width();
+    int desktop_height = widget->height();
+    this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
 }
 
 MainWindow::~MainWindow()
@@ -95,6 +112,44 @@ void MainWindow::changeEvent(QEvent *e)
         break;
     }
 }
+
+void MainWindow::paintEvent(QPaintEvent *)
+{
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmButtons->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        enfant->setCouleurTexteSurvol(Qt::red);
+        enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
+        enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
+    }
+    ui->btnFeuille->setStyleSheet("QPushButton > *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:transparent;border-image:url(':/cibler/buttons/leaf');image-position: center;}");
+}
+
+#ifndef __ABULEDUTABLETTEV1__MODE__
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    if (m_isWindowMoving) {
+        move(event->globalPos() - m_dragPosition);
+        event->accept();
+    }
+
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton && ui->lblTitre->rect().contains(event->pos())) {
+        m_dragPosition = event->globalPos() - frameGeometry().topLeft();
+        event->accept();
+        m_isWindowMoving = true;
+    }
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
+    m_isWindowMoving = false;
+}
+
+#endif
 
 void MainWindow::initNbreCible() {
 
@@ -310,4 +365,22 @@ void MainWindow::on_action_Changer_d_utilisateur_triggered()
 {
     abeApp->getAbeNetworkAccessManager()->abeSSOLogout();
     abeApp->getAbeNetworkAccessManager()->abeSSOLogin();
+}
+
+void MainWindow::on_btnFeuille_clicked()
+{
+    if (ui->frmButtons->isVisible())
+    {
+        ui->frmButtons->setVisible(false);
+    }
+    else
+    {
+        ui->frmButtons->setVisible(true);
+        ui->frmButtons->raise();
+    }
+}
+
+void MainWindow::on_btnSortie_clicked()
+{
+    close();
 }

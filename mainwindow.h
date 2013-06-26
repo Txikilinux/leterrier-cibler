@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QList>
 #include <QPushButton>
+#include <QDesktopWidget>
 #include <tete.h>
 #include "abuleduaproposv0.h"
  #include "abuleduexercicev0.h"
@@ -20,6 +21,12 @@ public:
 
 protected:
     void changeEvent(QEvent *e);
+    void paintEvent(QPaintEvent *);
+#ifndef __ABULEDUTABLETTEV1__MODE__
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+#endif
 
 private:
     Ui::MainWindow *ui;
@@ -75,6 +82,10 @@ private:
     void gererJoker();
     QString abeEvaluation(); // renvoie a,b,c,d ou z en fonction du niveau, #erreurs, etc.
 
+    /** Position de la souris pour gerer le deplacement de la fenetre */
+    QPoint m_dragPosition;
+    bool   m_isWindowMoving;
+
 private slots:
     void on_btnQuitter_clicked();
     void on_cboxJoker_activated(int index);
@@ -102,6 +113,8 @@ private slots:
 
     void on_action_Journal_de_mes_activit_s_triggered();
     void on_action_Changer_d_utilisateur_triggered();
+    void on_btnFeuille_clicked();
+    void on_btnSortie_clicked();
 };
 
 #endif // MAINWINDOW_H
