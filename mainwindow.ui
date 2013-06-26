@@ -365,6 +365,13 @@ font-size:24px;
         <number>0</number>
        </property>
        <widget class="QWidget" name="pagePrincipale">
+        <property name="styleSheet">
+         <string notr="true">	QWidget#pagePrincipale {	
+	background-image: url(:/cibler/backgrounds/mainFrame);
+	background-repeat: repeat-no;
+   	background-position: top right;
+}</string>
+        </property>
         <widget class="QLabel" name="lblCible">
          <property name="geometry">
           <rect>

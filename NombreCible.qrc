@@ -8,4 +8,10 @@
         <file>data/images/quit-24x24.png</file>
         <file>data/images/pagefold-50x45.png</file>
     </qresource>
+    <qresource prefix="/cibler/backgrounds">
+        <file alias="roll">data/images/rouleau.png</file>
+        <file alias="mainFrame">data/images/fubuki-fond.jpg</file>
+        <file alias="topFrame">data/images/fubuki-top.jpg</file>
+        <file alias="leafFrame">data/images/fubuki-feuille.jpg</file>
+    </qresource>
 </RCC>
