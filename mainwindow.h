@@ -115,6 +115,15 @@ private slots:
     void on_action_Changer_d_utilisateur_triggered();
     void on_btnFeuille_clicked();
     void on_btnSortie_clicked();
+    void on_btnNiveaux_clicked();
+    void on_btnNombres_clicked();
+    void on_btnNiveauAnnuler_clicked();
+    void on_btnNombresFermer_clicked();
+    void on_btnNiveauJaune_clicked();
+    void on_btnNiveauOrange_clicked();
+    void on_btnNiveauMarron_clicked();
+    void on_btnNiveauNoire_clicked();
+    void on_lineEditOrigine_returnPressed();
 };
 
 #endif // MAINWINDOW_H

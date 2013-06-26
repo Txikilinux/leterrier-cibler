@@ -23,5 +23,12 @@
         <file alias="new">data/images/nouveau.png</file>
         <file alias="help">data/images/aide.png</file>
         <file alias="leaf">data/images/feuille.png</file>
+        <file alias="checkDisabled">data/images/verificationGris.png</file>
+        <file alias="levelsHover">data/images/niveaux-hover.png</file>
+        <file alias="numbers">data/images/nombres.png</file>
+        <file alias="numbersHover">data/images/nombres-hover.png</file>
+        <file alias="solution">data/images/poubelle.png</file>
+        <file alias="solutionHover">data/images/poubelle-hover.png</file>
+        <file alias="levels">data/images/niveaux.png</file>
     </qresource>
 </RCC>

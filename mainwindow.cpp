@@ -80,8 +80,42 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->menuBar->hide();
 
-
     setWindowFlags(Qt::CustomizeWindowHint);
+
+    QList<AbulEduFlatBoutonV1 *> btns = ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>();
+    for(int i = 0; i < btns.count(); i++)
+    {
+        QString composant = btns.at(i)->whatsThis();
+        btns.at(i)->setIconeNormale(QString(":/cibler/buttons/%1").arg(composant));
+
+#ifdef __ABULEDUTABLETTEV1__MODE__
+        btns.at(i)->setIconePressed(QString(":/cibler/buttons/%1Hover").arg(composant));
+#else
+        btns.at(i)->setIconeSurvol(QString(":/cibler/buttons/%1Hover").arg(composant));
+#endif
+        btns.at(i)->setIconeDisabled(QString(":/cibler/buttons/%1Disabled").arg(composant));
+        btns.at(i)->setTexteAlignement(Qt::AlignLeft);
+    }
+
+#ifdef __ABULEDUTABLETTEV1__MODE__
+    /// 15/01/2012 Icham -> mode tablette, pas de tooltips (pas de survol en mode tactile, et puis ça faisait des trucs bizarres parfois)
+    /// 15/01/2013 iCHAM -> icones survol = icones normales
+    // on cherche tous les enfants, et on leur met une chaine vide en tooltips (= desactivation)
+    foreach (QWidget *obj, findChildren<QWidget*>()) {
+        obj->setToolTip("");
+//        if(dynamic_cast<AbulEduFlatBoutonV1*>(obj)){
+//            dynamic_cast<AbulEduFlatBoutonV1*>(obj)->setIconeSurvol(dynamic_cast<AbulEduFlatBoutonV1*>(obj)->getIconeNormale());
+//        }
+    }
+#endif
+    foreach(AbulEduFlatBoutonV1* enfant,btns)
+    {
+        enfant->setCouleurFondPressed(QColor(255,255,255,50));
+        enfant->setCouleurTexteSurvol(Qt::red);
+        enfant->setCouleurTexteNormale(Qt::white);
+        enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
+        enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
+    }
 
     ui->vl_widgetContainer->removeWidget(ui->frmButtons);
     ui->frmButtons->move(0,40);
@@ -89,6 +123,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->frmButtons->adjustSize();
     ui->btnFullScreen->setEnabled(false);
     ui->btnMinimized->setEnabled(false);
+    ui->btnVerifier->setEnabled(false);
+
+    /* Positionnement en dur puisque la hauteur de fenêtre "utile" est fixe */
+    ui->frmChoixNombres->move(775,314);
+    ui->frmChoixNombres->setVisible(false);
+    ui->frmNiveau->move(800,24);
+    ui->frmNiveau->setVisible(false);
 
     QDesktopWidget *widget = QApplication::desktop();
     int desktop_width = widget->width();
@@ -378,9 +419,94 @@ void MainWindow::on_btnFeuille_clicked()
         ui->frmButtons->setVisible(true);
         ui->frmButtons->raise();
     }
+    on_btnNombresFermer_clicked();
+    on_btnNiveauAnnuler_clicked();
 }
 
 void MainWindow::on_btnSortie_clicked()
 {
     close();
+}
+
+void MainWindow::on_btnNiveaux_clicked()
+{
+    ui->frmNiveau->setVisible(true);
+    ui->frmNiveau->raise();
+    ui->btnNiveaux->setStyleSheet(ui->btnNiveaux->styleSheet().replace("background-color:rgba(0,0,0,0);","border-radius:5px;background-color:#ffffff;"));
+    on_btnNombresFermer_clicked();
+    if (ui->frmButtons->isVisible())
+    {
+        ui->frmButtons->setVisible(false);
+    }
+}
+
+void MainWindow::on_btnNombres_clicked()
+{
+    ui->lineEditOrigine->clear();
+    ui->lineEditOrigine->setFocus();
+    ui->frmChoixNombres->setVisible(true);
+    ui->frmChoixNombres->raise();
+    ui->btnNombres->setStyleSheet(ui->btnNombres->styleSheet().replace("background-color:rgba(0,0,0,0);","border-radius:5px;background-color:#ffffff;"));
+    on_btnNiveauAnnuler_clicked();
+    if (ui->frmButtons->isVisible())
+    {
+        ui->frmButtons->setVisible(false);
+    }
+}
+
+void MainWindow::on_btnNiveauAnnuler_clicked()
+{
+    ui->frmNiveau->setVisible(false);
+    ui->btnNiveaux->setStyleSheet(ui->btnNiveaux->styleSheet().replace("border-radius:5px;background-color:#ffffff;","background-color:rgba(0,0,0,0);"));
+}
+
+void MainWindow::on_btnNombresFermer_clicked()
+{
+    ui->frmChoixNombres->setVisible(false);
+    ui->btnNombres->setStyleSheet(ui->btnNombres->styleSheet().replace("border-radius:5px;background-color:#ffffff;","background-color:rgba(0,0,0,0);"));
+}
+
+void MainWindow::on_btnNiveauJaune_clicked()
+{
+    _niveau(DEBUTANT);
+}
+
+void MainWindow::on_btnNiveauOrange_clicked()
+{
+    _niveau(JOKER);
+}
+
+void MainWindow::on_btnNiveauMarron_clicked()
+{
+    _niveau(SURCOMPTAGE);
+}
+
+void MainWindow::on_btnNiveauNoire_clicked()
+{
+    _niveau(CALCUL);
+}
+
+void MainWindow::on_lineEditOrigine_returnPressed()
+{
+    niveau = FIXE;
+    bool ok;
+    int n = ui->lineEditOrigine->text().toInt(&ok);
+    if (ok)
+    {
+        if(n >= 9 && n <= 28)
+        {
+            nbreCible = n;
+            initNbreCible();
+            on_btnNombresFermer_clicked();
+        }
+        else
+        {
+            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Problème"),trUtf8("Le nombre doit être compris entre 9 et 28"));
+            msg->show();
+        }
+    }
+    else {
+        AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Problème"),trUtf8("C'est un nombre, %1 ?!").arg(ui->lineEditOrigine->text()));
+        msg->show();
+    }
 }
