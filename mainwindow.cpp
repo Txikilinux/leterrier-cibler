@@ -219,7 +219,6 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 void MainWindow::initNbreCible() {
 
     // effacer l'affichage
-    ui->lblAffiche->clear();
     ui->btnNouveau->setDisabled(true);
     nErreurs = 0;
 
@@ -276,6 +275,7 @@ void MainWindow::initNbreCible() {
 
     setAbeLevel(trUtf8("niveau %1").arg(QString::number(niveau)));
     //setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0,"a");
+    slotHideFrames();
 
 } // fin initNombreCible
 
@@ -330,7 +330,9 @@ QString MainWindow::abeEvaluation() {
 
 void MainWindow::verifier(int somme) {
     if (somme == nbreCible) {
-        ui->lblAffiche->setText(trUtf8("Bien,\n  Tu peux maintenant\n  prendre une nouvelle cible."));
+        AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"),trUtf8("Tu peux maintenant\n  prendre une nouvelle cible."));
+        msg->setWink();
+        msg->show();
         setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, abeEvaluation());
         pushAbulEduLogs();
         ui->btnNouveau->setDisabled(false);
@@ -343,7 +345,8 @@ void MainWindow::verifier(int somme) {
 //                lstTetes[nExercice]->affiche(2);
         }
     } else {
-        ui->lblAffiche->setText(trUtf8("Erreur, \n  Je te demande\n  de corriger..."));        
+        AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Erreur !!"),trUtf8("Je te demande\n  de corriger..."));
+        msg->show();
         nErreurs++;     
         cumulErreurs++;
         setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, "d", QString::number(nbreCible), "", "", QString::number(somme));
