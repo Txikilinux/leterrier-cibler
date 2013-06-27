@@ -86,6 +86,9 @@ private:
     QPoint m_dragPosition;
     bool   m_isWindowMoving;
 
+    /** Booléen qui détermine si on est dans la demande de solution */
+    bool m_isCanceled;
+
 private slots:
     void on_btnQuitter_clicked();
     void on_cboxJoker_activated(int index);
@@ -126,6 +129,9 @@ private slots:
     void on_lineEditOrigine_returnPressed();
 
     void slotHideFrames();
+    void donneReponse();
+    void on_btnAbandonner_clicked();
+    void slotEndSolution();
 };
 
 #endif // MAINWINDOW_H

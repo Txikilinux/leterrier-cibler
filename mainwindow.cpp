@@ -54,6 +54,7 @@ MainWindow::MainWindow(QWidget *parent) :
      SURCOMPTAGE = 2;
      CALCUL = 3;
      MAXTETES = 4;
+     m_isCanceled = false;
 
      nomBtnNbre.clear();
      for(int i = 0;i<10;i++)
@@ -221,10 +222,10 @@ void MainWindow::initNbreCible() {
     // effacer l'affichage
     ui->btnNouveau->setDisabled(true);
     nErreurs = 0;
+    m_isCanceled = false;
 
-    // afficher les btnNbre (je conserve 0 par commodité)
+    /* afficher les btnNbre (je conserve 0 par commodité) <- ? */
     for (int i = 0; i < 10; i++) {
-//        nomBtnNbre[i]->setStyleSheet("color :yellow");
         nomBtnNbre[i]->setIconeNormale(":/cibler/backgrounds/arrow");
         nomBtnNbre[i]->setCouleurFondPressed(QColor(255,255,255,50));
         nomBtnNbre[i]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
@@ -234,7 +235,7 @@ void MainWindow::initNbreCible() {
         connect(nomBtnNbre[i],SIGNAL(clicked()),SLOT(slotHideFrames()),Qt::UniqueConnection);
     }
     nomBtnNbre[0]->hide();
-    // joker
+    /* Gestion du joker */
     if (niveau == DEBUTANT || niveau == FIXE)
         ui->cboxJoker->hide();
     else {
@@ -242,17 +243,16 @@ void MainWindow::initNbreCible() {
         ui->cboxJoker->setVisible(true);
         ui->cboxJoker->setDisabled(true);
     }
-    // effacer les btnRep
+    /* Vider les btnRep */
     for (int i = 0; i < 3; i++) {
 
         nomBtnRep[i]->setText("");
     }
 
-    // tirer le nombre cible (pas le même tout de suite)
+    /* Tirer le nombre cible (différent du précédent) */
     int nbreCibleSave = nbreCible;
     nbreDonne = -1;
     if (niveau == FIXE) {
-//        qDebug() << "fixe = " << nbreCible;
     }
     else if (niveau == DEBUTANT) {
         while (nbreCibleSave ==  nbreCible) nbreCible = (rand() % 5) + 8;
@@ -329,27 +329,31 @@ QString MainWindow::abeEvaluation() {
 }
 
 void MainWindow::verifier(int somme) {
-    if (somme == nbreCible) {
-        AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"),trUtf8("Tu peux maintenant\n  prendre une nouvelle cible."));
-        msg->setWink();
-        msg->show();
-        setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, abeEvaluation());
-        pushAbulEduLogs();
-        ui->btnNouveau->setDisabled(false);
-        if (nExercice < MAXTETES) {
-//            if (nErreurs == 0)
-//                lstTetes[nExercice]->affiche(0);
-//            else if (nErreurs < 3)
-//                lstTetes[nExercice]->affiche(1);
-//            else
-//                lstTetes[nExercice]->affiche(2);
+    if(!m_isCanceled)
+    {
+        if (somme == nbreCible) {
+            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"),trUtf8("Tu peux maintenant\n  prendre une nouvelle cible."));
+            msg->setWink();
+            msg->show();
+            setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, abeEvaluation());
+            pushAbulEduLogs();
+            ui->btnNouveau->setDisabled(false);
+            if (nExercice < MAXTETES) {
+                //            if (nErreurs == 0)
+                //                lstTetes[nExercice]->affiche(0);
+                //            else if (nErreurs < 3)
+                //                lstTetes[nExercice]->affiche(1);
+                //            else
+                //                lstTetes[nExercice]->affiche(2);
+            }
         }
-    } else {
-        AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Erreur !!"),trUtf8("Je te demande\n  de corriger..."));
-        msg->show();
-        nErreurs++;     
-        cumulErreurs++;
-        setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, "d", QString::number(nbreCible), "", "", QString::number(somme));
+        else {
+            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Erreur !!"),trUtf8("Je te demande\n  de corriger..."));
+            msg->show();
+            nErreurs++;
+            cumulErreurs++;
+            setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, "d", QString::number(nbreCible), "", "", QString::number(somme));
+        }
     }
 }
 
@@ -548,4 +552,53 @@ void MainWindow::slotHideFrames()
     ui->frmButtons->setVisible(false);
     on_btnNombresFermer_clicked();
     on_btnNiveauAnnuler_clicked();
+}
+
+void MainWindow::donneReponse()
+{
+    int first = -1;
+    int second = -1;
+    int third = -1;
+    if(nbreDonne == -1)
+    {
+        nbresChoisis.clear();
+        while(first + second + third != nbreCible)
+        {
+            first = rand()%9+1;
+            while(second == first || second==-1){
+                second = rand()%9+1;
+            }
+            while(third == first || third == second || third==-1) {
+                third = rand()%9+1;
+            }
+        }
+    }
+    else
+    {
+        first = nbreDonne;
+        while(second == first || second==-1){
+            second = rand()%9+1;
+        }
+        while(third == first || third == second || third==-1) {
+            third = rand()%9+1;
+        }
+    }
+    qDebug()<<first<<second<<third<<nbreCible;
+    QTimer::singleShot(1000, nomBtnNbre[first], SLOT(click()));
+    QTimer::singleShot(2000, nomBtnNbre[second], SLOT(click()));
+    QTimer::singleShot(3000, nomBtnNbre[third], SLOT(click()));
+    QTimer::singleShot(5000, this, SLOT(slotEndSolution()));
+}
+
+void MainWindow::on_btnAbandonner_clicked()
+{
+    m_isCanceled = true;
+    donneReponse();
+}
+
+void MainWindow::slotEndSolution()
+{
+    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible. Tu peux rejouer..."));
+    msg->show();
+    ui->btnNouveau->setEnabled(true);
 }
