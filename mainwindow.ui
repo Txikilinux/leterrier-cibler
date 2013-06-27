@@ -261,7 +261,6 @@ color:rgba(129, 198, 251, 255);	</string>
          <widget class="QLabel" name="lblTitre">
           <property name="font">
            <font>
-            <family>Andika Basic</family>
             <pointsize>-1</pointsize>
            </font>
           </property>
@@ -952,10 +951,10 @@ border-bottom-left-radius: 5px;</string>
         <widget class="QFrame" name="frmAireDeJeu">
          <property name="geometry">
           <rect>
-           <x>290</x>
-           <y>220</y>
-           <width>631</width>
-           <height>341</height>
+           <x>450</x>
+           <y>180</y>
+           <width>430</width>
+           <height>350</height>
           </rect>
          </property>
          <property name="styleSheet">

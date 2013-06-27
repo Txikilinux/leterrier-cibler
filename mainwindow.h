@@ -124,6 +124,8 @@ private slots:
     void on_btnNiveauMarron_clicked();
     void on_btnNiveauNoire_clicked();
     void on_lineEditOrigine_returnPressed();
+
+    void slotHideFrames();
 };
 
 #endif // MAINWINDOW_H

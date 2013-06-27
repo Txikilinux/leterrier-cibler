@@ -55,12 +55,28 @@ MainWindow::MainWindow(QWidget *parent) :
      CALCUL = 3;
      MAXTETES = 4;
 
-//    QRegExp nomNbreRegExp("btnNbre");
-    nomBtnNbre = ui->frmAireDeJeu->findChildren <AbulEduFlatBoutonV1 *> (/*nomNbreRegExp*/);
-    qDebug() << nomBtnNbre.size();
-
-//    QRegExp nomRepRegExp("btnRep");
-    nomBtnRep = ui->frmAnswers->findChildren <AbulEduFlatBoutonV1 *> (/*nomRepRegExp*/);
+     nomBtnNbre.clear();
+     for(int i = 0;i<10;i++)
+     {
+         foreach(AbulEduFlatBoutonV1* btn,ui->frmAireDeJeu->findChildren <AbulEduFlatBoutonV1 *>())
+         {
+             if(btn->objectName().endsWith(QString::number(i)))
+             {
+                 nomBtnNbre << btn;
+             }
+         }
+     }
+     nomBtnRep.clear();
+     for(int i = 0;i<10;i++)
+     {
+         foreach(AbulEduFlatBoutonV1* btn,ui->frmAnswers->findChildren <AbulEduFlatBoutonV1 *>())
+         {
+             if(btn->objectName().endsWith(QString::number(i)))
+             {
+                 nomBtnRep << btn;
+             }
+         }
+     }
     foreach(AbulEduFlatBoutonV1* btn,nomBtnRep)
     {
         int nbFleches = btn->objectName().remove("btnRep").toInt() + 1;
@@ -216,6 +232,7 @@ void MainWindow::initNbreCible() {
         nomBtnNbre[i]->setFont(fontBIG);
         nomBtnNbre[i]->setEnabled(true);
         nomBtnNbre[i]->setProperty("text", QString::number(i));
+        connect(nomBtnNbre[i],SIGNAL(clicked()),SLOT(slotHideFrames()),Qt::UniqueConnection);
     }
     nomBtnNbre[0]->hide();
     // joker
@@ -521,4 +538,11 @@ void MainWindow::on_lineEditOrigine_returnPressed()
         AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Problème"),trUtf8("C'est un nombre, %1 ?!").arg(ui->lineEditOrigine->text()));
         msg->show();
     }
+}
+
+void MainWindow::slotHideFrames()
+{
+    ui->frmButtons->setVisible(false);
+    on_btnNombresFermer_clicked();
+    on_btnNiveauAnnuler_clicked();
 }
