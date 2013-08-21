@@ -91,6 +91,9 @@ private:
 
     /** Booléen qui détermine si on est dans la demande de solution */
     bool m_isCanceled;
+
+    QString m_messageAide;
+
     QPropertyAnimation          *m_displayMotion;
 
 private slots:
@@ -154,6 +157,7 @@ private slots:
     /** Permet d'un seul appel de rendre tous les boutons de l'interface actifs ou inactifs */
     void setAllButtonsEnabled(bool trueFalse);
     void on_btnDebut_clicked();
+    void on_btnInformation_clicked();
 };
 
 #endif // MAINWINDOW_H

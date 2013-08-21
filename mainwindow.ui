@@ -667,7 +667,7 @@ border-bottom-left-radius: 5px;</string>
          <property name="geometry">
           <rect>
            <x>470</x>
-           <y>170</y>
+           <y>165</y>
            <width>331</width>
            <height>331</height>
           </rect>
@@ -947,7 +947,7 @@ background-position: top right;
          <property name="geometry">
           <rect>
            <x>417</x>
-           <y>30</y>
+           <y>25</y>
            <width>441</width>
            <height>121</height>
           </rect>
@@ -1103,9 +1103,7 @@ background-position: top right;
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-image: url(:/cibler/backgrounds/target0);
-background-repeat: repeat-no;
-background-position: top right;</string>
+             <string notr="true">color:rgba(93,23,15,255)</string>
             </property>
             <property name="text">
              <string/>
@@ -1954,22 +1952,22 @@ border-radius:5px;</string>
         <widget class="AbulEduFlatBoutonV1" name="btnJoker">
          <property name="geometry">
           <rect>
-           <x>606</x>
-           <y>485</y>
-           <width>60</width>
-           <height>60</height>
+           <x>397</x>
+           <y>407</y>
+           <width>80</width>
+           <height>80</height>
           </rect>
          </property>
          <property name="minimumSize">
           <size>
-           <width>60</width>
-           <height>60</height>
+           <width>80</width>
+           <height>80</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>60</width>
-           <height>60</height>
+           <width>80</width>
+           <height>80</height>
           </size>
          </property>
          <property name="font">
@@ -1987,7 +1985,7 @@ border-radius:5px;</string>
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="text">
-          <string>J</string>
+          <string/>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -2005,6 +2003,7 @@ border-radius:5px;</string>
          <property name="styleSheet">
           <string notr="true">QFrame#frmFondJoker {
 background-color:rgba(179,179,179,230);
+border-radius:10px;
 }</string>
          </property>
          <property name="frameShape">

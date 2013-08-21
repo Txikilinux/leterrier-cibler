@@ -83,7 +83,7 @@ MainWindow::MainWindow(QWidget *parent) :
         int nbFleches = btn->objectName().remove("btnRep").toInt() + 1;
         btn->setIconeNormale(":/cibler/backgrounds/target"+QString::number(nbFleches));
         btn->setCouleurFondPressed(QColor(255,255,255,50));
-        btn->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+        btn->setCouleursTexte(QColor(154,68,45,255),QColor(93,23,15,255),QColor(93,23,15,255),QColor(93,23,15,255));
     }
 
 //    for (int i = 0; i < MAXTETES; i++) {
@@ -97,6 +97,7 @@ MainWindow::MainWindow(QWidget *parent) :
     nErreurs = 0;
     cumulErreurs = 0;
     nbreCible =-1;
+    m_messageAide = trUtf8("Choisis dans la grille des nombres pour compléter correctement l'addition. A tout moment, tu peux reprendre un nombre de l'addition en cliquant dessus.");
     setAbeExerciceName("Nombre Cible");
     setAbeSkill(trUtf8("stratégie d'anticipation"));
 
@@ -182,6 +183,7 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         connect(btn, SIGNAL(clicked()),SLOT(slotSendJoker()),Qt::UniqueConnection);
     }
+    ui->btnJoker->setIconeNormale(":/data/images/boutonJoker");
 
     m_displayMotion = new QPropertyAnimation(ui->frmFondJoker, "position");
     m_displayMotion->setDuration(2000);
@@ -262,7 +264,7 @@ void MainWindow::initNbreCible() {
     for (int i = 0; i < 10; i++) {
         nomBtnNbre[i]->setIconeNormale(":/cibler/backgrounds/arrow");
         nomBtnNbre[i]->setCouleurFondPressed(QColor(255,255,255,50));
-        nomBtnNbre[i]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+        nomBtnNbre[i]->setCouleursTexte(QColor(154,68,45,255),QColor(93,23,15,255),QColor(93,23,15,255),QColor(93,23,15,255));
         nomBtnNbre[i]->setFont(fontBIG);
         nomBtnNbre[i]->setEnabled(true);
         nomBtnNbre[i]->setProperty("text", QString::number(i));
@@ -442,10 +444,13 @@ void MainWindow::_niveau(int n) {
     niveau = n;
     nExercice = 0;
     cumulErreurs = 0;
-    for (int i = 0; i < MAXTETES; i++)
-//        lstTetes[i]->affiche(-1);
+//    for (int i = 0; i < MAXTETES; i++)
+////        lstTetes[i]->affiche(-1);
+    if(n > 0)
+    {
+        m_messageAide = trUtf8("Le bouton dragon est le joker. Il te donne la possibilité d'utiliser n'importe quel nombre entre 0 et 9");
+    }
     ui->lblLevel->setPixmap(QPixmap(":/data/belts/belt"+QString::number(n)));
-    qDebug()<<":/data/belts/belt"+QString::number(n);
     initNbreCible();
 }
 
@@ -787,4 +792,11 @@ void MainWindow::on_btnDebut_clicked()
             nomBtnNbre[v]->setFont(fontBIG);
         }
     }
+}
+
+void MainWindow::on_btnInformation_clicked()
+{
+    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !"),m_messageAide);
+    msg->setWink();
+    msg->show();
 }

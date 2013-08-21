@@ -7,6 +7,7 @@
         <file alias="pli">data/images/cadre-cibler-petit.png</file>
         <file alias="pioche">data/images/cadre-cibler-grand.png</file>
         <file alias="joker">data/images/cadre-cibler-joker.png</file>
+        <file alias="boutonJoker">data/images/dragon.png</file>
     </qresource>
     <qresource prefix="/data/buttons">
         <file alias="leaf">data/images/feuille.png</file>
