@@ -272,13 +272,9 @@ void MainWindow::initNbreCible() {
     /* Gestion du joker */
     if (niveau == DEBUTANT || niveau == FIXE)
     {
-        ui->cboxJoker->hide();
         ui->btnJoker->hide();
     }
     else {
-        ui->cboxJoker->setCurrentIndex(0);
-        ui->cboxJoker->setVisible(true);
-        ui->cboxJoker->setDisabled(true);
         ui->btnJoker->setVisible(true);
         ui->btnJoker->setEnabled(false);
     }
@@ -453,12 +449,6 @@ void MainWindow::_niveau(int n) {
     initNbreCible();
 }
 
-void MainWindow::on_cboxJoker_activated(int index)
-{
-    if (index > 0 && index <10) _btnNbre(index);
-    else if (index == 10) _btnNbre(0);
-}
-
 void MainWindow::slotSendJoker()
 {
     AbulEduFlatBoutonV1* btn = static_cast<AbulEduFlatBoutonV1*>(sender());
@@ -474,12 +464,10 @@ void MainWindow::gererJoker() {
         if (nomBtnRep[i]->text() != "") nbresChoisis << nomBtnRep[i]->text().toInt();
     if (nbresChoisis.length() == 2)
     {
-        ui->cboxJoker->setDisabled(false);
         ui->btnJoker->setEnabled(true);
     }
     else
     {
-        ui->cboxJoker->setDisabled(true);
         ui->btnJoker->setEnabled(false);
     }
 }

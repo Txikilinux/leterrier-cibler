@@ -95,7 +95,6 @@ private:
 
 private slots:
     void on_btnQuitter_clicked();
-    void on_cboxJoker_activated(int index);
     void on_actionProposerCible_triggered();
     void on_actionDebutant_triggered();
     void on_actionJoker_triggered();
