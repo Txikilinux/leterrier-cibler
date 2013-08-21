@@ -91,6 +91,7 @@ private:
 
     /** Booléen qui détermine si on est dans la demande de solution */
     bool m_isCanceled;
+    QPropertyAnimation          *m_displayMotion;
 
 private slots:
     void on_btnQuitter_clicked();
@@ -136,6 +137,8 @@ private slots:
     void on_btnAbandonner_clicked();
     void slotEndSolution();
 
+    void slotSendJoker();
+
     void on_btnLanguages_clicked();
     void on_btnFr_clicked();
     void on_btnEn_clicked();
@@ -148,6 +151,9 @@ private slots:
 
     void on_btnMinimized_clicked();
     void on_btnFullScreen_clicked();
+    void on_btnJoker_clicked();
+    /** Permet d'un seul appel de rendre tous les boutons de l'interface actifs ou inactifs */
+    void setAllButtonsEnabled(bool trueFalse);
 };
 
 #endif // MAINWINDOW_H

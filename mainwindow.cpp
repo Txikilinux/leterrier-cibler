@@ -173,10 +173,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->btnVerifier->setEnabled(false);
 
     /* Positionnement en dur puisque la hauteur de fenêtre "utile" est fixe */
-    ui->frmChoixNombres->move(775,314);
-    ui->frmChoixNombres->setVisible(false);
-    ui->frmNiveau->move(800,24);
-    ui->frmNiveau->setVisible(false);
+    ui->frmChoixNombres->move(780,154);
+    ui->frmNiveau->move(802,97);
+
+    ui->frmFondJoker->setVisible(false);
+    ui->frmFondJoker->move(270,300);
+    foreach(AbulEduFlatBoutonV1* btn, ui->frmNbresJoker->findChildren<AbulEduFlatBoutonV1*>())
+    {
+        connect(btn, SIGNAL(clicked()),SLOT(slotSendJoker()),Qt::UniqueConnection);
+    }
+
+    m_displayMotion = new QPropertyAnimation(ui->frmFondJoker, "position");
+    m_displayMotion->setDuration(2000);
+    m_displayMotion->setStartValue(QPointF(0,300));
+    m_displayMotion->setEndValue(QPointF(300,300));
 
     QDesktopWidget *widget = QApplication::desktop();
     int desktop_width = widget->width();
@@ -184,7 +194,6 @@ MainWindow::MainWindow(QWidget *parent) :
     this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
 
     initNbreCible();
-
 }
 
 MainWindow::~MainWindow()
@@ -262,11 +271,16 @@ void MainWindow::initNbreCible() {
     nomBtnNbre[0]->hide();
     /* Gestion du joker */
     if (niveau == DEBUTANT || niveau == FIXE)
+    {
         ui->cboxJoker->hide();
+        ui->btnJoker->hide();
+    }
     else {
         ui->cboxJoker->setCurrentIndex(0);
         ui->cboxJoker->setVisible(true);
         ui->cboxJoker->setDisabled(true);
+        ui->btnJoker->setVisible(true);
+        ui->btnJoker->setEnabled(false);
     }
     /* Vider les btnRep */
     for (int i = 0; i < 3; i++) {
@@ -445,14 +459,29 @@ void MainWindow::on_cboxJoker_activated(int index)
     else if (index == 10) _btnNbre(0);
 }
 
+void MainWindow::slotSendJoker()
+{
+    AbulEduFlatBoutonV1* btn = static_cast<AbulEduFlatBoutonV1*>(sender());
+    int ind = btn->objectName().remove("btn").toInt();
+    _btnNbre(ind);
+    ui->frmFondJoker->setVisible(false);
+    setAllButtonsEnabled(true);
+}
+
 void MainWindow::gererJoker() {
     nbresChoisis.clear();
     for (int i = 0; i < 3; i++)
         if (nomBtnRep[i]->text() != "") nbresChoisis << nomBtnRep[i]->text().toInt();
     if (nbresChoisis.length() == 2)
+    {
         ui->cboxJoker->setDisabled(false);
+        ui->btnJoker->setEnabled(true);
+    }
     else
+    {
         ui->cboxJoker->setDisabled(true);
+        ui->btnJoker->setEnabled(false);
+    }
 }
 
 void MainWindow::on_btnQuitter_clicked()
@@ -725,5 +754,33 @@ void MainWindow::on_btnFullScreen_clicked()
         ui->widgetContainer->move((desktop_width-ui->widgetContainer->width())/2, (desktop_height-ui->widgetContainer->height())/2);
         showFullScreen();
         ui->btnFullScreen->setIconeNormale(":/data/buttons/showNormal");
+    }
+}
+
+void MainWindow::on_btnJoker_clicked()
+{
+    ui->frmFondJoker->setVisible(true);
+    setAllButtonsEnabled(false);
+    m_displayMotion->start();
+}
+
+void MainWindow::setAllButtonsEnabled(bool trueFalse)
+{
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmTop->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        enfant->setEnabled(trueFalse);
+    }
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        if(enfant->whatsThis() != "verification")
+          enfant->setEnabled(trueFalse);
+    }
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmAnswers->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        enfant->setEnabled(trueFalse);
+    }
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmAireDeJeu->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        enfant->setEnabled(trueFalse);
     }
 }

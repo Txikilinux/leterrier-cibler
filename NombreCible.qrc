@@ -2,9 +2,11 @@
     <qresource prefix="/data/images">
         <file alias="fermeture">data/images/fermer.png</file>
         <file alias="background">data/images/fubuki-fond.jpg</file>
-        <file alias="rouleau">data/images/rouleau.png</file>
         <file alias="top">data/images/fubuki-top.jpg</file>
         <file alias="fondChiffre">data/images/fond-chiffres.png</file>
+        <file alias="pli">data/images/cadre-cibler-petit.png</file>
+        <file alias="pioche">data/images/cadre-cibler-grand.png</file>
+        <file alias="joker">data/images/cadre-cibler-joker.png</file>
     </qresource>
     <qresource prefix="/data/buttons">
         <file alias="leaf">data/images/feuille.png</file>
