@@ -158,6 +158,7 @@ private slots:
     void setAllButtonsEnabled(bool trueFalse);
     void on_btnDebut_clicked();
     void on_btnInformation_clicked();
+    void on_btnAideFeuille_clicked();
 };
 
 #endif // MAINWINDOW_H

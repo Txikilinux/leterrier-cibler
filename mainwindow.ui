@@ -120,7 +120,6 @@ background-position: top right;
          <widget class="QLabel" name="lblTitre">
           <property name="font">
            <font>
-            <family>Andika Basic</family>
             <pointsize>-1</pointsize>
            </font>
           </property>
@@ -327,7 +326,7 @@ font-size:24px;
       </widget>
      </item>
      <item>
-      <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="AbulEduStackedWidgetV1" name="stackedWidget">
        <property name="currentIndex">
         <number>0</number>
        </property>
@@ -925,23 +924,6 @@ background-position: top right;
            <string/>
           </property>
          </widget>
-         <zorder>btnNbre9</zorder>
-         <zorder>btnNbre5</zorder>
-         <zorder>btnNbre7</zorder>
-         <zorder>btnNbre1</zorder>
-         <zorder>btnNbre2</zorder>
-         <zorder>btnNbre6</zorder>
-         <zorder>btnNbre3</zorder>
-         <zorder>btnNbre4</zorder>
-         <zorder>btnNbre8</zorder>
-         <zorder>btnNbre0</zorder>
-         <zorder>frmNbresJoker</zorder>
-         <zorder>frmNbresJoker</zorder>
-         <zorder>frmNbresJoker</zorder>
-         <zorder>frmNbresJoker</zorder>
-         <zorder>frmNbresJoker</zorder>
-         <zorder>frmFondJoker</zorder>
-         <zorder>frmFondJoker</zorder>
         </widget>
         <widget class="QFrame" name="frmAnswers">
          <property name="geometry">
@@ -2419,9 +2401,6 @@ background-position: top right;
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-         <zorder>btn3</zorder>
-         <zorder>frmNbresJoker</zorder>
-         <zorder>lblJoker</zorder>
         </widget>
        </widget>
        <widget class="QWidget" name="pageApropos">
@@ -2524,6 +2503,12 @@ background-position: top right;
    <class>AbulEduFlatBoutonV1</class>
    <extends>QPushButton</extends>
    <header>abuleduflatboutonv1.h</header>
+  </customwidget>
+  <customwidget>
+   <class>AbulEduStackedWidgetV1</class>
+   <extends>QStackedWidget</extends>
+   <header>abuledustackedwidgetv1.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

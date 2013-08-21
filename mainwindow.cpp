@@ -800,3 +800,11 @@ void MainWindow::on_btnInformation_clicked()
     msg->setWink();
     msg->show();
 }
+
+void MainWindow::on_btnAideFeuille_clicked()
+{
+    /* En attendant d'avoir avancé sur une nouvelle boite à propos, je vais ici appeler l'autre bouton aide, celui de la télécommande
+    ui->stackedWidget->slideInWidget(ui->pageApropos); */
+    on_btnInformation_clicked();
+    on_btnFeuille_clicked();
+}
