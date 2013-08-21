@@ -150,7 +150,7 @@ font-size:24px;
          </spacer>
         </item>
         <item row="1" column="2">
-         <widget class="AbulEduFlatBoutonV1" name="btnLanguages_3">
+         <widget class="AbulEduFlatBoutonV1" name="btnLanguages">
           <property name="minimumSize">
            <size>
             <width>40</width>
@@ -229,7 +229,7 @@ font-size:24px;
            </color>
           </property>
           <property name="iconeNormale" stdset="0">
-           <string notr="true">:/data/images/showMinimized</string>
+           <string notr="true">:/data/buttons/showMinimized</string>
           </property>
           <property name="IconeSurvol" stdset="0">
            <string notr="true"/>
@@ -294,7 +294,7 @@ font-size:24px;
            </color>
           </property>
           <property name="iconeNormale" stdset="0">
-           <string notr="true">:/data/images/showMaximized</string>
+           <string notr="true">:/data/buttons/showMaximized</string>
           </property>
           <property name="IconeSurvol" stdset="0">
            <string notr="true"/>
@@ -1462,7 +1462,7 @@ border-bottom-left-radius: 5px;</string>
          </property>
          <property name="styleSheet">
           <string notr="true">QFrame#frmButtons {
-background-image: url(:/cibler/backgrounds/leafFrame);
+background-color:rgba(203,106,89,255);
 border-top-left-radius: 0px;
 border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
@@ -1537,10 +1537,10 @@ border-bottom-left-radius: 10px;
              </color>
             </property>
             <property name="iconeNormale" stdset="0">
-             <string>:/cibler/buttons/new</string>
+             <string>:/data/buttons/nouveau</string>
             </property>
             <property name="IconeSurvol" stdset="0">
-             <string>:/cibler/buttons/newHover</string>
+             <string>:/data/buttons/nouveauHover</string>
             </property>
            </widget>
           </item>
@@ -1602,10 +1602,10 @@ border-bottom-left-radius: 10px;
              </color>
             </property>
             <property name="iconeNormale" stdset="0">
-             <string>:/cibler/buttons/help</string>
+             <string>:/data/buttons/aide</string>
             </property>
             <property name="IconeSurvol" stdset="0">
-             <string>:/cibler/buttons/helpHover</string>
+             <string>:/data/buttons/aideHover</string>
             </property>
            </widget>
           </item>
@@ -1667,14 +1667,287 @@ border-bottom-left-radius: 10px;
              </color>
             </property>
             <property name="iconeNormale" stdset="0">
-             <string>:/cibler/buttons/exit</string>
+             <string>:/data/buttons/sortie</string>
             </property>
             <property name="IconeSurvol" stdset="0">
-             <string>:/cibler/buttons/exitHover</string>
+             <string>:/data/buttons/sortieHover</string>
             </property>
            </widget>
           </item>
          </layout>
+        </widget>
+        <widget class="QFrame" name="frmChoixLangues">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>140</y>
+           <width>124</width>
+           <height>191</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: #ffffff;
+border-radius:5px;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="12" column="0">
+           <widget class="AbulEduFlatBoutonV1" name="btnLangueAnnuler">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:gray;</string>
+            </property>
+            <property name="text">
+             <string>Annuler</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="AbulEduFlatBoutonV1" name="btnOc">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="whatsThis">
+             <string notr="true">oc</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:orange</string>
+            </property>
+            <property name="text">
+             <string>Oc</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="AbulEduFlatBoutonV1" name="btnDe">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="whatsThis">
+             <string notr="true">de</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:black</string>
+            </property>
+            <property name="text">
+             <string>Deutsch</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="AbulEduFlatBoutonV1" name="btnFr">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="whatsThis">
+             <string notr="true">fr</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: blue;</string>
+            </property>
+            <property name="text">
+             <string>Français</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="AbulEduFlatBoutonV1" name="btnEn">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="whatsThis">
+             <string notr="true">en</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:red</string>
+            </property>
+            <property name="text">
+             <string>English</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="AbulEduFlatBoutonV1" name="btnEs">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="whatsThis">
+             <string notr="true">es</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#e8e226;</string>
+            </property>
+            <property name="text">
+             <string>Espanol</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="AbulEduFlatBoutonV1" name="btnIt">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="whatsThis">
+             <string notr="true">it</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:green</string>
+            </property>
+            <property name="text">
+             <string>Italiano</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QLabel" name="lblLevel">
+         <property name="geometry">
+          <rect>
+           <x>927</x>
+           <y>8</y>
+           <width>80</width>
+           <height>64</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="NombreCible.qrc">:/data/belts/belt0</pixmap>
+         </property>
         </widget>
        </widget>
        <widget class="QWidget" name="pageApropos">
@@ -1779,7 +2052,9 @@ border-bottom-left-radius: 10px;
    <header>abuleduflatboutonv1.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="NombreCible.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>actionQuitter</sender>

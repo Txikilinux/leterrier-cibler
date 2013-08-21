@@ -139,11 +139,37 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     ui->vl_widgetContainer->removeWidget(ui->frmButtons);
-    ui->frmButtons->move(0,40);
+    ui->frmButtons->move(9,0);
     ui->frmButtons->setVisible(false);
     ui->frmButtons->adjustSize();
-    ui->btnFullScreen->setEnabled(false);
-    ui->btnMinimized->setEnabled(false);
+
+    ui->btnLanguages->setIconeNormale(":/data/flags/fr");
+    ui->frmChoixLangues->move(790,0);
+    ui->frmChoixLangues->setVisible(false);
+//    ui->btnEs->setVisible(false);
+    ui->btnIt->setVisible(false);
+    ui->btnDe->setVisible(false);
+    ui->btnOc->setVisible(false);
+    foreach(AbulEduFlatBoutonV1* btn, ui->frmChoixLangues->findChildren<AbulEduFlatBoutonV1*>())
+    {
+        connect(btn, SIGNAL(clicked()),SLOT(slotChangeLangue()),Qt::UniqueConnection);
+    }
+
+#ifdef __ABULEDUTABLETTEV1__MODE__
+    ui->btnMinimized->setVisible(false);
+    ui->btnFullScreen->setVisible(false);
+#else
+    ui->btnMinimized->setCouleurFondSurvol(QColor(252,152,41));
+    ui->btnMinimized->setCouleurFondPressed(QColor(252,152,41));
+    ui->btnMinimized->setCouleurFondNormale(QColor(203,106,89));
+    ui->btnMinimized->setAllMargins(8,4,8,12);
+    ui->btnMinimized->setBorderRadius(4);
+    ui->btnFullScreen->setCouleurFondSurvol(QColor(252,152,41));
+    ui->btnFullScreen->setCouleurFondPressed(QColor(252,152,41));
+    ui->btnFullScreen->setCouleurFondNormale(QColor(203,106,89));
+    ui->btnFullScreen->setAllMargins(8,12,8,4);
+    ui->btnFullScreen->setBorderRadius(4);
+#endif
     ui->btnVerifier->setEnabled(false);
 
     /* Positionnement en dur puisque la hauteur de fenêtre "utile" est fixe */
@@ -186,7 +212,7 @@ void MainWindow::paintEvent(QPaintEvent *)
         enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
         enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
     }
-    ui->btnFeuille->setStyleSheet("QPushButton > *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:transparent;border-image:url(':/data/buttons/leaf');image-position: center;}");
+    ui->btnFeuille->setStyleSheet("QPushButton > *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:transparent;}");
 }
 
 #ifndef __ABULEDUTABLETTEV1__MODE__
@@ -408,6 +434,8 @@ void MainWindow::_niveau(int n) {
     cumulErreurs = 0;
     for (int i = 0; i < MAXTETES; i++)
 //        lstTetes[i]->affiche(-1);
+    ui->lblLevel->setPixmap(QPixmap(":/data/belts/belt"+QString::number(n)));
+    qDebug()<<":/data/belts/belt"+QString::number(n);
     initNbreCible();
 }
 
@@ -600,4 +628,102 @@ void MainWindow::slotEndSolution()
     AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible. Tu peux rejouer..."));
     msg->show();
     ui->btnNouveau->setEnabled(true);
+}
+
+void MainWindow::on_btnLanguages_clicked()
+{
+    ui->frmChoixLangues->setVisible(true);
+    if (ui->frmButtons->isVisible())
+    {
+        ui->frmButtons->setVisible(false);
+    }
+    on_btnNombresFermer_clicked();
+    on_btnNiveauAnnuler_clicked();
+}
+
+void MainWindow::on_btnFr_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data/flags/fr");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnEn_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data/flags/en");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnEs_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data/flags/es");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnIt_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data/flags/it");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnDe_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data/flags/de");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnOc_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data/flags/oc");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnLangueAnnuler_clicked()
+{
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::slotChangeLangue()
+{
+    QString lang = static_cast<AbulEduFlatBoutonV1*>(sender())->whatsThis();
+    qApp->removeTranslator(&qtTranslator);
+    qApp->removeTranslator(&myappTranslator);
+
+    //Un 1er qtranslator pour prendre les traductions QT Systeme
+    //c'est d'ailleur grace a ca qu'on est en RTL
+    qtTranslator.load("qt_" + lang, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    qApp->installTranslator(&qtTranslator);
+
+    //foreach (QWidget *widget, QApplication::allWidgets()) widget->setLayoutDirection(Qt::RightToLeft);
+    //Et un second qtranslator pour les traductions specifiques du
+    //logiciel
+    myappTranslator.load("leterrier-cibler" + lang, "lang");
+    qApp->installTranslator(&myappTranslator);
+    ui->retranslateUi(this);
+}
+
+void MainWindow::on_btnMinimized_clicked()
+{
+    showMinimized();
+}
+
+void MainWindow::on_btnFullScreen_clicked()
+{
+    if(isFullScreen())
+    {
+        showNormal();
+        ui->centralWidget->move(0,0);
+        ui->widgetContainer->move(0,0);
+        ui->btnFullScreen->setIconeNormale(":/data/buttons/showMaximized");
+    }
+    else
+    {
+        QDesktopWidget *widget = QApplication::desktop();
+        int desktop_width = widget->width();
+        int desktop_height = widget->height();
+//        this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
+        ui->centralWidget->move((desktop_width-ui->centralWidget->width())/2, (desktop_height-ui->centralWidget->height())/2);
+        ui->widgetContainer->move((desktop_width-ui->widgetContainer->width())/2, (desktop_height-ui->widgetContainer->height())/2);
+        showFullScreen();
+        ui->btnFullScreen->setIconeNormale(":/data/buttons/showNormal");
+    }
 }
