@@ -749,6 +749,7 @@ void MainWindow::on_btnJoker_clicked()
 {
     ui->frmFondJoker->setVisible(true);
     setAllButtonsEnabled(false);
+    /* message d'erreur : QPropertyAnimation: you're trying to animate a non-existing property position of your QObject */
     m_displayMotion->start();
 }
 
@@ -770,5 +771,19 @@ void MainWindow::setAllButtonsEnabled(bool trueFalse)
     foreach(AbulEduFlatBoutonV1* enfant,ui->frmAireDeJeu->findChildren<AbulEduFlatBoutonV1 *>())
     {
         enfant->setEnabled(trueFalse);
+    }
+}
+
+void MainWindow::on_btnDebut_clicked()
+{
+    for(int i = 0;i < nomBtnRep.size();i++)
+    {
+        if(!nomBtnRep[i]->text().isEmpty())
+        {
+            int v = nomBtnRep[i]->text().toInt();
+            nomBtnRep[i]->setText(QString());
+            nomBtnNbre[v]->setEnabled(true);
+            nomBtnNbre[v]->setFont(fontBIG);
+        }
     }
 }

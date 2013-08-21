@@ -153,6 +153,7 @@ private slots:
     void on_btnJoker_clicked();
     /** Permet d'un seul appel de rendre tous les boutons de l'interface actifs ou inactifs */
     void setAllButtonsEnabled(bool trueFalse);
+    void on_btnDebut_clicked();
 };
 
 #endif // MAINWINDOW_H
