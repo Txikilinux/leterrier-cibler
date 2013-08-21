@@ -1,39 +1,54 @@
 <RCC>
-    <qresource prefix="/img">
-        <file>data/images/background-600x400.png</file>
-        <file>data/images/bad-80x80.png</file>
-        <file>data/images/fair-80x80.png</file>
-        <file>data/images/good-80x80.png</file>
-        <file>data/images/neutral-80x80.png</file>
-        <file>data/images/quit-24x24.png</file>
-        <file>data/images/pagefold-50x45.png</file>
+    <qresource prefix="/data/images">
+        <file alias="fermeture">data/images/fermer.png</file>
+        <file alias="background">data/images/fubuki-fond.jpg</file>
+        <file alias="rouleau">data/images/rouleau.png</file>
+        <file alias="top">data/images/fubuki-top.jpg</file>
+        <file alias="stock">data/images/pioche.png</file>
+        <file alias="fondChiffre">data/images/fond-chiffres.png</file>
     </qresource>
-    <qresource prefix="/cibler/backgrounds">
-        <file alias="roll">data/images/rouleau.png</file>
-        <file alias="mainFrame">data/images/fubuki-fond.jpg</file>
-        <file alias="topFrame">data/images/fubuki-top.jpg</file>
-        <file alias="leafFrame">data/images/fubuki-feuille.jpg</file>
-        <file alias="target1">data/images/cible1.png</file>
-        <file alias="target2">data/images/cible2.png</file>
-        <file alias="target3">data/images/cible3.png</file>
-        <file alias="arrow">data/images/fleche.png</file>
-        <file alias="target0">data/images/cible.png</file>
-    </qresource>
-    <qresource prefix="/cibler/buttons">
-        <file>data/images/good-80x80.png</file>
-        <file alias="helpHover">data/images/aide-hover.png</file>
-        <file alias="exitHover">data/images/quit-hover.png</file>
-        <file alias="exit">data/images/quit.png</file>
-        <file alias="newHover">data/images/nouveau-hover.png</file>
-        <file alias="new">data/images/nouveau.png</file>
-        <file alias="help">data/images/aide.png</file>
+    <qresource prefix="/data/buttons">
         <file alias="leaf">data/images/feuille.png</file>
-        <file alias="checkDisabled">data/images/verificationGris.png</file>
-        <file alias="levelsHover">data/images/niveaux-hover.png</file>
-        <file alias="numbers">data/images/nombres.png</file>
-        <file alias="numbersHover">data/images/nombres-hover.png</file>
-        <file alias="solution">data/images/poubelle.png</file>
-        <file alias="solutionHover">data/images/poubelle-hover.png</file>
-        <file alias="levels">data/images/niveaux.png</file>
+        <file alias="nouveauHover">data/images/nouveau-hover.png</file>
+        <file alias="nouveau">data/images/nouveau.png</file>
+        <file alias="sortie">data/images/quit.png</file>
+        <file alias="sortieHover">data/images/quit-hover.png</file>
+        <file alias="verificationHover">data/images/verif-hover.png</file>
+        <file alias="verificationDisabled">data/images/verif-gris.png</file>
+        <file alias="verification">data/images/verif.png</file>
+        <file alias="debutHover">data/images/debut-hover.png</file>
+        <file alias="debutDisabled">data/images/debut-gris.png</file>
+        <file alias="debut">data/images/debut.png</file>
+        <file alias="nombresHover">data/images/nombres-hover.png</file>
+        <file alias="nombresDisabled">data/images/nombres-gris.png</file>
+        <file alias="nombres">data/images/nombres.png</file>
+        <file alias="niveauxHover">data/images/niveaux-hover.png</file>
+        <file alias="niveauxDisabled">data/images/niveaux-gris.png</file>
+        <file alias="niveaux">data/images/niveaux.png</file>
+        <file alias="aideHover">data/images/aide-hover.png</file>
+        <file alias="aideDisabled">data/images/aide-gris.png</file>
+        <file alias="aide">data/images/aide.png</file>
+        <file alias="solutionHover">data/images/soluce-hover.png</file>
+        <file alias="solutionDisabled">data/images/soluce-gris.png</file>
+        <file alias="solution">data/images/soluce.png</file>
+        <file alias="showMinimized">data/images/fenetreReduit.png</file>
+        <file alias="showNormal">data/images/fenetreMoyen.png</file>
+        <file alias="showMaximized">data/images/fenetreGrand.png</file>
+    </qresource>
+    <qresource prefix="/data/belts">
+        <file alias="belt3">data/images/ceinture-bleu.png</file>
+        <file alias="belt0">data/images/ceinture-jaune.png</file>
+        <file alias="belt4">data/images/ceinture-marron.png</file>
+        <file alias="belt5">data/images/ceinture-noire.png</file>
+        <file alias="belt1">data/images/ceinture-orange.png</file>
+        <file alias="belt2">data/images/ceinture-verte.png</file>
+    </qresource>
+    <qresource prefix="/data/flags">
+        <file alias="de">data/images/de.png</file>
+        <file alias="en">data/images/en.png</file>
+        <file alias="es">data/images/es.png</file>
+        <file alias="fr">data/images/fr.png</file>
+        <file alias="it">data/images/it.png</file>
+        <file alias="oc">data/images/oc.png</file>
     </qresource>
 </RCC>

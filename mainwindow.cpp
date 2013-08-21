@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
+//    AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
 
     fontBIG.setPointSize(50);
     fontMEDIUM.setPointSize(18);
@@ -100,7 +100,6 @@ MainWindow::MainWindow(QWidget *parent) :
     setAbeExerciceName("Nombre Cible");
     setAbeSkill(trUtf8("stratégie d'anticipation"));
 
-    ui->menuBar->hide();
 
     setWindowFlags(Qt::CustomizeWindowHint);
 
@@ -108,14 +107,14 @@ MainWindow::MainWindow(QWidget *parent) :
     for(int i = 0; i < btns.count(); i++)
     {
         QString composant = btns.at(i)->whatsThis();
-        btns.at(i)->setIconeNormale(QString(":/cibler/buttons/%1").arg(composant));
+        btns.at(i)->setIconeNormale(QString(":/data/buttons/%1").arg(composant));
 
 #ifdef __ABULEDUTABLETTEV1__MODE__
-        btns.at(i)->setIconePressed(QString(":/cibler/buttons/%1Hover").arg(composant));
+        btns.at(i)->setIconePressed(QString(":/data/buttons/%1Hover").arg(composant));
 #else
-        btns.at(i)->setIconeSurvol(QString(":/cibler/buttons/%1Hover").arg(composant));
+        btns.at(i)->setIconeSurvol(QString(":/data/buttons/%1Hover").arg(composant));
 #endif
-        btns.at(i)->setIconeDisabled(QString(":/cibler/buttons/%1Disabled").arg(composant));
+        btns.at(i)->setIconeDisabled(QString(":/data/buttons/%1Disabled").arg(composant));
         btns.at(i)->setTexteAlignement(Qt::AlignLeft);
     }
 
@@ -130,7 +129,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //        }
     }
 #endif
-    foreach(AbulEduFlatBoutonV1* enfant,btns)
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
     {
         enfant->setCouleurFondPressed(QColor(255,255,255,50));
         enfant->setCouleurTexteSurvol(Qt::red);
@@ -187,7 +186,7 @@ void MainWindow::paintEvent(QPaintEvent *)
         enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
         enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
     }
-    ui->btnFeuille->setStyleSheet("QPushButton > *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:transparent;border-image:url(':/cibler/buttons/leaf');image-position: center;}");
+    ui->btnFeuille->setStyleSheet("QPushButton > *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:transparent;border-image:url(':/data/buttons/leaf');image-position: center;}");
 }
 
 #ifndef __ABULEDUTABLETTEV1__MODE__
