@@ -645,6 +645,7 @@ void MainWindow::slotEndSolution()
     AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible. Tu peux rejouer..."));
     msg->show();
     ui->btnNouveau->setEnabled(true);
+    m_isCanceled = false;
 }
 
 void MainWindow::on_btnLanguages_clicked()
