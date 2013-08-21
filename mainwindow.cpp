@@ -719,7 +719,7 @@ void MainWindow::slotChangeLangue()
     //foreach (QWidget *widget, QApplication::allWidgets()) widget->setLayoutDirection(Qt::RightToLeft);
     //Et un second qtranslator pour les traductions specifiques du
     //logiciel
-    myappTranslator.load("leterrier-cibler" + lang, "lang");
+    myappTranslator.load("leterrier-cibler_" + lang, "lang");
     qApp->installTranslator(&myappTranslator);
     ui->retranslateUi(this);
 }
