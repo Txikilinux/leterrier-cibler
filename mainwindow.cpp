@@ -153,7 +153,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->btnOc->setVisible(false);
     foreach(AbulEduFlatBoutonV1* btn, ui->frmChoixLangues->findChildren<AbulEduFlatBoutonV1*>())
     {
-        connect(btn, SIGNAL(clicked()),SLOT(slotChangeLangue()),Qt::UniqueConnection);
+        if(!btn->whatsThis().isEmpty())
+        {
+            connect(btn, SIGNAL(clicked()),SLOT(slotChangeLangue()),Qt::UniqueConnection);
+        }
     }
 
 #ifdef __ABULEDUTABLETTEV1__MODE__
@@ -426,7 +429,7 @@ void MainWindow::on_btnNouveau_clicked()
 void MainWindow::on_actionProposerCible_triggered() {
     niveau = FIXE;
     bool ok;
-    int n = QInputDialog::getInteger(this, trUtf8("Choisis une cible"), trUtf8("Nombre entier\n  entre 9 et 28"), 13, 9, 28, 1, &ok);
+    int n = QInputDialog::getInteger(this, trUtf8("Choisis une cible"), trUtf8("Nombre entier\n  entre 9 et 24"), 13, 9, 24, 1, &ok);
     if (ok)
         nbreCible = n;
     else {
@@ -578,7 +581,7 @@ void MainWindow::on_lineEditOrigine_returnPressed()
     int n = ui->lineEditOrigine->text().toInt(&ok);
     if (ok)
     {
-        if(n >= 9 && n <= 28)
+        if(n >= 9 && n <= 24)
         {
             nbreCible = n;
             initNbreCible();
@@ -586,7 +589,7 @@ void MainWindow::on_lineEditOrigine_returnPressed()
         }
         else
         {
-            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Problème"),trUtf8("Le nombre doit être compris entre 9 et 28"));
+            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Problème"),trUtf8("Le nombre doit être compris entre 9 et 24"));
             msg->show();
         }
     }
