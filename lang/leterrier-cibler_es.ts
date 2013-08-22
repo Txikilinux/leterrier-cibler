@@ -263,357 +263,358 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="20"/>
         <source>Nombre cible</source>
-        <translation type="unfinished"></translation>
+        <translation>Número meta</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="137"/>
         <source>LeTerrier - Cibler</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="200"/>
         <location filename="../mainwindow.ui" line="265"/>
         <location filename="../mainwindow.ui" line="1463"/>
         <source>new</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="398"/>
         <source>Cible</source>
-        <translation type="unfinished"></translation>
+        <translation>Meta</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="431"/>
         <location filename="../mainwindow.ui" line="523"/>
         <location filename="../mainwindow.ui" line="1702"/>
         <source>Annuler</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="557"/>
         <source>Marron</source>
-        <translation type="unfinished"></translation>
+        <translation>Marrón</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="591"/>
         <source>Orange</source>
-        <translation type="unfinished"></translation>
+        <translation>Naranja</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="625"/>
         <source>Noire</source>
-        <translation type="unfinished"></translation>
+        <translation>Negro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="659"/>
         <source>Jaune</source>
-        <translation type="unfinished"></translation>
+        <translation>Amarillo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="708"/>
         <location filename="../mainwindow.ui" line="2337"/>
         <source>9</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="732"/>
         <location filename="../mainwindow.ui" line="2193"/>
         <source>5</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="756"/>
         <location filename="../mainwindow.ui" line="2265"/>
         <source>7</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="780"/>
         <location filename="../mainwindow.ui" line="2094"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="804"/>
         <location filename="../mainwindow.ui" line="2127"/>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="828"/>
         <location filename="../mainwindow.ui" line="2229"/>
         <source>6</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="852"/>
         <location filename="../mainwindow.ui" line="2370"/>
         <source>3</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <location filename="../mainwindow.ui" line="2160"/>
         <source>4</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="900"/>
         <location filename="../mainwindow.ui" line="2301"/>
         <source>8</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="1162"/>
         <source>Vérification</source>
-        <translation type="unfinished"></translation>
+        <translation>Verificación</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1209"/>
         <source>Niveau</source>
-        <translation type="unfinished"></translation>
+        <translation>Nivel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1256"/>
         <location filename="../mainwindow.ui" line="1539"/>
         <source>Aide</source>
-        <translation type="unfinished"></translation>
+        <translation>Ayuda</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="1303"/>
         <source>Début</source>
-        <translation type="unfinished"></translation>
+        <translation>Inicio</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1344"/>
         <source>Solution</source>
-        <translation type="unfinished"></translation>
+        <translation>Solución</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1391"/>
         <source>Nombres</source>
-        <translation type="unfinished"></translation>
+        <translation>Números</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1416"/>
         <source>frmB</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1469"/>
         <source>&amp;Nouveau</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nuevo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1533"/>
         <source>help</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1603"/>
         <source>exit</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1609"/>
         <source>Sortie</source>
-        <translation type="unfinished"></translation>
+        <translation>Salida</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1737"/>
         <source>Oc</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1772"/>
         <source>Deutsch</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="1807"/>
         <source>Français</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1842"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1877"/>
         <source>Espanol</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="1912"/>
         <source>Italiano</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2061"/>
         <source>0</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2398"/>
         <source>Choisis un joker</source>
-        <translation type="unfinished"></translation>
+        <translation>Elige un comodín</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="2423"/>
         <source>Bientôt ici des informations et des liens concernant ce logiciel</source>
-        <translation type="unfinished"></translation>
+        <translation>Dentro de poco aqui informaciones sobre este software</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2442"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2453"/>
         <source>&amp;Quitter</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Salir</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2456"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="2461"/>
         <source>&amp;Débutant</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Principiante</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2466"/>
         <source>&amp;Avec joker</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Con comodín</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2471"/>
         <source>Avec joker</source>
-        <translation type="unfinished"></translation>
+        <translation>Con comodín</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2476"/>
         <source>&amp;Surcomptage</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sobrecuentas</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2481"/>
         <source>&amp;Calcul</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Cálculo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2486"/>
         <source>&amp;Proposer une cible</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Proponer una meta</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.ui" line="2491"/>
         <source>&amp;Journal de mes activités</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Libro de actividad</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="2496"/>
         <source>&amp;Changer d&apos;utilisateur</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Cambio de usuario</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.cpp" line="100"/>
         <source>Choisis dans la grille des nombres pour compléter correctement l&apos;addition. A tout moment, tu peux reprendre un nombre de l&apos;addition en cliquant dessus.</source>
-        <translation type="unfinished"></translation>
+        <translation>Elige en la tabla números para completar la suma. Si quieres, puedes quitar un número de la suma cliqueando.</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.cpp" line="102"/>
         <source>stratégie d&apos;anticipation</source>
-        <translation type="unfinished"></translation>
+        <translation>Estrategia de adelantado</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
         <source>niveau %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nivel %1</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.cpp" line="372"/>
         <source>Félicitations !!</source>
-        <translation type="unfinished"></translation>
+        <translation>Enhorabuena !!</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="372"/>
         <source>Tu peux maintenant
   prendre une nouvelle cible.</source>
-        <translation type="unfinished"></translation>
+        <translation>Puedes ahora elegir otra meta.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="375"/>
         <location filename="../mainwindow.cpp" line="392"/>
         <location filename="../mainwindow.cpp" line="419"/>
         <source>Atteindre la cible en 3 coups</source>
-        <translation type="unfinished"></translation>
+        <translation>3 golpes para alcanzar la meta</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="388"/>
         <source>Erreur !!</source>
-        <translation type="unfinished"></translation>
+        <translation>Error !!</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="388"/>
         <source>Je te demande
   de corriger...</source>
-        <translation type="unfinished"></translation>
+        <translation>Propone otra solución...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="419"/>
         <source>Pas de changement de niveau</source>
-        <translation type="unfinished"></translation>
+        <translation>Nivel igual</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="429"/>
         <source>Choisis une cible</source>
-        <translation type="unfinished"></translation>
+        <translation>Elige una meta</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="429"/>
         <source>Nombre entier
   entre 9 et 28</source>
-        <translation type="unfinished"></translation>
+        <translation>Número entero
+  entre 9 y 28</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.cpp" line="451"/>
         <source>Le bouton dragon est le joker. Il te donne la possibilité d&apos;utiliser n&apos;importe quel nombre entre 0 et 9</source>
-        <translation type="unfinished"></translation>
+        <translation>El dragón es un comodín. Te permite utilizar cualquier número entre 0 y 9</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.cpp" line="589"/>
         <location filename="../mainwindow.cpp" line="594"/>
         <source>Problème</source>
-        <translation type="unfinished"></translation>
+        <translation>Problema</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.cpp" line="589"/>
         <source>Le nombre doit être compris entre 9 et 28</source>
-        <translation type="unfinished"></translation>
+        <translation>El número tiene que ser incluido entre 9 y 28</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="594"/>
         <source>C&apos;est un nombre, %1 ?!</source>
-        <translation type="unfinished"></translation>
+        <translation>Es un número, %1 ?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="650"/>
         <source>A toi maintenant !!</source>
-        <translation type="unfinished"></translation>
+        <translation>A ti te toca, ahora !!</translation>
     </message>
     <message utf8="true">
         <location filename="../mainwindow.cpp" line="650"/>
         <source>Voilà, c&apos;était une solution possible. Tu peux rejouer...</source>
-        <translation type="unfinished"></translation>
+        <translation>Aquí está una solución. Puedas jugar de nuevo...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="799"/>
         <source>Coup de pouce !</source>
-        <translation type="unfinished"></translation>
+        <translation>Echar una mano !</translation>
     </message>
 </context>
 </TS>
