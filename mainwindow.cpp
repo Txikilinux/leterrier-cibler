@@ -186,7 +186,8 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         connect(btn, SIGNAL(clicked()),SLOT(slotSendJoker()),Qt::UniqueConnection);
     }
-    ui->btnJoker->setIconeNormale(":/data/images/boutonJoker");
+    ui->btnJoker->setIcones(":/data/images/boutonJoker",":/data/images/boutonJokerHover",":/data/images/boutonJokerHover","");
+    ui->btnJoker->setVisible(false);
 
     m_displayMotion = new QPropertyAnimation(ui->frmFondJoker, "position");
     m_displayMotion->setDuration(2000);
@@ -274,15 +275,8 @@ void MainWindow::initNbreCible() {
         connect(nomBtnNbre[i],SIGNAL(clicked()),SLOT(slotHideFrames()),Qt::UniqueConnection);
     }
     nomBtnNbre[0]->hide();
-    /* Gestion du joker */
-    if (niveau == DEBUTANT || niveau == FIXE)
-    {
-        ui->btnJoker->hide();
-    }
-    else {
-        ui->btnJoker->setVisible(true);
-        ui->btnJoker->setEnabled(false);
-    }
+    /* Gestion du joker : Toujours invisible maintenant au départ puisqu'on ne pouvait pas l'utiliser dès le début */
+
     /* Vider les btnRep */
     for (int i = 0; i < 3; i++) {
 
@@ -472,11 +466,11 @@ void MainWindow::gererJoker() {
         if (nomBtnRep[i]->text() != "") nbresChoisis << nomBtnRep[i]->text().toInt();
     if (nbresChoisis.length() == 2)
     {
-        ui->btnJoker->setEnabled(true);
+        ui->btnJoker->setVisible(true);
     }
     else
     {
-        ui->btnJoker->setEnabled(false);
+        ui->btnJoker->setVisible(false);
     }
 }
 

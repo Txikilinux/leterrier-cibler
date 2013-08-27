@@ -8,6 +8,7 @@
         <file alias="pioche">data/images/cadre-cibler-grand.png</file>
         <file alias="joker">data/images/cadre-cibler-joker.png</file>
         <file alias="boutonJoker">data/images/dragon.png</file>
+        <file alias="boutonJokerHover">data/images/dragon-hover.png</file>
     </qresource>
     <qresource prefix="/data/buttons">
         <file alias="leaf">data/images/feuille.png</file>

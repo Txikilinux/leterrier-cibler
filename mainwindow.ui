@@ -120,7 +120,6 @@ background-position: top right;
          <widget class="QLabel" name="lblTitre">
           <property name="font">
            <font>
-            <family>Andika Basic</family>
             <pointsize>-1</pointsize>
            </font>
           </property>
@@ -1936,21 +1935,21 @@ border-radius:5px;</string>
         <widget class="AbulEduFlatBoutonV1" name="btnJoker">
          <property name="geometry">
           <rect>
-           <x>397</x>
-           <y>407</y>
-           <width>80</width>
+           <x>408</x>
+           <y>410</y>
+           <width>69</width>
            <height>80</height>
           </rect>
          </property>
          <property name="minimumSize">
           <size>
-           <width>80</width>
+           <width>69</width>
            <height>80</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>80</width>
+           <width>69</width>
            <height>80</height>
           </size>
          </property>
