@@ -189,6 +189,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->btnJoker->setIcones(":/data/images/boutonJoker",":/data/images/boutonJokerHover",":/data/images/boutonJokerHover","");
     ui->btnJoker->setVisible(false);
 
+
     m_displayMotion = new QPropertyAnimation(ui->frmFondJoker, "position");
     m_displayMotion->setDuration(2000);
     m_displayMotion->setStartValue(QPointF(0,300));
@@ -276,7 +277,13 @@ void MainWindow::initNbreCible() {
     }
     nomBtnNbre[0]->hide();
     /* Gestion du joker : Toujours invisible maintenant au départ puisqu'on ne pouvait pas l'utiliser dès le début */
-
+    if (niveau == DEBUTANT || niveau == FIXE)
+    {
+        ui->btnJoker->hide();
+    }
+    else {
+        ui->btnJoker->setVisible(true);
+    }
     /* Vider les btnRep */
     for (int i = 0; i < 3; i++) {
 
@@ -339,7 +346,7 @@ void MainWindow::_btnNbre(int n) {
         nomBtnNbre[nbreChoisi]->setDisabled(true);
         nomBtnNbre[nbreChoisi]->setFont(fontMEDIUM);
     }
-    gererJoker();
+//    gererJoker();
     if (nbresChoisis.length() >=3 ) {
         int s = 0; // somme des nombres choisis
         for (int i = 0; i < 3; i++) s += nbresChoisis[i];
@@ -466,11 +473,11 @@ void MainWindow::gererJoker() {
         if (nomBtnRep[i]->text() != "") nbresChoisis << nomBtnRep[i]->text().toInt();
     if (nbresChoisis.length() == 2)
     {
-        ui->btnJoker->setVisible(true);
+        ui->btnJoker->setEnabled(true);
     }
     else
     {
-        ui->btnJoker->setVisible(false);
+        ui->btnJoker->setEnabled(false);
     }
 }
 
