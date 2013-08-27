@@ -51,5 +51,13 @@
         <file alias="fr">data/images/fr.png</file>
         <file alias="it">data/images/it.png</file>
         <file alias="oc">data/images/oc.png</file>
+        <file alias="ocHover">data/images/oc-hover.png</file>
+        <file alias="nlHover">data/images/nl-hover.png</file>
+        <file alias="nl">data/images/nl.png</file>
+        <file alias="itHover">data/images/it-hover.png</file>
+        <file alias="esHover">data/images/es-hover.png</file>
+        <file alias="enHover">data/images/en-hover.png</file>
+        <file alias="deHover">data/images/de-hover.png</file>
+        <file alias="frHover">data/images/fr-hover.png</file>
     </qresource>
 </RCC>
