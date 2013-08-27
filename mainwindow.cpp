@@ -277,10 +277,10 @@ void MainWindow::initNbreCible() {
         connect(nomBtnNbre[i],SIGNAL(clicked()),SLOT(slotHideFrames()),Qt::UniqueConnection);
     }
     nomBtnNbre[0]->hide();
-    /* Gestion du joker : Toujours invisible maintenant au départ puisqu'on ne pouvait pas l'utiliser dès le début */
-    if (niveau == DEBUTANT || niveau == FIXE)
+    /* Gestion du joker */
+    if (niveau == DEBUTANT || niveau == FIXE || niveau == CALCUL)
     {
-        ui->btnJoker->hide();
+        ui->btnJoker->setVisible(false);
     }
     else {
         ui->btnJoker->setVisible(true);
