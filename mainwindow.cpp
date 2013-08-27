@@ -511,6 +511,7 @@ void MainWindow::on_btnFeuille_clicked()
     }
     on_btnNombresFermer_clicked();
     on_btnNiveauAnnuler_clicked();
+    on_btnLangueAnnuler_clicked();
 }
 
 void MainWindow::on_btnSortie_clicked()
@@ -524,6 +525,7 @@ void MainWindow::on_btnNiveaux_clicked()
     ui->frmNiveau->raise();
     ui->btnNiveaux->setStyleSheet(ui->btnNiveaux->styleSheet().replace("background-color:rgba(0,0,0,0);","border-radius:5px;background-color:#ffffff;"));
     on_btnNombresFermer_clicked();
+    on_btnLangueAnnuler_clicked();
     if (ui->frmButtons->isVisible())
     {
         ui->frmButtons->setVisible(false);
@@ -538,6 +540,7 @@ void MainWindow::on_btnNombres_clicked()
     ui->frmChoixNombres->raise();
     ui->btnNombres->setStyleSheet(ui->btnNombres->styleSheet().replace("background-color:rgba(0,0,0,0);","border-radius:5px;background-color:#ffffff;"));
     on_btnNiveauAnnuler_clicked();
+    on_btnLangueAnnuler_clicked();
     if (ui->frmButtons->isVisible())
     {
         ui->frmButtons->setVisible(false);
