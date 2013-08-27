@@ -65,7 +65,7 @@ Source: "..\data\icones\leterrier-cibler-128.png"; DestDir: "{app}"; Flags: igno
 
 [Icons]
 Name: "{group}\Cibler"; Filename: "{app}\leterrier-cibler.exe"
-Name: "{commondesktop}\Cibler"; Filename: "{app}\leterrier-cibler.exe"; IconFilename: {app}\cibler.ico; IconIndex: 0;Tasks: desktopicon
+Name: "{commondesktop}\Cibler"; Filename: "{app}\leterrier-cibler.exe"; IconFilename: {app}\leterrier-cibler.ico; IconIndex: 0;Tasks: desktopicon
 
 [Run]
 Filename: "{app}\leterrier-cibler.exe"; Description: "{cm:LaunchProgram,Cibler}"; Flags: nowait postinstall skipifsilent
