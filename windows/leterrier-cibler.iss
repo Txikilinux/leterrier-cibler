@@ -17,7 +17,7 @@ DefaultGroupName=Le Terrier d'AbulEdu
 LicenseFile=..\gpl-2.0.txt
 OutputDir=.
 OutputBaseFilename=leterrier-cibler-LAVERSION-setup
-SetupIconFile=cibler.ico
+SetupIconFile=leterrier-cibler.ico
 ; WizardSmallImageFile=cibler.bmp
 Compression=lzma
 SolidCompression=yes
@@ -33,7 +33,7 @@ Name: "french"; MessagesFile: "compiler:Languages\French.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "leterrier-cibler.ico"; DestDir: "{app}\"
+;Source: "leterrier-cibler.ico"; DestDir: "{app}\"
 Source: "..\release\leterrier-cibler.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\data\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/code/quazip.dll"; DestDir: "{app}"; Flags: ignoreversion
