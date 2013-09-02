@@ -618,6 +618,7 @@ void MainWindow::donneReponse()
     int third = -1;
     if(nbreDonne == -1)
     {
+        qDebug()<<"cas 1";
         nbresChoisis.clear();
         while(first + second + third != nbreCible)
         {
@@ -633,11 +634,20 @@ void MainWindow::donneReponse()
     else
     {
         first = nbreDonne;
-        while(second == first || second==-1){
+        int but = nbreCible - nbreDonne;
+        while(second + third != but)
+        {
             second = rand()%9+1;
-        }
-        while(third == first || third == second || third==-1) {
-            third = rand()%9+1;
+            while(second == nbreDonne || second==-1){
+                second = rand()%9+1;
+                qDebug()<<"second "<<second;
+            }
+            while(third == nbreDonne || third == second || third==-1) {
+                third = rand()%9+1;
+                qDebug()<<"third "<<third;
+            }
+            qDebug()<<but;
+            qDebug()<<second+third;
         }
     }
     qDebug()<<first<<second<<third<<nbreCible;
