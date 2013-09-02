@@ -646,8 +646,6 @@ void MainWindow::donneReponse()
                 third = rand()%9+1;
                 qDebug()<<"third "<<third;
             }
-            qDebug()<<but;
-            qDebug()<<second+third;
         }
     }
     qDebug()<<first<<second<<third<<nbreCible;
