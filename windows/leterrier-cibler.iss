@@ -35,9 +35,10 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "..\release\leterrier-cibler.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\debian\*.desktop"; DestDir: "{app}"; Flags: ignoreversion
-Source: "leterrier-cibler.ico"; DestDir: "{app}\"
 Source: "..\release\leterrier-cibler.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\data\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+;Source: "..\exemples\*.abe"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
+;Source: "..\data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "../lang/*.qm"; DestDir: "{app}\lang"; Flags: ignoreversion
 Source: "C:/code/quazip.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:/code/exiv2/bin/libexiv2-12.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:/QtSDK/mingw/bin/libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
