@@ -17,7 +17,7 @@ DefaultGroupName=Le Terrier d'AbulEdu
 LicenseFile=..\gpl-2.0.txt
 OutputDir=.
 OutputBaseFilename=leterrier-cibler-LAVERSION-setup
-SetupIconFile=cibler.ico
+SetupIconFile=leterrier-cibler.ico
 ; WizardSmallImageFile=cibler.bmp
 Compression=lzma
 SolidCompression=yes
@@ -41,6 +41,9 @@ Source: "C:/code/exiv2/bin/libexiv2-12.dll"; DestDir: "{app}"; Flags: ignorevers
 Source: "C:/QtSDK/mingw/bin/libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/mingw/bin/mingwm10.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/mingw/bin/libgcc_s_dw2-1.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/libeay32.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/libssl32.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/ssleay32.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/QtScript4.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/QtNetwork4.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/QtGUI4.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -58,13 +61,24 @@ Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/plugins\imageformats/qtiff4.dll"; DestD
 Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/QtMultimedia4.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/plugins/phonon_backend\phonon_ds94.dll"; DestDir: "{app}\phonon_backend"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/phonon4.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+; pour alacarte > 1.0.8
+Source: "..\debian\*.desktop"; DestDir: "{win}\abuledu-alacarte\data\profile1.applications"; AfterInstall: UpdateDesktopPath; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\data\icones\leterrier-cibler-256.png"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: "..\debian\*.desktop"; DestDir: "{win}\abuledu-alacarte\data\profile1.applications"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{group}\Cibler"; Filename: "{app}\leterrier-cibler.exe"
-Name: "{commondesktop}\Cibler"; Filename: "{app}\leterrier-cibler.exe"; IconFilename: {app}\cibler.ico; IconIndex: 0;Tasks: desktopicon
+; Name: "{group}\Cibler"; Filename: "{app}\leterrier-cibler.exe"; WorkingDir: "{app}"
+; Name: "{commondesktop}\Cibler"; Filename: "{app}\leterrier-cibler.exe"; Tasks: desktopicon; WorkingDir: "{app}"
 
 [Run]
-Filename: "{app}\leterrier-cibler.exe"; Description: "{cm:LaunchProgram,Cibler}"; Flags: nowait postinstall skipifsilent
+; Filename: "{app}\leterrier-cibler.exe"; Description: "{cm:LaunchProgram,Cibler}"; Flags: nowait postinstall skipifsilent
 
+[Code]
+procedure UpdateDesktopPath();
+var Strings : TArrayOfString;
+begin
+  SetArrayLength(Strings, 1);
+  Strings[0] := 'X-Horizon-WindowsExecPath=' + ExpandConstant('{app}');
+
+  SaveStringsToFile(ExpandConstant('{win}') + '\abuledu-alacarte\data\profile1.applications\leterrier-mulot.desktop', Strings, True);
+end;
