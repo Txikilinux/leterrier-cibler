@@ -42,7 +42,7 @@ background-color:#813723;
       <number>0</number>
      </property>
      <item>
-      <widget class="QFrame" name="frmTop">
+      <widget class="AbulEduMenuFeuilleV1" name="frmMenuFeuille">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
@@ -63,269 +63,6 @@ background-position: top right;
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <layout class="QGridLayout" name="gridLayout_6">
-        <property name="margin">
-         <number>0</number>
-        </property>
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <item row="1" column="0">
-         <widget class="AbulEduFlatBoutonV1" name="btnFeuille">
-          <property name="minimumSize">
-           <size>
-            <width>40</width>
-            <height>39</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>40</width>
-            <height>39</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:rgba(6,109,255,255);image-position: center;}:hover{color:rgba(0,0,255,255);background-color:rgba(7,146,235,0);image-position: center;}:pressed{color:rgba(0,0,255,255);background-color:rgba(7,146,235,0);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
-          </property>
-          <property name="CouleurFondNormale" stdset="0">
-           <color>
-            <red>6</red>
-            <green>109</green>
-            <blue>255</blue>
-           </color>
-          </property>
-          <property name="CouleurFondSurvol" stdset="0">
-           <color alpha="0">
-            <red>7</red>
-            <green>146</green>
-            <blue>235</blue>
-           </color>
-          </property>
-          <property name="CouleurFondPressed" stdset="0">
-           <color alpha="0">
-            <red>7</red>
-            <green>146</green>
-            <blue>235</blue>
-           </color>
-          </property>
-          <property name="iconeNormale" stdset="0">
-           <string notr="true"/>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="lblTitre">
-          <property name="font">
-           <font>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="cursor">
-           <cursorShape>ArrowCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLabel {
-padding-left:20px;
-color:white;
-font-size:24px;
-}</string>
-          </property>
-          <property name="text">
-           <string>LeTerrier - Cibler</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>25</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="5">
-         <widget class="AbulEduFlatBoutonV1" name="btnMinimized">
-          <property name="minimumSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="whatsThis">
-           <string>new</string>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="CouleurTexteNormale" stdset="0">
-           <color>
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </property>
-          <property name="CouleurTexteSurvol" stdset="0">
-           <color>
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </property>
-          <property name="CouleurTextePressed" stdset="0">
-           <color>
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </property>
-          <property name="CouleurFondPressed" stdset="0">
-           <color alpha="50">
-            <red>6</red>
-            <green>109</green>
-            <blue>255</blue>
-           </color>
-          </property>
-          <property name="iconeNormale" stdset="0">
-           <string notr="true">:/data/buttons/showMinimized</string>
-          </property>
-          <property name="IconeSurvol" stdset="0">
-           <string notr="true"/>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="6">
-         <widget class="AbulEduFlatBoutonV1" name="btnFullScreen">
-          <property name="minimumSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>40</width>
-            <height>40</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="toolTip">
-           <string/>
-          </property>
-          <property name="whatsThis">
-           <string>new</string>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="CouleurTexteNormale" stdset="0">
-           <color>
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </property>
-          <property name="CouleurTexteSurvol" stdset="0">
-           <color>
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </property>
-          <property name="CouleurTextePressed" stdset="0">
-           <color>
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </property>
-          <property name="CouleurFondPressed" stdset="0">
-           <color alpha="50">
-            <red>6</red>
-            <green>109</green>
-            <blue>255</blue>
-           </color>
-          </property>
-          <property name="iconeNormale" stdset="0">
-           <string notr="true">:/data/buttons/showMaximized</string>
-          </property>
-          <property name="IconeSurvol" stdset="0">
-           <string notr="true"/>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="6">
-         <spacer name="verticalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>3</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="2">
-         <widget class="AbulEduFlatBoutonV1" name="btnLanguages">
-          <property name="minimumSize">
-           <size>
-            <width>48</width>
-            <height>29</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>48</width>
-            <height>29</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="flat">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
       </widget>
      </item>
      <item>
@@ -1107,7 +844,7 @@ background-position: top right;
            <x>923</x>
            <y>76</y>
            <width>90</width>
-           <height>461</height>
+           <height>458</height>
           </rect>
          </property>
          <property name="minimumSize">
@@ -1135,8 +872,96 @@ background-position: top right;
           <property name="margin">
            <number>0</number>
           </property>
-          <item row="0" column="1">
-           <widget class="AbulEduFlatBoutonV1" name="btnVerifier">
+          <item row="1" column="1">
+           <widget class="AbulEduFlatBoutonV1" name="btnRecommencer">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Andika Basic</family>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string notr="true">debut</string>
+            </property>
+            <property name="text">
+             <string>Début</string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data/buttons/debut</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data/buttons/debutHover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true"/>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data/buttons/debutDisabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="AbulEduFlatBoutonV1" name="btnNombres">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -1160,10 +985,10 @@ background-position: top right;
              <string/>
             </property>
             <property name="whatsThis">
-             <string notr="true">verification</string>
+             <string notr="true">nombres</string>
             </property>
             <property name="text">
-             <string>Vérification</string>
+             <string>Nombres</string>
             </property>
             <property name="iconSize">
              <size>
@@ -1174,9 +999,41 @@ background-position: top right;
             <property name="flat">
              <bool>true</bool>
             </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data/buttons/nombres</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data/buttons/nombresHover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true">:/data/buttons/nombresPressed</string>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data/buttons/nombresDisabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </property>
            </widget>
           </item>
-          <item row="5" column="1">
+          <item row="3" column="1">
            <widget class="AbulEduFlatBoutonV1" name="btnNiveaux">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -1221,10 +1078,115 @@ background-position: top right;
             <property name="flat">
              <bool>true</bool>
             </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data/buttons/niveaux</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data/buttons/niveauxHover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true">:/data/buttons/niveauxPressed</string>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data/buttons/niveauxDisabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </property>
            </widget>
           </item>
-          <item row="8" column="1">
-           <widget class="AbulEduFlatBoutonV1" name="btnInformation">
+          <item row="5" column="1">
+           <widget class="AbulEduFlatBoutonV1" name="btnAbandonner">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Andika Basic</family>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string notr="true">solution</string>
+            </property>
+            <property name="text">
+             <string>Solution</string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data/buttons/solution</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data/buttons/solutionHover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true">:/data/buttons/solutionPressed</string>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data/buttons/solutionDisabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="AbulEduFlatBoutonV1" name="btnAide">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -1268,103 +1230,44 @@ background-position: top right;
             <property name="flat">
              <bool>true</bool>
             </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data/buttons/aide</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data/buttons/aideHover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true">:/data/buttons/aidePressed</string>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data/buttons/aideDisabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="AbulEduFlatBoutonV1" name="btnDebut">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">debut</string>
-            </property>
-            <property name="text">
-             <string>Début</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="flat">
+          <item row="0" column="1">
+           <widget class="AbulEduFlatBoutonV1" name="btnVerifier">
+            <property name="enabled">
              <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="1">
-           <widget class="AbulEduFlatBoutonV1" name="btnAbandonner">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">solution</string>
-            </property>
-            <property name="text">
-             <string>Solution</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="AbulEduFlatBoutonV1" name="btnNombres">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
             </property>
             <property name="minimumSize">
              <size>
@@ -1389,10 +1292,10 @@ background-position: top right;
              <string/>
             </property>
             <property name="whatsThis">
-             <string notr="true">nombres</string>
+             <string notr="true">verification</string>
             </property>
             <property name="text">
-             <string>Nombres</string>
+             <string>Vérification</string>
             </property>
             <property name="iconSize">
              <size>
@@ -1403,74 +1306,23 @@ background-position: top right;
             <property name="flat">
              <bool>true</bool>
             </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QFrame" name="frmButtons">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>450</y>
-           <width>1024</width>
-           <height>98</height>
-          </rect>
-         </property>
-         <property name="whatsThis">
-          <string>frmB</string>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QFrame#frmButtons {
-background-color:rgba(203,106,89,255);
-border-top-left-radius: 0px;
-border-top-right-radius: 10px;
-border-bottom-right-radius: 10px;
-border-bottom-left-radius: 10px;
-}</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_7">
-          <property name="horizontalSpacing">
-           <number>10</number>
-          </property>
-          <item row="0" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnNouveau">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data/buttons/verification</string>
             </property>
-            <property name="maximumSize">
-             <size>
-              <width>92</width>
-              <height>92</height>
-             </size>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data/buttons/verificationHover</string>
             </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-             </font>
+            <property name="IconePressed" stdset="0">
+             <string notr="true">:/data/buttons/verificationPressed</string>
             </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data/buttons/verificationDisabled</string>
             </property>
-            <property name="toolTip">
-             <string/>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
             </property>
-            <property name="whatsThis">
-             <string>new</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
-            </property>
-            <property name="text">
-             <string>&amp;Nouveau</string>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
             </property>
             <property name="CouleurTexteNormale" stdset="0">
              <color>
@@ -1482,438 +1334,9 @@ border-bottom-left-radius: 10px;
             <property name="CouleurTexteSurvol" stdset="0">
              <color>
               <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
+              <green>0</green>
+              <blue>0</blue>
              </color>
-            </property>
-            <property name="CouleurTextePressed" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurFondPressed" stdset="0">
-             <color alpha="50">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="iconeNormale" stdset="0">
-             <string notr="true">:/data/buttons/nouveau</string>
-            </property>
-            <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data/buttons/nouveauHover</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="AbulEduFlatBoutonV1" name="btnAideFeuille">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>92</width>
-              <height>92</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string>help</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
-            </property>
-            <property name="text">
-             <string>Aide</string>
-            </property>
-            <property name="CouleurTexteNormale" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurTexteSurvol" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurTextePressed" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurFondPressed" stdset="0">
-             <color alpha="50">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="iconeNormale" stdset="0">
-             <string notr="true">:/data/buttons/aide</string>
-            </property>
-            <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data/buttons/aideHover</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="AbulEduFlatBoutonV1" name="btnSortie">
-            <property name="minimumSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>92</width>
-              <height>92</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string>exit</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
-            </property>
-            <property name="text">
-             <string>Sortie</string>
-            </property>
-            <property name="CouleurTexteNormale" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurTexteSurvol" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurTextePressed" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurFondPressed" stdset="0">
-             <color alpha="50">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="iconeNormale" stdset="0">
-             <string notr="true">:/data/buttons/sortie</string>
-            </property>
-            <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data/buttons/sortieHover</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QFrame" name="frmChoixLangues">
-         <property name="geometry">
-          <rect>
-           <x>200</x>
-           <y>140</y>
-           <width>124</width>
-           <height>191</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Andika Basic</family>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: #ffffff;
-border-radius:5px;</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_8">
-          <item row="12" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnLangueAnnuler">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:gray;</string>
-            </property>
-            <property name="text">
-             <string>Annuler</string>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnOc">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">oc</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:orange</string>
-            </property>
-            <property name="text">
-             <string>Oc</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnDe">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">de</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:black</string>
-            </property>
-            <property name="text">
-             <string>Deutsch</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnFr">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">fr</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: blue;</string>
-            </property>
-            <property name="text">
-             <string>Français</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnEn">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">en</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:red</string>
-            </property>
-            <property name="text">
-             <string>English</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnEs">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">es</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:#e8e226;</string>
-            </property>
-            <property name="text">
-             <string>Español</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnIt">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">it</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:green</string>
-            </property>
-            <property name="text">
-             <string>Italiano</string>
             </property>
            </widget>
           </item>
@@ -2405,9 +1828,6 @@ background-position: top right;
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
-         <zorder>frmNbresJoker</zorder>
-         <zorder>lblJoker</zorder>
-         <zorder>btnNiveauJaune</zorder>
         </widget>
        </widget>
        <widget class="QWidget" name="pageApropos">
@@ -2515,6 +1935,12 @@ background-position: top right;
    <class>AbulEduStackedWidgetV1</class>
    <extends>QStackedWidget</extends>
    <header>abuledustackedwidgetv1.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>AbulEduMenuFeuilleV1</class>
+   <extends>QFrame</extends>
+   <header>abuledumenufeuillev1.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

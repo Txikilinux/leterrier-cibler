@@ -1,27 +1,29 @@
 /**
-  * NombreCible (le terrier d'AbulEdu)
+  * Cibler (le Terrier d'AbulÉdu)
   *
   * @warning aucun traitement d'erreur n'est pour l'instant implémenté
-  * @see https://redmine.ryxeo.com/projects/
-  * @author 2009-2010 Andre Connes <andre dot connes at wanadoo dot fr>
+  * @see https://redmine.ryxeo.com/projects/leterrier-cibler
+  * @author 2010-2011 André Connes <andre.connes@wanadoo.fr>
+  * @author 2011 Jean-Louis Frucot <frucot.jeanlouis@free.fr>
+  * @author 2011-2013 Eric Seigne <eric.seigne@ryxeo.com>
+  * @author 2012-2013 Philippe Cadaugade <philippe.cadaugade@ryxeo.com>
+  * @author 2013 Icham Sirat <icham.sirat@ryxeo.com>
   * @see The GNU Public License (GPL)
+  *
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation; either version 2 of the License, or
+  * (at your option) any later version.
+  *
+  * This program is distributed in the hope that it will be useful, but
+  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+  * for more details.
+  *
+  * You should have received a copy of the GNU General Public License along
+  * with this program; if not, write to the Free Software Foundation, Inc.,
+  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
   */
-
-/*
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
- * for more details.
- *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
 
 #include "abuleduapplicationv1.h"
 #include "tete.h"
@@ -103,21 +105,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     setWindowFlags(Qt::CustomizeWindowHint);
+    connect(ui->frmMenuFeuille, SIGNAL(signalAbeMenuFeuilleChangeLanguage(QString)),this,SLOT(slotChangeLangue(QString)),Qt::UniqueConnection);
 
-    QList<AbulEduFlatBoutonV1 *> btns = ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>();
-    for(int i = 0; i < btns.count(); i++)
-    {
-        QString composant = btns.at(i)->whatsThis();
-        btns.at(i)->setIconeNormale(QString(":/data/buttons/%1").arg(composant));
-
-#ifdef __ABULEDUTABLETTEV1__MODE__
-        btns.at(i)->setIconePressed(QString(":/data/buttons/%1Hover").arg(composant));
-#else
-        btns.at(i)->setIconeSurvol(QString(":/data/buttons/%1Hover").arg(composant));
-#endif
-        btns.at(i)->setIconeDisabled(QString(":/data/buttons/%1Disabled").arg(composant));
-        btns.at(i)->setTexteAlignement(Qt::AlignLeft);
-    }
 
 #ifdef __ABULEDUTABLETTEV1__MODE__
     /// 15/01/2012 Icham -> mode tablette, pas de tooltips (pas de survol en mode tactile, et puis ça faisait des trucs bizarres parfois)
@@ -130,51 +119,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //        }
     }
 #endif
-    foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
-    {
-        enfant->setCouleurFondPressed(QColor(255,255,255,50));
-        enfant->setCouleurTexteSurvol(Qt::red);
-        enfant->setCouleurTexteNormale(Qt::white);
-        enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
-        enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
-    }
 
-    ui->vl_widgetContainer->removeWidget(ui->frmButtons);
-    ui->frmButtons->move(9,0);
-    ui->frmButtons->setVisible(false);
-    ui->frmButtons->adjustSize();
-
-    ui->btnLanguages->setIconeNormale(":/data/flags/fr");
-    ui->btnLanguages->setIconeSurvol(":/data/flags/frHover");
-    ui->frmChoixLangues->move(790,0);
-    ui->frmChoixLangues->setVisible(false);
-//    ui->btnEs->setVisible(false);
-    ui->btnIt->setVisible(false);
-    ui->btnDe->setVisible(false);
-    ui->btnOc->setVisible(false);
-    foreach(AbulEduFlatBoutonV1* btn, ui->frmChoixLangues->findChildren<AbulEduFlatBoutonV1*>())
-    {
-        if(!btn->whatsThis().isEmpty())
-        {
-            connect(btn, SIGNAL(clicked()),SLOT(slotChangeLangue()),Qt::UniqueConnection);
-        }
-    }
-
-#ifdef __ABULEDUTABLETTEV1__MODE__
-    ui->btnMinimized->setVisible(false);
-    ui->btnFullScreen->setVisible(false);
-#else
-    ui->btnMinimized->setCouleurFondSurvol(QColor(252,152,41));
-    ui->btnMinimized->setCouleurFondPressed(QColor(252,152,41));
-    ui->btnMinimized->setCouleurFondNormale(QColor(203,106,89));
-    ui->btnMinimized->setAllMargins(8,4,8,12);
-    ui->btnMinimized->setBorderRadius(4);
-    ui->btnFullScreen->setCouleurFondSurvol(QColor(252,152,41));
-    ui->btnFullScreen->setCouleurFondPressed(QColor(252,152,41));
-    ui->btnFullScreen->setCouleurFondNormale(QColor(203,106,89));
-    ui->btnFullScreen->setAllMargins(8,12,8,4);
-    ui->btnFullScreen->setBorderRadius(4);
-#endif
     ui->btnVerifier->setEnabled(false);
 
     /* Positionnement en dur puisque la hauteur de fenêtre "utile" est fixe */
@@ -221,48 +166,9 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
-void MainWindow::paintEvent(QPaintEvent *)
-{
-    foreach(AbulEduFlatBoutonV1* enfant,ui->frmButtons->findChildren<AbulEduFlatBoutonV1 *>())
-    {
-        enfant->setCouleurTexteSurvol(Qt::red);
-        enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
-        enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
-    }
-    ui->btnFeuille->setStyleSheet("QPushButton > *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:transparent;}");
-}
-
-#ifndef __ABULEDUTABLETTEV1__MODE__
-void MainWindow::mouseMoveEvent(QMouseEvent *event)
-{
-    if (m_isWindowMoving) {
-        move(event->globalPos() - m_dragPosition);
-        event->accept();
-    }
-
-}
-
-void MainWindow::mousePressEvent(QMouseEvent *event)
-{
-    if (event->button() == Qt::LeftButton && ui->lblTitre->rect().contains(event->pos())) {
-        m_dragPosition = event->globalPos() - frameGeometry().topLeft();
-        event->accept();
-        m_isWindowMoving = true;
-    }
-}
-
-void MainWindow::mouseReleaseEvent(QMouseEvent *event)
-{
-    Q_UNUSED(event);
-    m_isWindowMoving = false;
-}
-
-#endif
-
 void MainWindow::initNbreCible() {
 
     // effacer l'affichage
-    ui->btnNouveau->setDisabled(true);
     nErreurs = 0;
     m_isCanceled = false;
 
@@ -379,7 +285,6 @@ void MainWindow::verifier(int somme) {
             msg->show();
             setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, abeEvaluation());
             pushAbulEduLogs();
-            ui->btnNouveau->setDisabled(false);
             if (nExercice < MAXTETES) {
                 //            if (nErreurs == 0)
                 //                lstTetes[nExercice]->affiche(0);
@@ -414,7 +319,7 @@ void MainWindow::_btnRep(int n) {
     gererJoker();
 }
 
-void MainWindow::on_btnNouveau_clicked()
+void MainWindow::on_abeMenuFeuilleBtnNew_clicked()
 {
     nExercice++;
     if (nExercice >= MAXTETES && niveau < CALCUL)
@@ -498,23 +403,7 @@ void MainWindow::on_action_Changer_d_utilisateur_triggered()
     abeApp->getAbeNetworkAccessManager()->abeSSOLogin();
 }
 
-void MainWindow::on_btnFeuille_clicked()
-{
-    if (ui->frmButtons->isVisible())
-    {
-        ui->frmButtons->setVisible(false);
-    }
-    else
-    {
-        ui->frmButtons->setVisible(true);
-        ui->frmButtons->raise();
-    }
-    on_btnNombresFermer_clicked();
-    on_btnNiveauAnnuler_clicked();
-    on_btnLangueAnnuler_clicked();
-}
-
-void MainWindow::on_btnSortie_clicked()
+void MainWindow::on_abeMenuFeuilleBtnQuit_clicked()
 {
     close();
 }
@@ -525,11 +414,6 @@ void MainWindow::on_btnNiveaux_clicked()
     ui->frmNiveau->raise();
     ui->btnNiveaux->setStyleSheet(ui->btnNiveaux->styleSheet().replace("background-color:rgba(0,0,0,0);","border-radius:5px;background-color:#ffffff;"));
     on_btnNombresFermer_clicked();
-    on_btnLangueAnnuler_clicked();
-    if (ui->frmButtons->isVisible())
-    {
-        ui->frmButtons->setVisible(false);
-    }
 }
 
 void MainWindow::on_btnNombres_clicked()
@@ -540,11 +424,6 @@ void MainWindow::on_btnNombres_clicked()
     ui->frmChoixNombres->raise();
     ui->btnNombres->setStyleSheet(ui->btnNombres->styleSheet().replace("background-color:rgba(0,0,0,0);","border-radius:5px;background-color:#ffffff;"));
     on_btnNiveauAnnuler_clicked();
-    on_btnLangueAnnuler_clicked();
-    if (ui->frmButtons->isVisible())
-    {
-        ui->frmButtons->setVisible(false);
-    }
 }
 
 void MainWindow::on_btnNiveauAnnuler_clicked()
@@ -606,7 +485,6 @@ void MainWindow::on_lineEditOrigine_returnPressed()
 
 void MainWindow::slotHideFrames()
 {
-    ui->frmButtons->setVisible(false);
     on_btnNombresFermer_clicked();
     on_btnNiveauAnnuler_clicked();
 }
@@ -665,71 +543,11 @@ void MainWindow::slotEndSolution()
 {
     AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible. Tu peux rejouer..."));
     msg->show();
-    ui->btnNouveau->setEnabled(true);
     m_isCanceled = false;
 }
 
-void MainWindow::on_btnLanguages_clicked()
+void MainWindow::slotChangeLangue(QString lang)
 {
-    ui->frmChoixLangues->setVisible(true);
-    if (ui->frmButtons->isVisible())
-    {
-        ui->frmButtons->setVisible(false);
-    }
-    on_btnNombresFermer_clicked();
-    on_btnNiveauAnnuler_clicked();
-}
-
-void MainWindow::on_btnFr_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data/flags/fr");
-    ui->btnLanguages->setIconeSurvol(":/data/flags/frHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnEn_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data/flags/en");
-    ui->btnLanguages->setIconeSurvol(":/data/flags/enHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnEs_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data/flags/es");
-    ui->btnLanguages->setIconeSurvol(":/data/flags/esHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnIt_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data/flags/it");
-    ui->btnLanguages->setIconeSurvol(":/data/flags/itHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnDe_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data/flags/de");
-    ui->btnLanguages->setIconeSurvol(":/data/flags/deHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnOc_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data/flags/oc");
-    ui->btnLanguages->setIconeSurvol(":/data/flags/ocHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnLangueAnnuler_clicked()
-{
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::slotChangeLangue()
-{
-    QString lang = static_cast<AbulEduFlatBoutonV1*>(sender())->whatsThis();
     qApp->removeTranslator(&qtTranslator);
     qApp->removeTranslator(&myappTranslator);
 
@@ -746,33 +564,6 @@ void MainWindow::slotChangeLangue()
     ui->retranslateUi(this);
 }
 
-void MainWindow::on_btnMinimized_clicked()
-{
-    showMinimized();
-}
-
-void MainWindow::on_btnFullScreen_clicked()
-{
-    if(isFullScreen())
-    {
-        showNormal();
-        ui->centralWidget->move(0,0);
-        ui->widgetContainer->move(0,0);
-        ui->btnFullScreen->setIconeNormale(":/data/buttons/showMaximized");
-    }
-    else
-    {
-        QDesktopWidget *widget = QApplication::desktop();
-        int desktop_width = widget->width();
-        int desktop_height = widget->height();
-//        this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
-        ui->centralWidget->move((desktop_width-ui->centralWidget->width())/2, (desktop_height-ui->centralWidget->height())/2);
-        ui->widgetContainer->move((desktop_width-ui->widgetContainer->width())/2, (desktop_height-ui->widgetContainer->height())/2);
-        showFullScreen();
-        ui->btnFullScreen->setIconeNormale(":/data/buttons/showNormal");
-    }
-}
-
 void MainWindow::on_btnJoker_clicked()
 {
     ui->frmFondJoker->setVisible(true);
@@ -783,10 +574,6 @@ void MainWindow::on_btnJoker_clicked()
 
 void MainWindow::setAllButtonsEnabled(bool trueFalse)
 {
-    foreach(AbulEduFlatBoutonV1* enfant,ui->frmTop->findChildren<AbulEduFlatBoutonV1 *>())
-    {
-        enfant->setEnabled(trueFalse);
-    }
     foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
     {
         if(enfant->whatsThis() != "verification")
@@ -823,10 +610,9 @@ void MainWindow::on_btnInformation_clicked()
     msg->show();
 }
 
-void MainWindow::on_btnAideFeuille_clicked()
+void MainWindow::on_abeMenuFeuilleBtnHelp_clicked()
 {
     /* En attendant d'avoir avancé sur une nouvelle boite à propos, je vais ici appeler l'autre bouton aide, celui de la télécommande
     ui->stackedWidget->slideInWidget(ui->pageApropos); */
     on_btnInformation_clicked();
-    on_btnFeuille_clicked();
 }

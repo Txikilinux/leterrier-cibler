@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/data/images">
         <file alias="fermeture">data/images/fermer.png</file>
-        <file alias="background">data/images/fubuki-fond.jpg</file>
         <file alias="top">data/images/fubuki-top.jpg</file>
         <file alias="fondChiffre">data/images/fond-chiffres.png</file>
         <file alias="pli">data/images/cadre-cibler-petit.png</file>
@@ -9,6 +8,7 @@
         <file alias="joker">data/images/cadre-cibler-joker.png</file>
         <file alias="boutonJoker">data/images/dragon.png</file>
         <file alias="boutonJokerHover">data/images/dragon-hover.png</file>
+        <file alias="background">data/images/cibler-fond.jpg</file>
     </qresource>
     <qresource prefix="/data/buttons">
         <file alias="leaf">data/images/feuille.png</file>

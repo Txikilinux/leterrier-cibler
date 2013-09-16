@@ -2,5 +2,5 @@
 # application launcher
 (
     cd /usr/share/leterrier-cibler
-    exec /usr/lib/leterrier-cibler/NombreCible
+    exec /usr/lib/leterrier-cibler/leterrier-cibler
 )
