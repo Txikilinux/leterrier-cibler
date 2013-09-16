@@ -406,7 +406,7 @@ border-bottom-left-radius: 5px;</string>
         <widget class="QFrame" name="frmAireDeJeu">
          <property name="geometry">
           <rect>
-           <x>470</x>
+           <x>440</x>
            <y>165</y>
            <width>331</width>
            <height>331</height>
@@ -669,7 +669,7 @@ background-position: top right;
         <widget class="QFrame" name="frmAnswers">
          <property name="geometry">
           <rect>
-           <x>417</x>
+           <x>387</x>
            <y>25</y>
            <width>441</width>
            <height>121</height>
@@ -1361,7 +1361,7 @@ background-position: top right;
         <widget class="AbulEduFlatBoutonV1" name="btnJoker">
          <property name="geometry">
           <rect>
-           <x>408</x>
+           <x>378</x>
            <y>410</y>
            <width>69</width>
            <height>80</height>
