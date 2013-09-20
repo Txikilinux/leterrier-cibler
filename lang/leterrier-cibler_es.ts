@@ -266,328 +266,267 @@ p, li { white-space: pre-wrap; }
         <translation>Número meta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="137"/>
-        <source>LeTerrier - Cibler</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="178"/>
-        <location filename="../mainwindow.ui" line="243"/>
-        <location filename="../mainwindow.ui" line="1467"/>
-        <source>new</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Cible</source>
         <translation type="obsolete">Meta</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.ui" line="401"/>
+        <location filename="../mainwindow.ui" line="150"/>
         <source>Cible
 (0 à 24)</source>
         <translation>Meta
 (0 a 24)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="435"/>
-        <location filename="../mainwindow.ui" line="527"/>
-        <location filename="../mainwindow.ui" line="1706"/>
+        <location filename="../mainwindow.ui" line="184"/>
+        <location filename="../mainwindow.ui" line="276"/>
         <source>Annuler</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="561"/>
+        <location filename="../mainwindow.ui" line="310"/>
         <source>Marron</source>
         <translation>Marrón</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="595"/>
+        <location filename="../mainwindow.ui" line="344"/>
         <source>Orange</source>
         <translation>Naranja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="663"/>
+        <location filename="../mainwindow.ui" line="412"/>
         <source>Noire</source>
         <translation>Negro</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="629"/>
+        <location filename="../mainwindow.ui" line="378"/>
         <source>Jaune</source>
         <translation>Amarillo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="712"/>
-        <location filename="../mainwindow.ui" line="2341"/>
+        <location filename="../mainwindow.ui" line="461"/>
+        <location filename="../mainwindow.ui" line="1776"/>
         <source>9</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="736"/>
-        <location filename="../mainwindow.ui" line="2197"/>
+        <location filename="../mainwindow.ui" line="485"/>
+        <location filename="../mainwindow.ui" line="1632"/>
         <source>5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="760"/>
-        <location filename="../mainwindow.ui" line="2269"/>
+        <location filename="../mainwindow.ui" line="509"/>
+        <location filename="../mainwindow.ui" line="1704"/>
         <source>7</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="784"/>
-        <location filename="../mainwindow.ui" line="2098"/>
+        <location filename="../mainwindow.ui" line="533"/>
+        <location filename="../mainwindow.ui" line="1533"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="808"/>
-        <location filename="../mainwindow.ui" line="2131"/>
+        <location filename="../mainwindow.ui" line="557"/>
+        <location filename="../mainwindow.ui" line="1566"/>
         <source>2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="832"/>
-        <location filename="../mainwindow.ui" line="2233"/>
+        <location filename="../mainwindow.ui" line="581"/>
+        <location filename="../mainwindow.ui" line="1668"/>
         <source>6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="856"/>
-        <location filename="../mainwindow.ui" line="2374"/>
+        <location filename="../mainwindow.ui" line="605"/>
+        <location filename="../mainwindow.ui" line="1809"/>
         <source>3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="880"/>
-        <location filename="../mainwindow.ui" line="2164"/>
+        <location filename="../mainwindow.ui" line="629"/>
+        <location filename="../mainwindow.ui" line="1599"/>
         <source>4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="904"/>
-        <location filename="../mainwindow.ui" line="2305"/>
+        <location filename="../mainwindow.ui" line="653"/>
+        <location filename="../mainwindow.ui" line="1740"/>
         <source>8</source>
         <translation></translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.ui" line="1166"/>
+        <location filename="../mainwindow.ui" line="1310"/>
         <source>Vérification</source>
         <translation>Verificación</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1213"/>
+        <location filename="../mainwindow.ui" line="1082"/>
         <source>Niveau</source>
         <translation>Nivel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1260"/>
-        <location filename="../mainwindow.ui" line="1543"/>
+        <location filename="../mainwindow.ui" line="1234"/>
         <source>Aide</source>
         <translation>Ayuda</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.ui" line="1307"/>
+        <location filename="../mainwindow.ui" line="921"/>
         <source>Début</source>
         <translation>Inicio</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1348"/>
+        <location filename="../mainwindow.ui" line="1155"/>
         <source>Solution</source>
         <translation>Solución</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1395"/>
+        <location filename="../mainwindow.ui" line="1003"/>
         <source>Nombres</source>
         <translation>Números</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1420"/>
-        <source>frmB</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1473"/>
         <source>&amp;Nouveau</source>
-        <translation>&amp;Nuevo</translation>
+        <translation type="obsolete">&amp;Nuevo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1537"/>
-        <source>help</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1607"/>
-        <source>exit</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1613"/>
         <source>Sortie</source>
-        <translation>Salida</translation>
+        <translation type="obsolete">Salida</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1741"/>
-        <source>Oc</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1776"/>
-        <source>Deutsch</source>
-        <translation></translation>
-    </message>
-    <message utf8="true">
-        <location filename="../mainwindow.ui" line="1811"/>
-        <source>Français</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1846"/>
-        <source>English</source>
-        <translation></translation>
-    </message>
-    <message utf8="true">
-        <location filename="../mainwindow.ui" line="1881"/>
-        <source>Español</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="1916"/>
-        <source>Italiano</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="2065"/>
+        <location filename="../mainwindow.ui" line="1500"/>
         <source>0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2402"/>
+        <location filename="../mainwindow.ui" line="1837"/>
         <source>Choisis un joker</source>
         <translation>Elige un comodín</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.ui" line="2430"/>
+        <location filename="../mainwindow.ui" line="1862"/>
         <source>Bientôt ici des informations et des liens concernant ce logiciel</source>
         <translation>Dentro de poco aqui informaciones sobre este software</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2449"/>
+        <location filename="../mainwindow.ui" line="1881"/>
         <source>OK</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2460"/>
+        <location filename="../mainwindow.ui" line="1958"/>
         <source>&amp;Quitter</source>
         <translation>&amp;Salir</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2463"/>
+        <location filename="../mainwindow.ui" line="1961"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+S</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.ui" line="2468"/>
+        <location filename="../mainwindow.ui" line="1966"/>
         <source>&amp;Débutant</source>
         <translation>&amp;Principiante</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2473"/>
+        <location filename="../mainwindow.ui" line="1971"/>
         <source>&amp;Avec joker</source>
         <translation>&amp;Con comodín</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2478"/>
+        <location filename="../mainwindow.ui" line="1976"/>
         <source>Avec joker</source>
         <translation>Con comodín</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2483"/>
+        <location filename="../mainwindow.ui" line="1981"/>
         <source>&amp;Surcomptage</source>
         <translation>&amp;Sobrecuentas</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2488"/>
+        <location filename="../mainwindow.ui" line="1986"/>
         <source>&amp;Calcul</source>
         <translation>&amp;Cálculo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2493"/>
+        <location filename="../mainwindow.ui" line="1991"/>
         <source>&amp;Proposer une cible</source>
         <translation>&amp;Proponer una meta</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.ui" line="2498"/>
+        <location filename="../mainwindow.ui" line="1996"/>
         <source>&amp;Journal de mes activités</source>
         <translation>&amp;Libro de actividad</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="2503"/>
+        <location filename="../mainwindow.ui" line="2001"/>
         <source>&amp;Changer d&apos;utilisateur</source>
         <translation>&amp;Cambio de usuario</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="100"/>
+        <location filename="../mainwindow.cpp" line="102"/>
         <source>Choisis dans la grille des nombres pour compléter correctement l&apos;addition. A tout moment, tu peux reprendre un nombre de l&apos;addition en cliquant dessus.</source>
         <translation>Elige en la tabla los números para completar la suma. Si quieres, puedes quitar un número de la suma cliqueandole.</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="102"/>
+        <location filename="../mainwindow.cpp" line="104"/>
         <source>stratégie d&apos;anticipation</source>
         <translation>Estrategia de adelantado</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="318"/>
+        <location filename="../mainwindow.cpp" line="224"/>
         <source>niveau %1</source>
         <translation>Nivel %1</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="377"/>
+        <location filename="../mainwindow.cpp" line="283"/>
         <source>Félicitations !!</source>
         <translation>Enhorabuena !!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="377"/>
+        <location filename="../mainwindow.cpp" line="283"/>
         <source>Tu peux maintenant
   prendre une nouvelle cible.</source>
         <translation>Puedes ahora elegir otra meta.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
-        <location filename="../mainwindow.cpp" line="397"/>
-        <location filename="../mainwindow.cpp" line="424"/>
+        <location filename="../mainwindow.cpp" line="286"/>
+        <location filename="../mainwindow.cpp" line="302"/>
+        <location filename="../mainwindow.cpp" line="329"/>
         <source>Atteindre la cible en 3 coups</source>
         <translation>3 golpes para alcanzar la meta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="393"/>
+        <location filename="../mainwindow.cpp" line="298"/>
         <source>Erreur !!</source>
         <translation>Error !!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="393"/>
+        <location filename="../mainwindow.cpp" line="298"/>
         <source>Je te demande
   de corriger...</source>
         <translation>Propone otra solución...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="424"/>
+        <location filename="../mainwindow.cpp" line="329"/>
         <source>Pas de changement de niveau</source>
         <translation>Nivel igual</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="434"/>
+        <location filename="../mainwindow.cpp" line="339"/>
         <source>Choisis une cible</source>
         <translation>Elige una meta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="434"/>
+        <location filename="../mainwindow.cpp" line="339"/>
         <source>Nombre entier
   entre 9 et 24</source>
         <translation>Número entero
   de 9 a 24</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="597"/>
+        <location filename="../mainwindow.cpp" line="476"/>
         <source>Le nombre doit être compris entre 9 et 24</source>
         <translation>El número tiene que ser incluido entre 9 y 24</translation>
     </message>
@@ -598,13 +537,13 @@ p, li { white-space: pre-wrap; }
   entre 9 y 28</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="456"/>
+        <location filename="../mainwindow.cpp" line="361"/>
         <source>Le bouton dragon est le joker. Il te donne la possibilité d&apos;utiliser n&apos;importe quel nombre entre 0 et 9</source>
         <translation>El dragoncito es un joker. Te permite utilizar cualquier número de 0 a 9</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="597"/>
-        <location filename="../mainwindow.cpp" line="602"/>
+        <location filename="../mainwindow.cpp" line="476"/>
+        <location filename="../mainwindow.cpp" line="481"/>
         <source>Problème</source>
         <translation>Problema</translation>
     </message>
@@ -613,22 +552,22 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">El número tiene que ser incluido entre 9 y 28</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="602"/>
+        <location filename="../mainwindow.cpp" line="481"/>
         <source>C&apos;est un nombre, %1 ?!</source>
         <translation>Es un número, %1 ?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="666"/>
+        <location filename="../mainwindow.cpp" line="544"/>
         <source>A toi maintenant !!</source>
         <translation>Ahora es su turno !!</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="666"/>
+        <location filename="../mainwindow.cpp" line="544"/>
         <source>Voilà, c&apos;était une solution possible. Tu peux rejouer...</source>
         <translation>Aquí está una solución. Puedes jugar de nuevo...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="821"/>
+        <location filename="../mainwindow.cpp" line="608"/>
         <source>Coup de pouce !</source>
         <translation>Echar una mano !</translation>
     </message>
