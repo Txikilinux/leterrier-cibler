@@ -336,7 +336,7 @@ void MainWindow::on_abeMenuFeuilleBtnNew_clicked()
 void MainWindow::on_actionProposerCible_triggered() {
     niveau = FIXE;
     bool ok;
-    int n = QInputDialog::getInteger(this, trUtf8("Choisis une cible"), trUtf8("Nombre entier\n  entre 9 et 24"), 13, 9, 24, 1, &ok);
+    int n = QInputDialog::getInt(this, trUtf8("Choisis une cible"), trUtf8("Nombre entier\n  entre 9 et 24"), 13, 9, 24, 1, &ok);
     if (ok)
         nbreCible = n;
     else {
