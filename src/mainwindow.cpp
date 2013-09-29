@@ -44,42 +44,42 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-//    AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
+    //    AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
 
     fontBIG.setPointSize(50);
     fontMEDIUM.setPointSize(18);
     fontMINUS.setPointSize(10);
 
-     FIXE = 5;
-     DEBUTANT = 0;
-     JOKER = 1;
-     SURCOMPTAGE = 2;
-     CALCUL = 3;
-     MAXTETES = 4;
-     m_isCanceled = false;
+    FIXE = 5;
+    DEBUTANT = 0;
+    JOKER = 1;
+    SURCOMPTAGE = 2;
+    CALCUL = 3;
+    MAXTETES = 4;
+    m_isCanceled = false;
 
-     nomBtnNbre.clear();
-     for(int i = 0;i<10;i++)
-     {
-         foreach(AbulEduFlatBoutonV1* btn,ui->frmAireDeJeu->findChildren <AbulEduFlatBoutonV1 *>())
-         {
-             if(btn->objectName().endsWith(QString::number(i)))
-             {
-                 nomBtnNbre << btn;
-             }
-         }
-     }
-     nomBtnRep.clear();
-     for(int i = 0;i<10;i++)
-     {
-         foreach(AbulEduFlatBoutonV1* btn,ui->frmAnswers->findChildren <AbulEduFlatBoutonV1 *>())
-         {
-             if(btn->objectName().endsWith(QString::number(i)))
-             {
-                 nomBtnRep << btn;
-             }
-         }
-     }
+    nomBtnNbre.clear();
+    for(int i = 0;i<10;i++)
+    {
+        foreach(AbulEduFlatBoutonV1* btn,ui->frmAireDeJeu->findChildren <AbulEduFlatBoutonV1 *>())
+        {
+            if(btn->objectName().endsWith(QString::number(i)))
+            {
+                nomBtnNbre << btn;
+            }
+        }
+    }
+    nomBtnRep.clear();
+    for(int i = 0;i<10;i++)
+    {
+        foreach(AbulEduFlatBoutonV1* btn,ui->frmAnswers->findChildren <AbulEduFlatBoutonV1 *>())
+        {
+            if(btn->objectName().endsWith(QString::number(i)))
+            {
+                nomBtnRep << btn;
+            }
+        }
+    }
     foreach(AbulEduFlatBoutonV1* btn,nomBtnRep)
     {
         int nbFleches = btn->objectName().remove("btnRep").toInt() + 1;
@@ -88,11 +88,11 @@ MainWindow::MainWindow(QWidget *parent) :
         btn->setCouleursTexte(QColor(154,68,45,255),QColor(93,23,15,255),QColor(93,23,15,255),QColor(93,23,15,255));
     }
 
-//    for (int i = 0; i < MAXTETES; i++) {
-//        Tete * tete = new Tete(ui->centralWidget, 15+50*i, 295);
-//        tete->affiche();
-//        lstTetes.append(tete);
-//    }
+    //    for (int i = 0; i < MAXTETES; i++) {
+    //        Tete * tete = new Tete(ui->centralWidget, 15+50*i, 295);
+    //        tete->affiche();
+    //        lstTetes.append(tete);
+    //    }
 
     niveau = DEBUTANT;
     nExercice = 0;
@@ -114,9 +114,9 @@ MainWindow::MainWindow(QWidget *parent) :
     // on cherche tous les enfants, et on leur met une chaine vide en tooltips (= desactivation)
     foreach (QWidget *obj, findChildren<QWidget*>()) {
         obj->setToolTip("");
-//        if(dynamic_cast<AbulEduFlatBoutonV1*>(obj)){
-//            dynamic_cast<AbulEduFlatBoutonV1*>(obj)->setIconeSurvol(dynamic_cast<AbulEduFlatBoutonV1*>(obj)->getIconeNormale());
-//        }
+        //        if(dynamic_cast<AbulEduFlatBoutonV1*>(obj)){
+        //            dynamic_cast<AbulEduFlatBoutonV1*>(obj)->setIconeSurvol(dynamic_cast<AbulEduFlatBoutonV1*>(obj)->getIconeNormale());
+        //        }
     }
 #endif
 
@@ -141,11 +141,12 @@ MainWindow::MainWindow(QWidget *parent) :
     m_displayMotion->setStartValue(QPointF(0,300));
     m_displayMotion->setEndValue(QPointF(300,300));
 
+#if !defined(Q_OS_ANDROID)
     QDesktopWidget *widget = QApplication::desktop();
     int desktop_width = widget->width();
     int desktop_height = widget->height();
     this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
-
+#endif
     initNbreCible();
 }
 
@@ -253,7 +254,7 @@ void MainWindow::_btnNbre(int n) {
         nomBtnNbre[nbreChoisi]->setDisabled(true);
         nomBtnNbre[nbreChoisi]->setFont(fontMEDIUM);
     }
-//    gererJoker();
+    //    gererJoker();
     if (nbresChoisis.length() >=3 ) {
         int s = 0; // somme des nombres choisis
         for (int i = 0; i < 3; i++) s += nbresChoisis[i];
@@ -270,9 +271,9 @@ int rechercherVide(QList <AbulEduFlatBoutonV1 *> s) {
 
 QString MainWindow::abeEvaluation() {
     if (nErreurs == 0)
-       return "a";
+        return "a";
     else if (nErreurs == 1)
-       return "b";
+        return "b";
     return "c";
 }
 
@@ -324,11 +325,11 @@ void MainWindow::on_abeMenuFeuilleBtnNew_clicked()
     nExercice++;
     if (nExercice >= MAXTETES && niveau < CALCUL)
         if (cumulErreurs < 4)
-           _niveau(niveau+1);
+            _niveau(niveau+1);
         else {
             setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, "d", "", "", trUtf8("Pas de changement de niveau"));
-           _niveau(niveau);
-       }
+            _niveau(niveau);
+        }
     else
         initNbreCible();
 }
@@ -354,8 +355,8 @@ void MainWindow::_niveau(int n) {
     niveau = n;
     nExercice = 0;
     cumulErreurs = 0;
-//    for (int i = 0; i < MAXTETES; i++)
-////        lstTetes[i]->affiche(-1);
+    //    for (int i = 0; i < MAXTETES; i++)
+    ////        lstTetes[i]->affiche(-1);
     if(n > 0)
     {
         m_messageAide = trUtf8("Le bouton dragon est le joker. Il te donne la possibilité d'utiliser n'importe quel nombre entre 0 et 9");
@@ -577,7 +578,7 @@ void MainWindow::setAllButtonsEnabled(bool trueFalse)
     foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
     {
         if(enfant->whatsThis() != "verification")
-          enfant->setEnabled(trueFalse);
+            enfant->setEnabled(trueFalse);
     }
     foreach(AbulEduFlatBoutonV1* enfant,ui->frmAnswers->findChildren<AbulEduFlatBoutonV1 *>())
     {

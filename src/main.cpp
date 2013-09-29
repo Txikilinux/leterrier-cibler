@@ -35,6 +35,10 @@ int main(int argc, char *argv[])
     a.setAbeApplicationLongName(QObject::trUtf8(VER_FILEDESCRIPTION_STR));
 
     MainWindow w;
+#if defined(Q_OS_ANDROID)
+    w.showFullScreen();
+#else
     w.show();
+#endif
     return a.exec();
 }
