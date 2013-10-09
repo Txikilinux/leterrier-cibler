@@ -33,7 +33,9 @@ SOURCES += abuleduaproposv0.cpp main.cpp mainwindow.cpp tete.cpp \
 
 RESOURCES += NombreCible.qrc
 
-RC_FILE = windows/icon.rc
+win32 {
+  RC_FILE = ../windows/icon.rc
+}
 
 include(lib/abuleduapplicationv1/abuleduapplicationv1.pri)
 include(lib/abuleduconstantesv1/abuleduconstantesv1.pri)
