@@ -1,5 +1,8 @@
 #!/bin/bash
-ICON=/usr/share/applications/leterrier-cibler.desktop
+
+APPNAME=leterrier-cibler
+
+ICON=/usr/share/applications/${APPNAME}.desktop
 ALACARTEDIR=/usr/share/abuledu-alacarte/data/profile1.applications/
 
 xdg-desktop-menu install  --novendor --mode system ${ICON}
