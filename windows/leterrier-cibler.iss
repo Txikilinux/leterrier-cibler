@@ -4,7 +4,7 @@
 #define EXECNAME "leterrier-cibler"
 #define ICONNAME "leterrier-cibler"
 #define DIRNAME "cibler"
-#define APPNAME "Le Terrier d'AbulEdu - Le nombre cible"
+#define APPNAME "Le Terrier d'AbulEdu - Cibler"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
