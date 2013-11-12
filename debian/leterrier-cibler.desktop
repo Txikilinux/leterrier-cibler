@@ -1,13 +1,9 @@
-
 [Desktop Entry]
 Version=1.0
 Type=Application
 Terminal=false
-Icon[fr]=/usr/share/leterrier-cibler/data/images/cibler-256.png
-Name[fr]=leterrier-cibler
 Exec=leterrier-cibler
-Comment[fr]=Atteindre la cible en trois coups
-Name=AbulEdu Nombre Cible
+Name=AbulEdu Cibler
 Comment=Atteindre la cible en trois coups
-Icon=/usr/share/leterrier-cibler/data/images/cibler-256.png
+Icon=/usr/share/leterrier-cibler/leterrier-cibler-256.png
 Categories=Education;
