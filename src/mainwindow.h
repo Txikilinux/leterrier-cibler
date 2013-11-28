@@ -156,6 +156,7 @@ private slots:
     void donneReponse();
     void on_btnAbandonner_clicked();
     void slotEndSolution();
+    void slotEndSolutionJoker();
 
     void slotSendJoker();
 

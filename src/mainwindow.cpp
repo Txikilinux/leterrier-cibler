@@ -88,12 +88,6 @@ MainWindow::MainWindow(QWidget *parent) :
         btn->setCouleursTexte(QColor(154,68,45,255),QColor(93,23,15,255),QColor(93,23,15,255),QColor(93,23,15,255));
     }
 
-    //    for (int i = 0; i < MAXTETES; i++) {
-    //        Tete * tete = new Tete(ui->centralWidget, 15+50*i, 295);
-    //        tete->affiche();
-    //        lstTetes.append(tete);
-    //    }
-
     niveau = DEBUTANT;
     nExercice = 0;
     nErreurs = 0;
@@ -191,6 +185,7 @@ void MainWindow::initNbreCible() {
     }
     else {
         ui->btnJoker->setVisible(true);
+        ui->btnJoker->setEnabled(true);
     }
     /* Vider les btnRep */
     for (int i = 0; i < 3; i++) {
@@ -371,20 +366,14 @@ void MainWindow::slotSendJoker()
     int ind = btn->objectName().remove("btn").toInt();
     _btnNbre(ind);
     ui->frmFondJoker->setVisible(false);
+    ui->btnJoker->setEnabled(false);
     setAllButtonsEnabled(true);
 }
 
 void MainWindow::gererJoker() {
     nbresChoisis.clear();
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 3; i++) {
         if (nomBtnRep[i]->text() != "") nbresChoisis << nomBtnRep[i]->text().toInt();
-    if (nbresChoisis.length() == 2)
-    {
-        ui->btnJoker->setEnabled(true);
-    }
-    else
-    {
-        ui->btnJoker->setEnabled(false);
     }
 }
 
@@ -492,9 +481,11 @@ void MainWindow::slotHideFrames()
 
 void MainWindow::donneReponse()
 {
+    qDebug()<<" solution demandée, le premier nombre est "<<nbreDonne;
     int first = -1;
     int second = -1;
     int third = -1;
+    bool useAgain = false;
     if(nbreDonne == -1)
     {
         qDebug()<<"cas 1";
@@ -521,17 +512,37 @@ void MainWindow::donneReponse()
                 second = rand()%9+1;
                 qDebug()<<"second "<<second;
             }
-            while(third == nbreDonne || third == second || third==-1) {
+            QList<int> used;
+            used << first << second;
+            while((third == nbreDonne || third == second || third==-1) && !useAgain) {
                 third = rand()%9+1;
+                if(!used.contains(third)){
+                    used << third;
+                    /* Si on a essayé tous les chiffres */
+                    if(used.size() > 9){
+                        useAgain = true;
+                        while(third == nbreDonne || third==-1)
+                        {
+                            third = rand()%9+1;
+                        }
+                    }
+                }
                 qDebug()<<"third "<<third;
             }
         }
     }
     qDebug()<<first<<second<<third<<nbreCible;
-    QTimer::singleShot(1000, nomBtnNbre[first], SLOT(click()));
+    if(first != nbreDonne) {
+        QTimer::singleShot(1000, nomBtnNbre[first], SLOT(click()));
+    }
     QTimer::singleShot(2000, nomBtnNbre[second], SLOT(click()));
     QTimer::singleShot(3000, nomBtnNbre[third], SLOT(click()));
-    QTimer::singleShot(5000, this, SLOT(slotEndSolution()));
+    if(useAgain){
+        QTimer::singleShot(5000, this, SLOT(slotEndSolutionJoker()));
+    }
+    else {
+        QTimer::singleShot(5000, this, SLOT(slotEndSolution()));
+    }
 }
 
 void MainWindow::on_btnAbandonner_clicked()
@@ -543,6 +554,13 @@ void MainWindow::on_btnAbandonner_clicked()
 void MainWindow::slotEndSolution()
 {
     AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible. Tu peux rejouer..."));
+    msg->show();
+    m_isCanceled = false;
+}
+
+void MainWindow::slotEndSolutionJoker()
+{
+    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible, mais il fallait utiliser le joker... Tu peux rejouer..."));
     msg->show();
     m_isCanceled = false;
 }
