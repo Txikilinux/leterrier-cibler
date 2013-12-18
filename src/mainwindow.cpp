@@ -276,7 +276,7 @@ void MainWindow::verifier(int somme) {
     if(!m_isCanceled)
     {
         if (somme == nbreCible) {
-            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"),trUtf8("Tu peux maintenant\n  prendre une nouvelle cible."));
+            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"),trUtf8("Tu peux maintenant\n  prendre une nouvelle cible."),true, ui->pagePrincipale);
             msg->setWink();
             msg->show();
             setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0, abeEvaluation());
@@ -291,7 +291,7 @@ void MainWindow::verifier(int somme) {
             }
         }
         else {
-            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Erreur !!"),trUtf8("Je te demande\n  de corriger..."));
+            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Erreur !!"),trUtf8("Je te demande\n  de corriger..."),true, ui->pagePrincipale);
             msg->show();
             nErreurs++;
             cumulErreurs++;
@@ -463,12 +463,12 @@ void MainWindow::on_lineEditOrigine_returnPressed()
         }
         else
         {
-            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Problème"),trUtf8("Le nombre doit être compris entre 9 et 24"));
+            AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Problème"),trUtf8("Le nombre doit être compris entre 9 et 24"),true, ui->pagePrincipale);
             msg->show();
         }
     }
     else {
-        AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Problème"),trUtf8("C'est un nombre, %1 ?!").arg(ui->lineEditOrigine->text()));
+        AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Problème"),trUtf8("C'est un nombre, %1 ?!").arg(ui->lineEditOrigine->text()),true, ui->pagePrincipale);
         msg->show();
     }
 }
@@ -553,14 +553,14 @@ void MainWindow::on_btnAbandonner_clicked()
 
 void MainWindow::slotEndSolution()
 {
-    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible. Tu peux rejouer..."));
+    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible. Tu peux rejouer..."),true, ui->pagePrincipale);
     msg->show();
     m_isCanceled = false;
 }
 
 void MainWindow::slotEndSolutionJoker()
 {
-    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible, mais il fallait utiliser le joker... Tu peux rejouer..."));
+    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible, mais il fallait utiliser le joker... Tu peux rejouer..."),true, ui->pagePrincipale);
     msg->show();
     m_isCanceled = false;
 }
@@ -624,7 +624,7 @@ void MainWindow::on_btnDebut_clicked()
 
 void MainWindow::on_btnInformation_clicked()
 {
-    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !"),m_messageAide);
+    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !"),m_messageAide,true, ui->pagePrincipale);
     msg->setWink();
     msg->show();
 }
