@@ -28,7 +28,6 @@
 #include "abuleduapplicationv1.h"
 #include "tete.h"
 #include "mainwindow.h"
-#include "abuleduaproposv0.h"
 #include "abuleduexercicev0.h"
 #include "ui_mainwindow.h"
 #include <QtCore>
@@ -141,6 +140,7 @@ MainWindow::MainWindow(QWidget *parent) :
     int desktop_height = widget->height();
     this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
 #endif
+    connect(ui->pageAbout, SIGNAL(signalAbeAproposBtnCloseClicked()), this, SLOT(slotMainWindowShowMainPage()),Qt::UniqueConnection);
     initNbreCible();
 }
 
@@ -610,7 +610,11 @@ void MainWindow::setAllButtonsEnabled(bool trueFalse)
 
 void MainWindow::on_btnDebut_clicked()
 {
-    for(int i = 0;i < nomBtnRep.size();i++)
+    int prems = 0;
+    if(nomBtnRep.size() > 0 && (niveau == SURCOMPTAGE || niveau == CALCUL)){
+        prems = 1;
+    }
+    for(int i = prems;i < nomBtnRep.size();i++)
     {
         if(!nomBtnRep[i]->text().isEmpty())
         {
@@ -631,7 +635,10 @@ void MainWindow::on_btnInformation_clicked()
 
 void MainWindow::on_abeMenuFeuilleBtnHelp_clicked()
 {
-    /* En attendant d'avoir avancé sur une nouvelle boite à propos, je vais ici appeler l'autre bouton aide, celui de la télécommande
-    ui->stackedWidget->slideInWidget(ui->pageApropos); */
-    on_btnInformation_clicked();
+    ui->stackedWidget->slideInWidget(ui->pageAbout);
+}
+
+void MainWindow::slotMainWindowShowMainPage()
+{
+    ui->stackedWidget->slideInWidget(ui->pagePrincipale);
 }

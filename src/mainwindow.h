@@ -32,7 +32,7 @@
 #include <QList>
 #include <QDesktopWidget>
 #include <tete.h>
-#include "abuleduaproposv0.h"
+#include "abuleduaproposv1.h"
  #include "abuleduexercicev0.h"
 #include "abuleduflatboutonv1.h"
 
@@ -170,6 +170,9 @@ private slots:
     void on_abeMenuFeuilleBtnNew_clicked();
     void on_abeMenuFeuilleBtnQuit_clicked();
     void on_abeMenuFeuilleBtnHelp_clicked();
+
+    /** Force l'affichage de la page principale */
+    void slotMainWindowShowMainPage();
 };
 
 #endif // MAINWINDOW_H

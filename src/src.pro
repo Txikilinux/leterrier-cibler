@@ -22,13 +22,12 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-HEADERS += abuleduaproposv0.h mainwindow.h tete.h \
+HEADERS += mainwindow.h tete.h \
     abuleduexercicev0.h version.h
 
-FORMS += mainwindow.ui \
-    abuleduaproposv0.ui
+FORMS += mainwindow.ui
 
-SOURCES += abuleduaproposv0.cpp main.cpp mainwindow.cpp tete.cpp \
+SOURCES += main.cpp mainwindow.cpp tete.cpp \
     abuleduexercicev0.cpp
 
 RESOURCES += NombreCible.qrc
@@ -51,3 +50,4 @@ include(lib/abuledumenufeuillev1/abuledumenufeuillev1.pri)
 include(lib/abuledusingletonv1/abuledusingletonv1.pri)
 include(lib/abuledupluginloaderv1/abuledupluginloaderv1.pri)
 include(lib/abuleduloggerv1/abuleduloggerv1.pri)
+include(lib/abuleduaproposv1/abuleduaproposv1.pri)

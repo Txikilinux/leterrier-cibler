@@ -26,7 +26,6 @@
 
 #include "abuleduapplicationv1.h"
 #include "mainwindow.h"
-#include "abuleduaproposv0.h"
 #include "version.h"
 
 int main(int argc, char *argv[])
