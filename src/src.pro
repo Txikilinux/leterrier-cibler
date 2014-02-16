@@ -4,7 +4,6 @@
 
 QT += script xml network
 
-TARGET = leterrier-mulot
 TEMPLATE = app
 
 TARGET = leterrier-cibler
