@@ -261,7 +261,7 @@ border-bottom-left-radius: 5px;</string>
             <enum>QFrame::Raised</enum>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
-            <item row="7" column="0">
+            <item row="8" column="0">
              <widget class="AbulEduFlatBoutonV1" name="btnNiveauAnnuler">
               <property name="minimumSize">
                <size>
@@ -296,7 +296,7 @@ border-bottom-left-radius: 5px;</string>
              </widget>
             </item>
             <item row="3" column="0">
-             <widget class="AbulEduFlatBoutonV1" name="btnNiveauMarron">
+             <widget class="AbulEduFlatBoutonV1" name="btnLevelDifficult">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -325,12 +325,12 @@ border-bottom-left-radius: 5px;</string>
                <string notr="true">color:#85582d;</string>
               </property>
               <property name="text">
-               <string>Marron</string>
+               <string>Difficile</string>
               </property>
              </widget>
             </item>
-            <item row="4" column="0">
-             <widget class="AbulEduFlatBoutonV1" name="btnNiveauOrange">
+            <item row="5" column="0">
+             <widget class="AbulEduFlatBoutonV1" name="btnLevelEasy">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -359,12 +359,12 @@ border-bottom-left-radius: 5px;</string>
                <string notr="true">color:#f15c28;</string>
               </property>
               <property name="text">
-               <string>Orange</string>
+               <string>Facile</string>
               </property>
              </widget>
             </item>
-            <item row="6" column="0">
-             <widget class="AbulEduFlatBoutonV1" name="btnNiveauJaune">
+            <item row="7" column="0">
+             <widget class="AbulEduFlatBoutonV1" name="btnLevelVeryEasy">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -393,12 +393,12 @@ border-bottom-left-radius: 5px;</string>
                <string notr="true">color:#e8e226;</string>
               </property>
               <property name="text">
-               <string>Jaune</string>
+               <string>Très facile</string>
               </property>
              </widget>
             </item>
             <item row="2" column="0">
-             <widget class="AbulEduFlatBoutonV1" name="btnNiveauNoire">
+             <widget class="AbulEduFlatBoutonV1" name="btnLevelVeryDifficult">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -427,7 +427,40 @@ border-bottom-left-radius: 5px;</string>
                <string notr="true"/>
               </property>
               <property name="text">
-               <string>Noire</string>
+               <string>Très difficile</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="AbulEduFlatBoutonV1" name="btnLevelMedium">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: green;</string>
+              </property>
+              <property name="text">
+               <string>Moyen</string>
               </property>
              </widget>
             </item>

@@ -69,7 +69,7 @@ private:
       calcul : nombres de 6 à 24, un petit nombre est donné
     */
     int niveau;
-    int FIXE, DEBUTANT , JOKER, SURCOMPTAGE, CALCUL;
+    int FIXE, DEBUTANT , JOKER, SURCOMPTAGE, CALCUL, CALCULEXPERT;
     /**
       nombre de têtes = nombre d'exercices par niveau
       */
@@ -146,10 +146,10 @@ private slots:
     void on_btnNombres_clicked();
     void on_btnNiveauAnnuler_clicked();
     void on_btnNombresFermer_clicked();
-    void on_btnNiveauJaune_clicked();
-    void on_btnNiveauOrange_clicked();
-    void on_btnNiveauMarron_clicked();
-    void on_btnNiveauNoire_clicked();
+    void on_btnLevelVeryEasy_clicked();
+    void on_btnLevelEasy_clicked();
+    void on_btnLevelDifficult_clicked();
+    void on_btnLevelVeryDifficult_clicked();
     void on_lineEditOrigine_returnPressed();
 
     void slotHideFrames();
@@ -173,6 +173,7 @@ private slots:
 
     /** Force l'affichage de la page principale */
     void slotMainWindowShowMainPage();
+    void on_btnLevelMedium_clicked();
 };
 
 #endif // MAINWINDOW_H

@@ -167,19 +167,8 @@ void MainWindow::initNbreCible() {
     nErreurs = 0;
     m_isCanceled = false;
 
-    /* afficher les btnNbre (je conserve 0 par commodité) <- ? */
-    for (int i = 0; i < 10; i++) {
-        nomBtnNbre[i]->setIconeNormale(":/cibler/backgrounds/arrow");
-        nomBtnNbre[i]->setCouleurFondPressed(QColor(255,255,255,50));
-        nomBtnNbre[i]->setCouleursTexte(QColor(154,68,45,255),QColor(93,23,15,255),QColor(93,23,15,255),QColor(93,23,15,255));
-        nomBtnNbre[i]->setFont(fontBIG);
-        nomBtnNbre[i]->setEnabled(true);
-        nomBtnNbre[i]->setProperty("text", QString::number(i));
-        connect(nomBtnNbre[i],SIGNAL(clicked()),SLOT(slotHideFrames()),Qt::UniqueConnection);
-    }
-    nomBtnNbre[0]->hide();
     /* Gestion du joker */
-    if (niveau == DEBUTANT || niveau == FIXE || niveau == CALCUL)
+    if (niveau == DEBUTANT || niveau == FIXE || niveau == CALCULEXPERT )
     {
         ui->btnJoker->setVisible(false);
     }
@@ -192,34 +181,83 @@ void MainWindow::initNbreCible() {
 
         nomBtnRep[i]->setText("");
     }
-
-    /* Tirer le nombre cible (différent du précédent) */
+    int graine = 0;
+//    if(nive)
+    /* afficher les btnNbre (je conserve 0 par commodité) <- ? */
+    nomBtnNbre[0]->hide();
     int nbreCibleSave = nbreCible;
-    nbreDonne = -1;
-    if (niveau == FIXE) {
-    }
-    else if (niveau == DEBUTANT) {
-        while (nbreCibleSave ==  nbreCible) nbreCible = (rand() % 5) + 8;
-    } else if (niveau == JOKER) {
-        while (nbreCibleSave ==  nbreCible) nbreCible = (rand() % 14) + 11;
-    } else {
-        if (niveau == SURCOMPTAGE) {
-            nbreDonne = 7 + rand() % 3;
-            while (nbreCibleSave ==  nbreCible) nbreCible = nbreDonne + 2 + (rand() % 5);
-        } else {
-            nbreDonne = 1 + rand() % 3;
-            while (nbreCibleSave ==  nbreCible) nbreCible = nbreDonne + 9 + 4 + (rand() % 6);
-        }
-        nomBtnRep[0]->setText(QString::number(nbreDonne));
-        nomBtnRep[0]->setDisabled(true);
-        nomBtnNbre[nbreDonne]->setDisabled(true);
-        nomBtnNbre[nbreDonne]->setFont(fontMEDIUM);
-    }
-    ui->lblCible->setText(QString::number(nbreCible));
 
+    if(niveau == CALCULEXPERT){
+        nbreCible = 0;
+
+        do {
+            graine = 10 + rand()%7;
+            int n1 = graine+rand()%9;
+            int n2;
+            do{
+                n2 = graine+rand()%9;
+            }
+            while(n2 == n1);
+            int n3;
+            do{
+                n3 = graine+rand()%9;
+            }
+            while(n3 == n1 || n3 == n2);
+            nbreDonne = qMin(n1, qMin(n2,n3));
+            nbreCible = n1 + n2 + n3;
+            nomBtnRep[0]->setText(QString::number(nbreDonne));
+            nomBtnRep[0]->setEnabled(false);
+            ui->lblCible->setText(QString::number(nbreCible));
+
+        }
+        while(nbreCible == nbreCibleSave);
+    }
+    else {
+        /* Tirer le nombre cible (différent du précédent) */
+        nbreDonne = -1;
+        if (niveau == FIXE) {
+        }
+        else if (niveau == DEBUTANT) {
+            while (nbreCibleSave ==  nbreCible) nbreCible = (rand() % 5) + 8;
+            nomBtnRep[0]->setEnabled(true);
+        }
+        else if (niveau == JOKER) {
+            while (nbreCibleSave ==  nbreCible) nbreCible = (rand() % 14) + 11;
+            nomBtnRep[0]->setEnabled(true);
+        }
+        else {
+            if (niveau == SURCOMPTAGE) {
+                nbreDonne = 7 + rand() % 3;
+                while (nbreCibleSave ==  nbreCible) nbreCible = nbreDonne + 2 + (rand() % 5);
+            } else {
+                nbreDonne = 1 + rand() % 3;
+                while (nbreCibleSave ==  nbreCible) nbreCible = nbreDonne + 9 + 4 + (rand() % 6);
+            }
+            nomBtnRep[0]->setText(QString::number(nbreDonne));
+            nomBtnRep[0]->setEnabled(false);
+            nomBtnNbre[nbreDonne]->setEnabled(false);
+            nomBtnNbre[nbreDonne]->setFont(fontMEDIUM);
+        }
+        ui->lblCible->setText(QString::number(nbreCible));
+    }
     setAbeLevel(trUtf8("niveau %1").arg(QString::number(niveau)));
     //setAbeLineLog(trUtf8("Atteindre la cible en 3 coups"),"",-1,0,"a");
     slotHideFrames();
+    for (int i = 1; i < 10; i++) {
+        nomBtnNbre[i]->setIconeNormale(":/cibler/backgrounds/arrow");
+        nomBtnNbre[i]->setCouleurFondPressed(QColor(255,255,255,50));
+        nomBtnNbre[i]->setCouleursTexte(QColor(154,68,45,255),QColor(93,23,15,255),QColor(93,23,15,255),QColor(93,23,15,255));
+        nomBtnNbre[i]->setFont(fontBIG);
+        nomBtnNbre[i]->setEnabled(true);
+        nomBtnNbre[i]->setProperty("text", QString::number(i-1+graine));
+        connect(nomBtnNbre[i],SIGNAL(clicked()),SLOT(slotHideFrames()),Qt::UniqueConnection);
+        if(niveau == SURCOMPTAGE || niveau == CALCUL || niveau == CALCULEXPERT){
+            if(i-1+graine == nbreDonne){
+                nomBtnNbre[i]->setDisabled(true);
+                nomBtnNbre[i]->setFont(fontMEDIUM);
+            }
+        }
+    }
 
 } // fin initNombreCible
 
@@ -233,9 +271,9 @@ void MainWindow::on_btnNbre7_clicked() { _btnNbre(7); }
 void MainWindow::on_btnNbre8_clicked() { _btnNbre(8); }
 void MainWindow::on_btnNbre9_clicked() { _btnNbre(9); }
 
-void MainWindow::_btnNbre(int n) {
-
-    nbreChoisi = n;
+void MainWindow::_btnNbre(int n)
+{
+    nbreChoisi = nomBtnNbre[n]->text().toInt();
     // construire la liste actuelle des nombres choisis
     nbresChoisis.clear();
     for (int i = 0; i < 3; i++)
@@ -246,8 +284,8 @@ void MainWindow::_btnNbre(int n) {
         int i = rechercherVide(nomBtnRep); // indice d'un btnReponse vide
         nomBtnRep[i]->setText(QString::number(nbreChoisi));
         // modifier le bntNbre
-        nomBtnNbre[nbreChoisi]->setDisabled(true);
-        nomBtnNbre[nbreChoisi]->setFont(fontMEDIUM);
+        nomBtnNbre[n]->setDisabled(true);
+        nomBtnNbre[n]->setFont(fontMEDIUM);
     }
     //    gererJoker();
     if (nbresChoisis.length() >=3 ) {
@@ -428,24 +466,29 @@ void MainWindow::on_btnNombresFermer_clicked()
     ui->btnNombres->setStyleSheet(ui->btnNombres->styleSheet().replace("border-radius:5px;background-color:#ffffff;","background-color:rgba(0,0,0,0);"));
 }
 
-void MainWindow::on_btnNiveauJaune_clicked()
+void MainWindow::on_btnLevelVeryEasy_clicked()
 {
     _niveau(DEBUTANT);
 }
 
-void MainWindow::on_btnNiveauOrange_clicked()
+void MainWindow::on_btnLevelEasy_clicked()
 {
     _niveau(JOKER);
 }
 
-void MainWindow::on_btnNiveauMarron_clicked()
+void MainWindow::on_btnLevelMedium_clicked()
 {
     _niveau(SURCOMPTAGE);
 }
 
-void MainWindow::on_btnNiveauNoire_clicked()
+void MainWindow::on_btnLevelDifficult_clicked()
 {
     _niveau(CALCUL);
+}
+
+void MainWindow::on_btnLevelVeryDifficult_clicked()
+{
+    _niveau(CALCULEXPERT);
 }
 
 void MainWindow::on_lineEditOrigine_returnPressed()
