@@ -181,7 +181,7 @@ void MainWindow::initNbreCible() {
 
         nomBtnRep[i]->setText("");
     }
-    int graine = 0;
+    int graine = 1;
 //    if(nive)
     /* afficher les btnNbre (je conserve 0 par commodité) <- ? */
     nomBtnNbre[0]->hide();
@@ -189,28 +189,22 @@ void MainWindow::initNbreCible() {
 
     if(niveau == CALCULEXPERT){
         nbreCible = 0;
-
+        nbreDonne = 1+rand()%10;
         do {
-            graine = 10 + rand()%7;
+            graine = 9 + rand()%((38-nbreDonne)/2);
             int n1 = graine+rand()%9;
             int n2;
             do{
                 n2 = graine+rand()%9;
             }
             while(n2 == n1);
-            int n3;
-            do{
-                n3 = graine+rand()%9;
-            }
-            while(n3 == n1 || n3 == n2);
-            nbreDonne = qMin(n1, qMin(n2,n3));
-            nbreCible = n1 + n2 + n3;
+            nbreCible = n1 + n2 + nbreDonne;
             nomBtnRep[0]->setText(QString::number(nbreDonne));
             nomBtnRep[0]->setEnabled(false);
             ui->lblCible->setText(QString::number(nbreCible));
 
         }
-        while(nbreCible == nbreCibleSave);
+        while(nbreCible == nbreCibleSave || nbreCible < 35);
     }
     else {
         /* Tirer le nombre cible (différent du précédent) */
@@ -274,26 +268,26 @@ void MainWindow::on_btnNbre9_clicked() { _btnNbre(9); }
 void MainWindow::_btnNbre(int n)
 {
     nbreChoisi = nomBtnNbre[n]->text().toInt();
-    // construire la liste actuelle des nombres choisis
+    /* construire la liste actuelle des nombres choisis */
     nbresChoisis.clear();
     for (int i = 0; i < 3; i++)
         if (nomBtnRep[i]->text() != "") nbresChoisis << nomBtnRep[i]->text().toInt();
     if (nbresChoisis.length() < 3 ) { // ya encore de la place !
         nbresChoisis << nbreChoisi;
-        // désélectionner un btnRep
+        /* désélectionner un btnRep */
         int i = rechercherVide(nomBtnRep); // indice d'un btnReponse vide
         nomBtnRep[i]->setText(QString::number(nbreChoisi));
-        // modifier le bntNbre
+        /* modifier le bntNbre */
         nomBtnNbre[n]->setDisabled(true);
         nomBtnNbre[n]->setFont(fontMEDIUM);
     }
-    //    gererJoker();
+    /*    gererJoker(); */
     if (nbresChoisis.length() >=3 ) {
-        int s = 0; // somme des nombres choisis
+        int s = 0; /* somme des nombres choisis */
         for (int i = 0; i < 3; i++) s += nbresChoisis[i];
         verifier(s);
     }
-} // fin _btnNbre
+}
 
 int rechercherVide(QList <AbulEduFlatBoutonV1 *> s) {
     for (int i = 0; i < 3; i++) {
