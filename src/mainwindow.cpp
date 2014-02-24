@@ -679,3 +679,8 @@ void MainWindow::slotMainWindowShowMainPage()
 {
     ui->stackedWidget->slideInWidget(ui->pagePrincipale);
 }
+
+void MainWindow::on_btnTarget_clicked()
+{
+    on_abeMenuFeuilleBtnNew_clicked();
+}

@@ -174,6 +174,7 @@ private slots:
     /** Force l'affichage de la page principale */
     void slotMainWindowShowMainPage();
     void on_btnLevelMedium_clicked();
+    void on_btnTarget_clicked();
 };
 
 #endif // MAINWINDOW_H
