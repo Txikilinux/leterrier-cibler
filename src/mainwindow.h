@@ -6,7 +6,7 @@
   * @author 2010-2011 André Connes <andre.connes@wanadoo.fr>
   * @author 2011 Jean-Louis Frucot <frucot.jeanlouis@free.fr>
   * @author 2011-2013 Eric Seigne <eric.seigne@ryxeo.com>
-  * @author 2012-2013 Philippe Cadaugade <philippe.cadaugade@ryxeo.com>
+  * @author 2012-2014 Philippe Cadaugade <philippe.cadaugade@ryxeo.com>
   * @author 2013 Icham Sirat <icham.sirat@ryxeo.com>
   * @see The GNU Public License (GPL)
   *
@@ -50,17 +50,20 @@ protected:
     void changeEvent(QEvent *e);
 
 private:
+    /** Accesseur vers l'interface graphique */
     Ui::MainWindow *ui;
 
+    /** Translator système */
     QTranslator qtTranslator;
+
+    /** Translator pour l'application */
     QTranslator myappTranslator;
 
-    /**
-      fontes utilisées
-    */
-    QFont fontBIG; // 50
-    QFont fontMEDIUM; // 25
-    QFont fontMINUS; //10
+    /** Plus grande fonte, fixée à 50 */
+    QFont fontBIG;
+
+    /** Fonte moyenne, fixée à 18 */
+    QFont fontMEDIUM;
 
     /**
       débutant : nombres de 8 à 13
@@ -70,10 +73,8 @@ private:
     */
     int niveau;
     int FIXE, DEBUTANT , JOKER, SURCOMPTAGE, CALCUL, CALCULEXPERT;
-    /**
-      nombre de têtes = nombre d'exercices par niveau
-      */
-    int MAXTETES; // 3 àu 4 têtes
+    /** nombre de têtes = nombre d'exercices avant de passer au niveau suivant. Fixé à 4 */
+    int MAXTETES;
     /**
       nombre d'erreurs
         pour un exercice
@@ -81,10 +82,7 @@ private:
       */
     int nErreurs;
     int cumulErreurs;
-    /**
-      nombre d'exercices réalisés sur un niveau
-      permet de changer de niveau si > MAXTETES
-      */
+    /** nombre d'exercices réalisés sur un niveau permet de changer de niveau si > MAXTETES */
     int nExercice;
 
     QList <AbulEduFlatBoutonV1 *> nomBtnNbre;
@@ -115,7 +113,16 @@ private:
 
     QString m_messageAide;
 
-    QPropertyAnimation          *m_displayMotion;
+    QPropertyAnimation *m_displayMotion;
+
+    /** Premier nombre possible */
+    int m_first;
+
+    /** Deuxième nombre possible */
+    int m_second;
+
+    /** Troisième nombre possible */
+    int m_third;
 
 private slots:
     void on_btnQuitter_clicked();
@@ -175,6 +182,11 @@ private slots:
     void slotMainWindowShowMainPage();
     void on_btnLevelMedium_clicked();
     void on_btnTarget_clicked();
+
+    /** Cas particulier pour la solution au niveau très difficile */
+    void writeSecondInBtnRep();
+    /** Cas particulier pour la solution si les deux derniers nombres sont identiques ou au niveau très difficile */
+    void writeThirdInBtnRep();
 };
 
 #endif // MAINWINDOW_H

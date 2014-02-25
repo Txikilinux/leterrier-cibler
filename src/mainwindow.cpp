@@ -47,7 +47,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     fontBIG.setPointSize(50);
     fontMEDIUM.setPointSize(18);
-    fontMINUS.setPointSize(10);
 
     FIXE = 5;
     DEBUTANT = 0;
@@ -192,13 +191,12 @@ void MainWindow::initNbreCible() {
         nbreDonne = 1+rand()%10;
         do {
             graine = 9 + rand()%((38-nbreDonne)/2);
-            int n1 = graine+rand()%9;
-            int n2;
+            m_second = graine+rand()%9;
             do{
-                n2 = graine+rand()%9;
+                m_third = graine+rand()%9;
             }
-            while(n2 == n1);
-            nbreCible = n1 + n2 + nbreDonne;
+            while(m_third == m_second);
+            nbreCible = m_second + m_third + nbreDonne;
             nomBtnRep[0]->setText(QString::number(nbreDonne));
             nomBtnRep[0]->setEnabled(false);
             ui->lblCible->setText(QString::number(nbreCible));
@@ -519,67 +517,108 @@ void MainWindow::slotHideFrames()
 void MainWindow::donneReponse()
 {
     qDebug()<<" solution demandée, le premier nombre est "<<nbreDonne;
-    int first = -1;
-    int second = -1;
-    int third = -1;
     bool useAgain = false;
-    if(nbreDonne == -1)
-    {
-        qDebug()<<"cas 1";
-        nbresChoisis.clear();
-        while(first + second + third != nbreCible)
-        {
-            first = rand()%9+1;
-            while(second == first || second==-1){
-                second = rand()%9+1;
-            }
-            while(third == first || third == second || third==-1) {
-                third = rand()%9+1;
-            }
-        }
-    }
-    else
-    {
-        first = nbreDonne;
-        int but = nbreCible - nbreDonne;
-        while(second + third != but)
-        {
-            second = rand()%9+1;
-            while(second == nbreDonne || second==-1){
-                second = rand()%9+1;
-                qDebug()<<"second "<<second;
-            }
-            QList<int> used;
-            used << first << second;
-            while((third == nbreDonne || third == second || third==-1) && !useAgain) {
-                third = rand()%9+1;
-                if(!used.contains(third)){
-                    used << third;
-                    /* Si on a essayé tous les chiffres */
-                    if(used.size() > 9){
-                        useAgain = true;
-                        while(third == nbreDonne || third==-1)
-                        {
-                            third = rand()%9+1;
-                        }
-                    }
-                }
-                qDebug()<<"third "<<third;
-            }
-        }
-    }
-    qDebug()<<first<<second<<third<<nbreCible;
-    if(first != nbreDonne) {
-        QTimer::singleShot(1000, nomBtnNbre[first], SLOT(click()));
-    }
-    QTimer::singleShot(2000, nomBtnNbre[second], SLOT(click()));
-    QTimer::singleShot(3000, nomBtnNbre[third], SLOT(click()));
-    if(useAgain){
-        QTimer::singleShot(5000, this, SLOT(slotEndSolutionJoker()));
-    }
-    else {
+    if(niveau == CALCULEXPERT){
+        m_first = nbreDonne;
+        /* les attributs m_second et m_third ont déjà une valeur */
+        QTimer::singleShot(2000, this, SLOT(writeSecondInBtnRep()));
+        QTimer::singleShot(3000, this, SLOT(writeThirdInBtnRep()));
         QTimer::singleShot(5000, this, SLOT(slotEndSolution()));
     }
+    else {
+
+
+        m_first = -1;
+        m_second = -1;
+        m_third = -1;
+        if(nbreDonne == -1)
+        {
+
+            qDebug()<<"cas 1";
+            nbresChoisis.clear();
+            for(int i=0;i<100;i++){
+                m_first = -1;
+                m_second = -1;
+                m_third = -1;
+                while(m_first + m_second + m_third != nbreCible)
+                {
+                    m_first = rand()%9+1;
+                    while(m_second == m_first || m_second==-1){
+                        m_second = rand()%9+1;
+                    }
+                    while(m_third == m_first || m_third == m_second || m_third==-1) {
+                        m_third = rand()%9+1;
+                    }
+                }
+                qDebug()<<m_first<<"+"<<m_second<<"+"<<m_third<<"="<<nbreCible;
+            }
+        }
+        else if(nbreDonne == nbreCible-2){
+            qDebug()<<"cas 2";
+            m_first = nbreDonne;
+            m_second = 1;
+            m_third = 1;
+            useAgain = true;
+        }
+        else
+        {
+            qDebug()<<"cas 3";
+            m_first = nbreDonne;
+            int but = nbreCible - nbreDonne;
+            while(m_second + m_third != but)
+            {
+                m_second = rand()%9+1;
+                while(m_second == nbreDonne || m_second==-1){
+                    m_second = rand()%9+1;
+                    qDebug()<<"second "<<m_second;
+                }
+                QList<int> used;
+                used << m_first << m_second;
+                while((m_third == nbreDonne || m_third == m_second || m_third==-1) && !useAgain) {
+                    m_third = rand()%9+1;
+                    if(!used.contains(m_third)){
+                        used << m_third;
+                        /* Si on a essayé tous les chiffres */
+                        if(used.size() > 9){
+                            useAgain = true;
+                            while(m_third == nbreDonne || m_third==-1)
+                            {
+                                m_third = rand()%9+1;
+                            }
+                        }
+                    }
+                    qDebug()<<"third "<<m_third;
+                }
+            }
+        }
+        qDebug()<<m_first<<m_second<<m_third<<nbreCible;
+        if(m_first != nbreDonne) {
+            QTimer::singleShot(1000, nomBtnNbre[m_first], SLOT(click()));
+        }
+        QTimer::singleShot(2000, nomBtnNbre[m_second], SLOT(click()));
+        if(m_third == m_second){
+            QTimer::singleShot(3000, this, SLOT(writeThirdInBtnRep()));
+        }
+        else {
+            QTimer::singleShot(3000, nomBtnNbre[m_third], SLOT(click()));
+        }
+        if(useAgain){
+            QTimer::singleShot(5000, this, SLOT(slotEndSolutionJoker()));
+        }
+        else {
+            QTimer::singleShot(5000, this, SLOT(slotEndSolution()));
+        }
+    }
+}
+
+void MainWindow::writeSecondInBtnRep()
+{
+    nomBtnRep[1]->setText(QString::number(m_second));
+}
+
+void MainWindow::writeThirdInBtnRep()
+{
+    nomBtnRep[2]->setText(QString::number(m_third));
 }
 
 void MainWindow::on_btnAbandonner_clicked()
