@@ -42,7 +42,11 @@ namespace Ui {
 
 class MainWindow : public AbulEduExerciceV0 {
     Q_OBJECT
+    Q_ENUMS(enumCiblerLevels)
+
 public:
+    enum enumCiblerLevels {DEBUTANT, JOKER, SURCOMPTAGE, CALCUL, CALCULEXPERT, FIXE};
+
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
@@ -72,7 +76,6 @@ private:
       calcul : nombres de 6 à 24, un petit nombre est donné
     */
     int niveau;
-    int FIXE, DEBUTANT , JOKER, SURCOMPTAGE, CALCUL, CALCULEXPERT;
     /** nombre de têtes = nombre d'exercices avant de passer au niveau suivant. Fixé à 4 */
     int MAXTETES;
     /**

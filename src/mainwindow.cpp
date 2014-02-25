@@ -47,12 +47,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     fontBIG.setPointSize(50);
     fontMEDIUM.setPointSize(18);
-
-    FIXE = 5;
-    DEBUTANT = 0;
-    JOKER = 1;
-    SURCOMPTAGE = 2;
-    CALCUL = 3;
     MAXTETES = 4;
     m_isCanceled = false;
 
@@ -386,6 +380,7 @@ void MainWindow::_niveau(int n) {
     {
         m_messageAide = trUtf8("Le bouton dragon est le joker. Il te donne la possibilité d'utiliser n'importe quel nombre entre 0 et 9");
     }
+    qDebug()<<" ~~~~~~~~~ > niveau "<<niveau;
     ui->lblLevel->setPixmap(QPixmap(":/data/belts/belt"+QString::number(n)));
     initNbreCible();
 }
@@ -486,6 +481,8 @@ void MainWindow::on_btnLevelVeryDifficult_clicked()
 void MainWindow::on_lineEditOrigine_returnPressed()
 {
     niveau = FIXE;
+    ui->lblLevel->setPixmap(QPixmap(":/data/belts/belt"+QString::number(niveau)));
+
     bool ok;
     int n = ui->lineEditOrigine->text().toInt(&ok);
     if (ok)
