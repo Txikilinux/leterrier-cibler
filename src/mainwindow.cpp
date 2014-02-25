@@ -121,12 +121,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->btnJoker->setIcones(":/data/images/boutonJoker",":/data/images/boutonJokerHover",":/data/images/boutonJokerHover","");
     ui->btnJoker->setVisible(false);
 
-
-    m_displayMotion = new QPropertyAnimation(ui->frmFondJoker, "position");
-    m_displayMotion->setDuration(2000);
-    m_displayMotion->setStartValue(QPointF(0,300));
-    m_displayMotion->setEndValue(QPointF(300,300));
-
 #if !defined(Q_OS_ANDROID)
     QDesktopWidget *widget = QApplication::desktop();
     int desktop_width = widget->width();
@@ -380,7 +374,6 @@ void MainWindow::_niveau(int n) {
     {
         m_messageAide = trUtf8("Le bouton dragon est le joker. Il te donne la possibilité d'utiliser n'importe quel nombre entre 0 et 9");
     }
-    qDebug()<<" ~~~~~~~~~ > niveau "<<niveau;
     ui->lblLevel->setPixmap(QPixmap(":/data/belts/belt"+QString::number(n)));
     initNbreCible();
 }
@@ -513,7 +506,6 @@ void MainWindow::slotHideFrames()
 
 void MainWindow::donneReponse()
 {
-    qDebug()<<" solution demandée, le premier nombre est "<<nbreDonne;
     bool useAgain = false;
     if(niveau == CALCULEXPERT){
         m_first = nbreDonne;
@@ -531,7 +523,6 @@ void MainWindow::donneReponse()
         if(nbreDonne == -1)
         {
 
-            qDebug()<<"cas 1";
             nbresChoisis.clear();
             for(int i=0;i<100;i++){
                 m_first = -1;
@@ -547,11 +538,9 @@ void MainWindow::donneReponse()
                         m_third = rand()%9+1;
                     }
                 }
-                qDebug()<<m_first<<"+"<<m_second<<"+"<<m_third<<"="<<nbreCible;
             }
         }
         else if(nbreDonne == nbreCible-2){
-            qDebug()<<"cas 2";
             m_first = nbreDonne;
             m_second = 1;
             m_third = 1;
@@ -559,7 +548,6 @@ void MainWindow::donneReponse()
         }
         else
         {
-            qDebug()<<"cas 3";
             m_first = nbreDonne;
             int but = nbreCible - nbreDonne;
             while(m_second + m_third != but)
@@ -567,7 +555,6 @@ void MainWindow::donneReponse()
                 m_second = rand()%9+1;
                 while(m_second == nbreDonne || m_second==-1){
                     m_second = rand()%9+1;
-                    qDebug()<<"second "<<m_second;
                 }
                 QList<int> used;
                 used << m_first << m_second;
@@ -584,11 +571,9 @@ void MainWindow::donneReponse()
                             }
                         }
                     }
-                    qDebug()<<"third "<<m_third;
                 }
             }
         }
-        qDebug()<<m_first<<m_second<<m_third<<nbreCible;
         if(m_first != nbreDonne) {
             QTimer::singleShot(1000, nomBtnNbre[m_first], SLOT(click()));
         }
@@ -660,8 +645,6 @@ void MainWindow::on_btnJoker_clicked()
 {
     ui->frmFondJoker->setVisible(true);
     setAllButtonsEnabled(false);
-    /* message d'erreur : QPropertyAnimation: you're trying to animate a non-existing property position of your QObject */
-    m_displayMotion->start();
 }
 
 void MainWindow::setAllButtonsEnabled(bool trueFalse)

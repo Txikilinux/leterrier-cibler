@@ -116,8 +116,6 @@ private:
 
     QString m_messageAide;
 
-    QPropertyAnimation *m_displayMotion;
-
     /** Premier nombre possible */
     int m_first;
 
