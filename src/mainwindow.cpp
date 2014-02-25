@@ -667,17 +667,27 @@ void MainWindow::setAllButtonsEnabled(bool trueFalse)
 void MainWindow::on_btnDebut_clicked()
 {
     int prems = 0;
-    if(nomBtnRep.size() > 0 && (niveau == SURCOMPTAGE || niveau == CALCUL)){
-        prems = 1;
+    if(niveau == CALCULEXPERT){
+        ui->btnRep1->setText("");
+        ui->btnRep2->setText("");
+        foreach(AbulEduFlatBoutonV1* btn,ui->frmAireDeJeu->findChildren<AbulEduFlatBoutonV1*>()){
+            btn->setEnabled(true);
+            btn->setFont(fontBIG);
+        }
     }
-    for(int i = prems;i < nomBtnRep.size();i++)
-    {
-        if(!nomBtnRep[i]->text().isEmpty())
+    else {
+        if(nomBtnRep.size() > 0 && (niveau == SURCOMPTAGE || niveau == CALCUL)){
+            prems = 1;
+        }
+        for(int i = prems;i < nomBtnRep.size();i++)
         {
-            int v = nomBtnRep[i]->text().toInt();
-            nomBtnRep[i]->setText(QString());
-            nomBtnNbre[v]->setEnabled(true);
-            nomBtnNbre[v]->setFont(fontBIG);
+            if(!nomBtnRep[i]->text().isEmpty())
+            {
+                int v = nomBtnRep[i]->text().toInt();
+                nomBtnRep[i]->setText(QString());
+                nomBtnNbre[v]->setEnabled(true);
+                nomBtnNbre[v]->setFont(fontBIG);
+            }
         }
     }
 }
