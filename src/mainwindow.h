@@ -174,7 +174,7 @@ private slots:
     /** Permet d'un seul appel de rendre tous les boutons de l'interface actifs ou inactifs */
     void setAllButtonsEnabled(bool trueFalse);
     void on_btnDebut_clicked();
-    void on_btnInformation_clicked();
+    void on_btnAide_clicked();
     void on_abeMenuFeuilleBtnNew_clicked();
     void on_abeMenuFeuilleBtnQuit_clicked();
     void on_abeMenuFeuilleBtnHelp_clicked();

@@ -692,7 +692,7 @@ void MainWindow::on_btnDebut_clicked()
     }
 }
 
-void MainWindow::on_btnInformation_clicked()
+void MainWindow::on_btnAide_clicked()
 {
     AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !"),m_messageAide,true, ui->pagePrincipale);
     msg->setWink();
