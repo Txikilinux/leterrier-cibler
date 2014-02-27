@@ -325,13 +325,22 @@ void MainWindow::on_btnRep1_clicked() { _btnRep(1); }
 void MainWindow::on_btnRep2_clicked() { _btnRep(2); }
 
 void MainWindow::_btnRep(int n) {
+    qDebug()<<"qsdlfjk "<<n;
     // valeur du btnRep
     int v = nomBtnRep[n]->text().toInt();
     // effacer le btnRep
     nomBtnRep[n]->setText("");
     // restaurer le btnNbre
-    nomBtnNbre[v]->setDisabled(false);
-    nomBtnNbre[v]->setFont(fontBIG);
+    bool found = false;
+    QListIterator<AbulEduFlatBoutonV1*> it(nomBtnNbre);
+    while(it.hasNext() && !found){
+        AbulEduFlatBoutonV1* btn = it.next();
+        if(btn->text().toInt() == v){
+            btn->setDisabled(false);
+            btn->setFont(fontBIG);
+            found = true;
+        }
+    }
     gererJoker();
 }
 
