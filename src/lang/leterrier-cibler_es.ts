@@ -116,7 +116,7 @@
         <source>Cible
 (9 à 24)</source>
         <translation>Meta
-(9 a 24) {9 ?} {24)?}</translation>
+(9 a 24)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="328"/>

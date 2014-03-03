@@ -904,8 +904,8 @@ background-position: top right;
           <widget class="QFrame" name="frmIcones">
            <property name="geometry">
             <rect>
-             <x>923</x>
-             <y>76</y>
+             <x>922</x>
+             <y>86</y>
              <width>90</width>
              <height>458</height>
             </rect>
@@ -1417,10 +1417,10 @@ background-position: top right;
           <widget class="QLabel" name="lblLevel">
            <property name="geometry">
             <rect>
-             <x>927</x>
-             <y>8</y>
-             <width>80</width>
-             <height>64</height>
+             <x>883</x>
+             <y>4</y>
+             <width>132</width>
+             <height>538</height>
             </rect>
            </property>
            <property name="text">

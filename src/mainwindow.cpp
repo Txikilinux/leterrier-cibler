@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->frmIcones->raise();
 
     //    AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
 
@@ -109,8 +110,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->btnVerifier->setEnabled(false);
 
     /* Positionnement en dur puisque la hauteur de fenêtre "utile" est fixe */
-    ui->frmChoixNombres->move(780,154);
-    ui->frmNiveau->move(802,97);
+    ui->frmChoixNombres->move(780,164);
+    ui->frmNiveau->move(802,107);
 
     ui->frmFondJoker->setVisible(false);
     ui->frmFondJoker->move(270,300);
@@ -712,12 +713,12 @@ void MainWindow::on_btnAide_clicked()
 
 void MainWindow::on_abeMenuFeuilleBtnHelp_clicked()
 {
-    ui->stackedWidget->slideInWidget(ui->pageAbout);
+    ui->stackedWidget->abeStackedWidgetSlideInWidget(ui->pageAbout);
 }
 
 void MainWindow::slotMainWindowShowMainPage()
 {
-    ui->stackedWidget->slideInWidget(ui->pagePrincipale);
+    ui->stackedWidget->abeStackedWidgetSlideInWidget(ui->pagePrincipale);
 }
 
 void MainWindow::on_btnTarget_clicked()

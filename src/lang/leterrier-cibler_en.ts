@@ -116,7 +116,7 @@
         <source>Cible
 (9 à 24)</source>
         <translation>Target
-(9 to 24) {9 ?} {24)?}</translation>
+(9 to 24)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="328"/>
