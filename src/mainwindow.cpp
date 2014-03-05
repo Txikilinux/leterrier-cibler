@@ -522,9 +522,6 @@ void MainWindow::on_lineEditOrigine_returnPressed()
 
 void MainWindow::slotHideFrames()
 {
-    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
-        mbox->close();
-    }
     on_btnNombresFermer_clicked();
     on_btnNiveauAnnuler_clicked();
 }
