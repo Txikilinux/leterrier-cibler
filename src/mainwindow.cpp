@@ -533,6 +533,11 @@ void MainWindow::donneReponse()
     foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
         mbox->close();
     }
+    ui->btnRep2->click();
+    ui->btnRep1->click();
+    if(niveau < 2){
+        ui->btnRep0->click();
+    }
     bool useAgain = false;
     if(niveau == CALCULEXPERT){
         m_first = nbreDonne;
