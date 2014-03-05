@@ -151,8 +151,11 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
-void MainWindow::initNbreCible() {
-
+void MainWindow::initNbreCible()
+{
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     // effacer l'affichage
     nErreurs = 0;
     m_isCanceled = false;
@@ -293,9 +296,13 @@ QString MainWindow::abeEvaluation() {
     return "c";
 }
 
-void MainWindow::verifier(int somme) {
+void MainWindow::verifier(int somme)
+{
     if(!m_isCanceled)
     {
+        foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+            mbox->close();
+        }
         if (somme == nbreCible) {
             AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"),trUtf8("Tu peux maintenant\n  prendre une nouvelle cible."),true, ui->pagePrincipale);
             msg->setWink();
@@ -485,6 +492,9 @@ void MainWindow::on_btnLevelVeryDifficult_clicked()
 
 void MainWindow::on_lineEditOrigine_returnPressed()
 {
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     niveau = FIXE;
     ui->lblLevel->setPixmap(QPixmap(":/data/belts/belt"+QString::number(niveau)));
 
@@ -512,12 +522,18 @@ void MainWindow::on_lineEditOrigine_returnPressed()
 
 void MainWindow::slotHideFrames()
 {
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     on_btnNombresFermer_clicked();
     on_btnNiveauAnnuler_clicked();
 }
 
 void MainWindow::donneReponse()
 {
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     bool useAgain = false;
     if(niveau == CALCULEXPERT){
         m_first = nbreDonne;
@@ -623,6 +639,9 @@ void MainWindow::on_btnAbandonner_clicked()
 
 void MainWindow::slotEndSolution()
 {
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible. Tu peux rejouer..."),true, ui->pagePrincipale);
     msg->show();
     m_isCanceled = false;
@@ -630,6 +649,9 @@ void MainWindow::slotEndSolution()
 
 void MainWindow::slotEndSolutionJoker()
 {
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible, mais il fallait utiliser le joker... Tu peux rejouer..."),true, ui->pagePrincipale);
     msg->show();
     m_isCanceled = false;
@@ -678,6 +700,9 @@ void MainWindow::setAllButtonsEnabled(bool trueFalse)
 
 void MainWindow::on_btnDebut_clicked()
 {
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     int prems = 0;
     if(niveau == CALCULEXPERT){
         ui->btnRep1->setText("");
@@ -706,6 +731,9 @@ void MainWindow::on_btnDebut_clicked()
 
 void MainWindow::on_btnAide_clicked()
 {
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !"),m_messageAide,true, ui->pagePrincipale);
     msg->setWink();
     msg->show();
