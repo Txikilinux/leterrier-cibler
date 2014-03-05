@@ -153,6 +153,7 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::initNbreCible()
 {
+    ui->btnAbandonner->setEnabled(true);
     foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
         mbox->close();
     }
@@ -317,6 +318,7 @@ void MainWindow::verifier(int somme)
                 //            else
                 //                lstTetes[nExercice]->affiche(2);
             }
+            ui->btnAbandonner->setEnabled(false);
         }
         else {
             AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Erreur !!"),trUtf8("Je te demande\n  de corriger..."),true, ui->pagePrincipale);
