@@ -682,6 +682,7 @@ void MainWindow::slotChangeLangue(QString lang)
 void MainWindow::on_btnJoker_clicked()
 {
     ui->frmFondJoker->setVisible(true);
+    ui->frmFondJoker->raise();
     setAllButtonsEnabled(false);
 }
 
