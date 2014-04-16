@@ -550,8 +550,6 @@ void MainWindow::donneReponse()
         QTimer::singleShot(5000, this, SLOT(slotEndSolution()));
     }
     else {
-
-
         m_first = -1;
         m_second = -1;
         m_third = -1;
@@ -585,24 +583,31 @@ void MainWindow::donneReponse()
         {
             m_first = nbreDonne;
             int but = nbreCible - nbreDonne;
-            while(m_second + m_third != but)
-            {
-                m_second = rand()%9+1;
-                while(m_second == nbreDonne || m_second==-1){
+            if (but == 18){
+                m_second = 9;
+                m_third = 9;
+                useAgain = true;
+            }
+            else {
+                while(m_second + m_third != but)
+                {
                     m_second = rand()%9+1;
-                }
-                QList<int> used;
-                used << m_first << m_second;
-                while((m_third == nbreDonne || m_third == m_second || m_third==-1) && !useAgain) {
-                    m_third = rand()%9+1;
-                    if(!used.contains(m_third)){
-                        used << m_third;
-                        /* Si on a essayé tous les chiffres */
-                        if(used.size() > 9){
-                            useAgain = true;
-                            while(m_third == nbreDonne || m_third==-1)
-                            {
-                                m_third = rand()%9+1;
+                    while(m_second == nbreDonne || m_second==-1){
+                        m_second = rand()%9+1;
+                    }
+                    QList<int> used;
+                    used << m_first << m_second;
+                    while((m_third == nbreDonne || m_third == m_second || m_third==-1) && !useAgain) {
+                        m_third = rand()%9+1;
+                        if(!used.contains(m_third)){
+                            used << m_third;
+                            /* Si on a essayé tous les chiffres */
+                            if(used.size() > 9){
+                                useAgain = true;
+                                while(m_third == nbreDonne || m_third==-1)
+                                {
+                                    m_third = rand()%9+1;
+                                }
                             }
                         }
                     }
@@ -644,7 +649,6 @@ void MainWindow::on_btnAbandonner_clicked()
     foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
     {
         enfant->setEnabled(false);
-        }
     }
     donneReponse();
 }
@@ -657,7 +661,7 @@ void MainWindow::slotEndSolution()
 
 void MainWindow::slotEndSolutionJoker()
 {
-    m_messageEnd = trUtf8("Voilà, c'était une solution possible, mais il fallait utiliser le joker... Tu peux rejouer...");
+    m_messageEnd = trUtf8("Voici une solution possible. Il fallait utiliser le joker... Tu peux rejouer...");
     showEndSolution();
 }
 
