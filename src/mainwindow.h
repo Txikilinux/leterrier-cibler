@@ -107,6 +107,9 @@ private:
     void gererJoker();
     QString abeEvaluation(); // renvoie a,b,c,d ou z en fonction du niveau, #erreurs, etc.
 
+    /** Code factorisé à la fin de la solution */
+    void showEndSolution();
+
     /** Position de la souris pour gerer le deplacement de la fenetre */
     QPoint m_dragPosition;
     bool   m_isWindowMoving;
@@ -115,6 +118,8 @@ private:
     bool m_isCanceled;
 
     QString m_messageAide;
+
+    QString m_messageEnd;
 
     /** Premier nombre possible */
     int m_first;

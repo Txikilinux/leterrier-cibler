@@ -87,6 +87,7 @@ MainWindow::MainWindow(QWidget *parent) :
     cumulErreurs = 0;
     nbreCible =-1;
     m_messageAide = trUtf8("Choisis dans la grille des nombres pour compléter correctement l'addition. A tout moment, tu peux reprendre un nombre de l'addition en cliquant dessus.");
+    m_messageEnd = QString();
     setAbeExerciceName("Nombre Cible");
     setAbeSkill(trUtf8("stratégie d'anticipation"));
 
@@ -169,6 +170,12 @@ void MainWindow::initNbreCible()
     else {
         ui->btnJoker->setVisible(true);
         ui->btnJoker->setEnabled(true);
+    }
+    if(ui->btnJoker->isVisible()){
+        m_messageAide = trUtf8("Le bouton dragon est le joker. Il te donne la possibilité d'utiliser n'importe quel nombre entre 0 et 9");
+    }
+    else {
+        m_messageAide = trUtf8("Choisis dans la grille des nombres pour compléter correctement l'addition. A tout moment, tu peux reprendre un nombre de l'addition en cliquant dessus.");
     }
     /* Vider les btnRep */
     for (int i = 0; i < 3; i++) {
@@ -335,7 +342,6 @@ void MainWindow::on_btnRep1_clicked() { _btnRep(1); }
 void MainWindow::on_btnRep2_clicked() { _btnRep(2); }
 
 void MainWindow::_btnRep(int n) {
-    qDebug()<<"qsdlfjk "<<n;
     // valeur du btnRep
     int v = nomBtnRep[n]->text().toInt();
     // effacer le btnRep
@@ -391,10 +397,7 @@ void MainWindow::_niveau(int n) {
     cumulErreurs = 0;
     //    for (int i = 0; i < MAXTETES; i++)
     ////        lstTetes[i]->affiche(-1);
-    if(n > 0)
-    {
-        m_messageAide = trUtf8("Le bouton dragon est le joker. Il te donne la possibilité d'utiliser n'importe quel nombre entre 0 et 9");
-    }
+
     ui->lblLevel->setPixmap(QPixmap(":/data/belts/belt"+QString::number(n)));
     initNbreCible();
 }
@@ -638,25 +641,38 @@ void MainWindow::writeThirdInBtnRep()
 void MainWindow::on_btnAbandonner_clicked()
 {
     m_isCanceled = true;
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        enfant->setEnabled(false);
+        }
+    }
     donneReponse();
 }
 
 void MainWindow::slotEndSolution()
 {
-    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
-        mbox->close();
-    }
-    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Pas trouvé ?"),trUtf8("Voici un corrigé ! \n\nTu peux choisir une nouvelle grille en cliquant sur la feuille de cerisier ou en changeant de niveau..."),true,ui->pagePrincipale);
-    msg->show();
-    m_isCanceled = false;
+    m_messageEnd = trUtf8("Voici un corrigé ! \n\nTu peux choisir une nouvelle grille en cliquant sur la feuille de cerisier ou sur la cible, ou en changeant de niveau...");
+    showEndSolution();
 }
 
 void MainWindow::slotEndSolutionJoker()
 {
+    m_messageEnd = trUtf8("Voilà, c'était une solution possible, mais il fallait utiliser le joker... Tu peux rejouer...");
+    showEndSolution();
+}
+
+void MainWindow::showEndSolution()
+{
     foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
         mbox->close();
     }
-    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("A toi maintenant !!"),trUtf8("Voilà, c'était une solution possible, mais il fallait utiliser le joker... Tu peux rejouer..."),true, ui->pagePrincipale);
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        if(enfant->whatsThis() != "verification") {
+            enfant->setEnabled(true);
+        }
+    }
+    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Pas trouvé ?"),m_messageEnd,true, ui->pagePrincipale);
     msg->show();
     m_isCanceled = false;
 }
