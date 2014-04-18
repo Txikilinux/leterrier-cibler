@@ -88,7 +88,7 @@ MainWindow::MainWindow(QWidget *parent) :
     nbreCible =-1;
     m_messageAide = trUtf8("Choisis dans la grille des nombres pour compléter correctement l'addition. A tout moment, tu peux reprendre un nombre de l'addition en cliquant dessus.");
     m_messageEnd = QString();
-    setAbeExerciceName("Nombre Cible");
+    setAbeExerciceName("Cibler");
     setAbeSkill(trUtf8("stratégie d'anticipation"));
 
 
