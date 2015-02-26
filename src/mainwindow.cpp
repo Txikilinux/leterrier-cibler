@@ -92,7 +92,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setAbeSkill(trUtf8("stratégie d'anticipation"));
 
 
-    setWindowFlags(Qt::CustomizeWindowHint);
+    setWindowFlags(Qt::FramelessWindowHint);
     connect(ui->frmMenuFeuille, SIGNAL(signalAbeMenuFeuilleChangeLanguage(QString)),this,SLOT(slotChangeLangue(QString)),Qt::UniqueConnection);
 
 
