@@ -4,7 +4,7 @@
   * @warning aucun traitement d'erreur n'est pour l'instant implémenté
   * @see https://redmine.ryxeo.com/projects/
   * @author 2009-2010 Andre Connes <andre dot connes at wanadoo dot fr>
-  * @author 2011 Eric Seigne <eric.seigne@ryxeo.com>
+  * @author 2011-2015 Eric Seigne <eric.seigne@ryxeo.com>
   * @see The GNU Public License (GPL)
   */
 
