@@ -33,8 +33,9 @@
 #include <QDesktopWidget>
 #include <tete.h>
 #include "abuleduaproposv1.h"
- #include "abuleduexercicev0.h"
+#include "abuleduexercicev0.h"
 #include "abuleduflatboutonv1.h"
+#include "abuledumessageboxv1.h"
 
 namespace Ui {
     class MainWindow;
