@@ -24,21 +24,7 @@
         <file alias="quit">picto/quit.png</file>
         <file alias="new">picto/nouveau.png</file>
         <file alias="help">picto/aideFeuille.png</file>
-        <file alias="publish">picto/publish.png</file>
-        <file alias="settings">picto/parametres.png</file>
-        <file alias="open">picto/ouvrir.png</file>
-        <file alias="exportHover">picto/exporter-hover.png</file>
-        <file alias="export">picto/exporter.png</file>
-        <file alias="importHover">picto/import-hover.png</file>
-        <file alias="import">picto/import.png</file>
-        <file alias="printHover">picto/imprimer-hover.png</file>
-        <file alias="print">picto/imprimer.png</file>
         <file alias="newHover">picto/nouveau-hover.png</file>
-        <file alias="openHover">picto/ouvrir-hover.png</file>
-        <file alias="settingsHover">picto/parametres-hover.png</file>
-        <file alias="publishHover">picto/publish-hover.png</file>
-        <file alias="saveHover">picto/save-hover.png</file>
-        <file alias="save">picto/save.png</file>
         <file alias="abeMenuFeuillePrincipaleBackground">picto/fond-top.jpg</file>
     </qresource>
 </RCC>
