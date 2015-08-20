@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 {
     AbulEduApplicationV1 a(argc, argv,VER_INTERNALNAME_STR, VER_PRODUCTVERSION_STR, VER_COMPANYDOMAIN_STR, VER_COMPANYNAME_STR);
     a.setAbeApplicationLongName(QObject::trUtf8(VER_PRODUCTNAME_STR));
+    a.initCommandLineParser();
 
     MainWindow w;
 #if defined(Q_OS_ANDROID)
