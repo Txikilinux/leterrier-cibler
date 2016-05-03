@@ -30,6 +30,11 @@
 
 int main(int argc, char *argv[])
 {
+#if QT_VERSION >= 0x050600
+    /* Ajout support highDpi scaling */
+    AbulEduApplicationV1::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
+    
     AbulEduApplicationV1 a(argc, argv,VER_INTERNALNAME_STR, VER_PRODUCTVERSION_STR, VER_COMPANYDOMAIN_STR, VER_COMPANYNAME_STR);
     a.setAbeApplicationLongName(QObject::trUtf8(VER_PRODUCTNAME_STR));
 
